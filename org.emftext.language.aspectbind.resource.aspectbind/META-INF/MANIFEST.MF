@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMFText Parser Plugin: aspectbind
+Bundle-SymbolicName: org.emftext.language.aspectbind.resource.aspectbind;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Software Technology Group - TU Dresden Germany
+Require-Bundle: org.eclipse.core.resources,
+  org.eclipse.emf,
+  org.eclipse.emf.codegen.ecore,
+  org.eclipse.emf.ecore,
+  org.eclipse.emf.ecore.edit,
+  org.eclipse.emf.validation,
+  org.eclipse.emf.workspace,
+  org.emftext.access;resolution:=optional,
+  org.emftext.commons.antlr3_3_0,
+  org.emftext.language.aspectbind,
+  org.emftext.language.java,
+  org.emftext.language.java.resource.java
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.emftext.language.aspectbind.resource.aspectbind,
+  org.emftext.language.aspectbind.resource.aspectbind.analysis,
+  org.emftext.language.aspectbind.resource.aspectbind.mopp,
+  org.emftext.language.aspectbind.resource.aspectbind.debug,
+  org.emftext.language.aspectbind.resource.aspectbind.launch,
+  org.emftext.language.aspectbind.resource.aspectbind.grammar,
+  org.emftext.language.aspectbind.resource.aspectbind.util
+Bundle-Activator: org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindPlugin
+Import-Package: org.zygote.aspectbind.generator.codegen

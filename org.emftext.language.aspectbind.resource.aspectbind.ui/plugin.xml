@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindUIMetaInformation" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="aspectbind" icon="icons/editor_icon.gif" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindEditor" name="EMFText aspectbind Editor">
+			<contentTypeBinding contentTypeId="org.emftext.language.aspectbind.resource.aspectbind">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Aspectbind Text Editor" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindPreferencePage" class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindSyntaxColoringPreferencePage" class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindSyntaxColoringPreferencePage" category="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindPreferencePage">
+		</page>
+		<page name="Brackets" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindBracketPreferencePage" class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindBracketPreferencePage" category="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindNewFileWizard" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindNewFileWizard" name="EMFText .aspectbind file">
+		</wizard>
+		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindNewProjectWizard" id="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindNewProjectWizard" name="EMFText aspectbind project" project="true">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindMarkerResolutionGenerator" markerType="org.emftext.language.aspectbind.resource.aspectbind.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.emftext.language.aspectbind.resource.aspectbind.ui.AspectbindAnnotationModelFactory" extensions="aspectbind">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="org.emftext.language.aspectbind.resource.aspectbind" name=".aspectbind File" base-type="org.eclipse.core.runtime.text" file-extensions="aspectbind">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="aspectbind" id="org.emftext.language.aspectbind.resource.aspectbind.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.emftext.language.aspectbind.resource.aspectbind.ui.occurences">
+		</type>
+		<type name="org.emftext.language.aspectbind.resource.aspectbind.ui.occurences.declaration" super="org.emftext.language.aspectbind.resource.aspectbind.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.emftext.language.aspectbind.resource.aspectbind.ui.occurences" label="Occurrences (in .aspectbind files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="aspectbind.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="aspectbind.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="aspectbind.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="aspectbind.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="aspectbind.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="aspectbind.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="aspectbind.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="aspectbind.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="aspectbind.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="org.emftext.language.aspectbind.resource.aspectbind.ui.occurences.declaration" label="Declarations (in .aspectbind files)" textPreferenceKey="aspectbind.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="aspectbind.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="aspectbind.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="aspectbind.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="aspectbind.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="aspectbind.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+</plugin>
