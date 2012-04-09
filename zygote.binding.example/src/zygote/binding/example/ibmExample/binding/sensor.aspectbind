@@ -1,0 +1,51 @@
+aspect SensorReadBinding{
+
+	instance pointcut pc_rad1(RadiationDetector) = call(public RadiatorDetection.new()) && this(RadiatorDetector) && within(Chernobyl);
+	instance pointcut pc_rad2(RadiationDetector) = call(public RadiatorDetection.new()) && this(RadiatorDetector) && within(FukushimaDaiichi);
+	instance pointcut pc_temp(TemperatureGauge) = call(public TemperatureGauge.new()) && this(TemperatureGauge);
+	
+	
+	declare adapter: SensorReader1[SensorRead] adapts pc_rad1
+	{
+		String getStatus()
+		{
+			if(pc_rad1.getCurrentRadiationLevel() > 10)
+				return "TWO HEADED FISH";
+			else
+				return "OK";
+		
+		}
+	
+	
+	}
+	
+	
+	declare adapter: SensorReader2[AdvancedSensorRead] adapts pc_rad2
+	{
+		String getStatus()
+		{
+			if(pc_rad2.getCurrentRadiationLevel() > 20)
+				return "X-MEN";
+			else
+				return "OK";
+		}
+	
+	
+	}
+	
+	
+	declare adapter: SensorReader3[AdvancedSensorRead] adapts pc_temp
+	{
+		String getStatus()
+		{
+			if(pc_temp.readTemperature() > 100)
+				return "HOT";
+			else
+				return "OK";
+		}
+	}
+	
+
+
+
+}
