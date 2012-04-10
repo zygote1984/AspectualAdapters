@@ -1,0 +1,56 @@
+aspect Shapes{
+
+	instance pointcut shapes(Shape) = call(public Shape+.new()) && this(Shape); 
+	
+	
+	
+	declare adapter: CircleAdapter[ShapeArea, ShapeCircum] adapts shapes[Circle]{
+	
+		public int ShapeArea.getArea()
+		{
+			return 3*shapes.getR()*shapes.getR();
+		}
+	
+	
+		public int ShapeCircum.getCircum(){
+		
+			return 2*3*shapes.getR();
+		}
+	}
+
+	declare adapter: RectangleAdapter[ShapeArea, ShapeCircum] adapts shapes[Rectangle]{
+	
+		public String ShapeArea.getArea()
+		{
+			return "Rectangle Area: " + shapes.getA()*shapes.getB();
+		}
+	
+	
+		public int ShapeCircum.getCircum(){
+		
+			return "Rectangle Circumference: " + 2*(shapes.getA() + shapes.getB());
+		}
+	}
+	
+	
+	/* IGNORE THE REST */
+	declare adapter: ShapeAdapter[ShapeArea, ShapeCircum] adapts shapes {
+	
+		public int ShapeArea.getArea()
+		{
+			return "Circle Area: " + shapes[Rectangle].getA()*shapes[Rectangle].getB();
+		}
+	
+	
+		public int ShapeCircum.getCircum(){
+		
+			return "Circle Circumference: "+  2*(shapes[Rectangle].getA() + shapes[Rectangle].getB());
+		}
+
+	
+	}
+	
+	
+
+
+}
