@@ -36,6 +36,7 @@ TOKENSTYLES {
 	"this" COLOR #FF0011, BOLD;
 	"adapts" COLOR #FF00AA, BOLD;
 	"declare adapter:" COLOR #FF00AA, BOLD;
+	"->" COLOR #000000, BOLD;
 }
 
 
@@ -44,11 +45,11 @@ RULES {
 	
 	//ASPECTJ RULES
 	 commons.Aspect ::= package? imports?  priviliged["privileged":""]? modifier? "aspect" name[] ("extends" extend)? ("implements")? implement*  perclause? "{" !1 members* "}";
-	 pointcuts.CallPointcut ::= "call" "("signature")";
-	 pointcuts.ThisPointcut ::= "this" "("typePattern")"; 
-	 pointcuts.AspectJPointcut ::= abstract[]? "pointcut" name[]#0"(" #0 (parameters ("," parameters)* )? #0 ")"  exp? ";";
+	 pointcuts.CallPointcut ::= "call"#0"(" signature ")";
+	 pointcuts.ThisPointcut ::= "this"#0"(" typePattern ")"; 
+	 pointcuts.AspectJPointcut ::= abstract? "pointcut" name[]#0"(" #0 (parameters ("," parameters)* )? #0 ")" (assign exp:pcexp.PointcutExpression)? ";";
 	 commons.PerClause ::= clause[] "("pointcut[]")";
-	 binding.InstancePointcut ::= abstract[]? "instance pointcut" name[]#0"(" #0 instanceType #0")" exp? ";";
+	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"(" #0 instanceType #0")" (assign exp)?";";
 	 //declaration.AdapterDeclaration ::= "adapterDeclaration" (comments[] | name[])*;
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
 	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new" "("parameters? (","parameters)*")";
@@ -58,7 +59,7 @@ RULES {
 	 declaration.Adapter::= name[]"[" references ("," references)* "]";
 	 declaration.PrecedenceDeclaration ::= "declare precedence";
 	 declaration.InterTypeDeclaration ::= "declare parents";
-	 //pcexp.PointcutExpression::= children+;
+	 pcexp.PointcutExpression::= child;
 	 
 	 //JAVA SYNTAX
 
