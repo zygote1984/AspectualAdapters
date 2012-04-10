@@ -1,0 +1,21 @@
+public aspect{
+
+
+	instance pointcut letters(String):call(String Sender.send(String)) && args(String)
+
+	declare adapter: LetterAdapter[LetterMonitor] adapts letters{
+	
+	
+		public void checkLetter(int i){
+			if(letters.length() > i)
+				System.out.println("Short Letter");
+			else
+				System.out.println("Long Letter");
+		}
+	
+	
+	}
+
+
+
+}
