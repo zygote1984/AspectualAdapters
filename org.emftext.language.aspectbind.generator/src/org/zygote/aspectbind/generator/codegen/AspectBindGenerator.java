@@ -15,9 +15,16 @@ public class AspectBindGenerator {
 	String genFolder = "src-gen";
 	boolean oFlag = false;
 
+	public AspectBindGenerator(boolean print) {
+		super();
+		main = new GeneratorMain(print);
+
+	}
+	
+
 	public AspectBindGenerator() {
 		super();
-		main = new GeneratorMain();
+		main = new GeneratorMain(false);
 
 	}
 

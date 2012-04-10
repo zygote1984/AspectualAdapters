@@ -18,14 +18,16 @@ import org.emftext.language.java.types.NamespaceClassifierReference
 import org.emftext.language.java.resource.java.analysis.ClassifierReferenceTargetReferenceResolver
 import org.emftext.language.java.types.TypeReference
 import org.emftext.language.java.types.ClassifierReference
+import org.emftext.language.java.expressions.Expression
+import org.emftext.language.aspectbind.binding.InstancePointcut
 
 class GeneratorMain implements IGenerator{
 	
 	
 	ClassifierReferenceTargetReferenceResolver refResolver = new ClassifierReferenceTargetReferenceResolver()
-	
-	new(){
-		
+	boolean print
+	new(boolean print){
+		this.print = print;
 	}
 	
 	
@@ -33,11 +35,21 @@ class GeneratorMain implements IGenerator{
 	{
 
 		var aspect = resource.allContents.filter(typeof(AspectImpl)).toList
-//		System::out.println("[GENERATOR]: Resource:" + resource.toString)
-//		for(o:resource.allContents.toList)
-//		{
-//			System::out.println("[GENERATOR]: Aspect Contents :" + o)
-//		}
+		var pc = aspect.get(0).eAllContents.filter(typeof(InstancePointcut)).toList
+		
+		if(print)
+		{	
+			System::out.println("[GENERATOR]: Pointcut Expression Contents:" + pc.get(0).exp.child)
+	
+//				for(g:pc.get(0).exp.child)
+//					System::out.println("[GENERATOR]: Pointcut Expression" + o.toString + "Contents:" + g)
+			
+			for(o:resource.allContents.filter(typeof(Expression)).toList)
+			{
+				System::out.println("[GENERATOR]: Aspect Contents :" + o)
+			}
+			
+		}
 				
 		for(k:aspect)
 		{
@@ -84,7 +96,9 @@ class GeneratorMain implements IGenerator{
 	
 	def dispatch generatePointcut(AspectJPointcut pc)
 	'''
+	«IF print»
 	«System::out.println("[GENERATOR] : Pointcut Parameters:" + pc.parameters)»
+	«ENDIF»
 	pointcut «pc.name»(«parameterExpand(pc.parameters)») «IF pc.exp == null» ; «ELSE» =; «ENDIF»
 	'''
 	
@@ -141,7 +155,6 @@ class GeneratorMain implements IGenerator{
 			p = p + resolveReference(tr.classifierReferences.get(0)) + " " + param.name
 		}	
 		
-		System::out.println("[GENERATOR] Ordinary Parameter:" + p )
 		return p
 	}
 	
