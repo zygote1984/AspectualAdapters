@@ -34,6 +34,9 @@ TOKENSTYLES {
 	"instance pointcut" COLOR #FF00AA, BOLD;
 	"call" COLOR #FF0011, BOLD;
 	"this" COLOR #FF0011, BOLD;
+	"args" COLOR #FF0011, BOLD;
+	"target" COLOR #FF0011, BOLD;
+	"within" COLOR #FF0011, BOLD;
 	"adapts" COLOR #FF00AA, BOLD;
 	"declare adapter:" COLOR #FF00AA, BOLD;
 	"->" COLOR #000000, BOLD;
@@ -45,24 +48,33 @@ RULES {
 	
 	//ASPECTJ RULES
 	 commons.Aspect ::= package? imports?  priviliged["privileged":""]? modifier? "aspect" name[] ("extends" extend)? ("implements")? implement*  perclause? "{" !1 members* "}";
-	 pointcuts.CallPointcut ::= "call"#0"(" signature ")";
-	 pointcuts.ThisPointcut ::= "this"#0"(" typePattern ")"; 
-	 pointcuts.AspectJPointcut ::= abstract? "pointcut" name[]#0"(" #0 (parameters ("," parameters)* )? #0 ")" (assign exp:pcexp.PointcutExpression)? ";";
+	 // ******************** Pointcuts  **********************
+	 pointcuts.CallPointcut ::= "call"#0"(" pattern:patterns.AbstractMethodPattern ")";
+	 pointcuts.ThisPointcut ::= "this"#0"(" pattern:patterns.TypeOrIdPattern ")"; 
+	 pointcuts.ArgsPointcut ::= "args"#0"(" pattern:patterns.TypeOrIdPattern")";
+	 pointcuts.WithinPointcut ::= "within"#0"("pattern:patterns.IdPattern")";
+	 pointcuts.TargetPointcut ::= "target"#0 "("pattern:patterns.TypeOrIdPattern ")";
+	 pointcuts.AspectJPointcut ::= abstract? "pointcut" name[]#0"(" #0 (parameters ("," parameters)* )? #0 ")" (assign:pcexp.PcAssignmentOperator exp:pcexp.PointcutExpression)? ";";
+	 
 	 commons.PerClause ::= clause[] "("pointcut[]")";
-	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"(" #0 instanceType #0")" (assign exp)?";";
-	 //declaration.AdapterDeclaration ::= "adapterDeclaration" (comments[] | name[])*;
+	 
+	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"(" #0 instanceType #0")" (assign exp:pcexp.PointcutExpression)?";";
+	
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
 	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new" "("parameters? (","parameters)*")";
 	 patterns.MethodPattern ::= modifiers* returnType declaringType#0"->"#0name[]  "("parameters? (","parameters)* ")";
 	 patterns.TypePattern ::=  type;
-	 declaration.AdapterDeclaration ::= "declare adapter:" adapter "adapts" adaptee[] !1 "{" members* "}";
+	 patterns.IdPattern ::= id[];
+	 
+	 declaration.AdapterDeclaration ::= "declare adapter:" adapter "adapts" adaptee[] ("<"adapteeSub">")? !1 "{" members* "}";
 	 declaration.Adapter::= name[]"[" references ("," references)* "]";
 	 declaration.PrecedenceDeclaration ::= "declare precedence";
 	 declaration.InterTypeDeclaration ::= "declare parents";
-	 pcexp.PointcutExpression::= child;
-	 
 	 //JAVA SYNTAX
-
+	pcexp.PointcutExpression ::= child:pcexp.PointcutOrExpression;
+	pcexp.PointcutOrExpression ::= children:pcexp.PointcutAndExpression ( "||" children:pcexp.PointcutAndExpression )*;
+	pcexp.PointcutAndExpression ::= children:pointcuts.PrimitivePointcut ( "&&" children:pointcuts.PrimitivePointcut )*;
+	pcexp.PcAssignmentOperator ::= ":";
 	
 	
 }

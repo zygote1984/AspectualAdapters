@@ -6,75 +6,36 @@
   <eSubpackages name="pointcuts" nsURI="http://www.emftext.org/language/bindingAspect/pointcuts"
       nsPrefix="pointcuts">
     <eClassifiers xsi:type="ecore:EClass" name="PrimitivePointcut" abstract="true"
-        eSuperTypes="#//commons/AspectMember"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CallPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern" containment="true"/>
+        eSuperTypes="#//commons/AspectMember #//pcexp/PointcutAndExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
+          eType="#//patterns/Pattern" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExecutionPointcut" abstract="true"
-        eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GetPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SetPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="HandlerPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typePattern" lowerBound="1"
-          eType="#//patterns/TypePattern"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CallPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExecutionPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GetPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SetPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HandlerPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
     <eClassifiers xsi:type="ecore:EClass" name="AdviceExecutionPointcut" abstract="true"
         eSuperTypes="#//pointcuts/PrimitivePointcut"/>
     <eClassifiers xsi:type="ecore:EClass" name="StaticInitPointcut" abstract="true"
-        eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typePattern" lowerBound="1"
-          eType="#//patterns/TypePattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InitPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PreInitPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="WithinPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typePattern" lowerBound="1"
-          eType="#//patterns/TypePattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="WithinCodePointcut" abstract="true"
-        eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
-          eType="#//patterns/AbstractMethodPattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ThisPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typePattern" lowerBound="1"
-          eType="#//patterns/TypePattern" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TargetPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typePattern" lowerBound="1"
-          eType="#//patterns/TypePattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ArgsPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typePattern" lowerBound="1"
-          eType="#//patterns/TypePattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CFlowPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
+        eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InitPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PreInitPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="WithinPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="WithinCodePointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ThisPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TargetPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ArgsPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CFlowPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut">
       <eStructuralFeatures xsi:type="ecore:EReference" name="pointcut" lowerBound="1"
           eType="#//pointcuts/Pointcut"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CFlowBelowPointcut" abstract="true"
-        eSuperTypes="#//pointcuts/PrimitivePointcut">
+    <eClassifiers xsi:type="ecore:EClass" name="CFlowBelowPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut">
       <eStructuralFeatures xsi:type="ecore:EReference" name="pointcut" lowerBound="1"
           eType="#//pointcuts/Pointcut"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IfPointcut" abstract="true" eSuperTypes="#//pointcuts/PrimitivePointcut">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/Expression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IfPointcut" eSuperTypes="#//pointcuts/PrimitivePointcut">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/ConditionalExpression"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Pointcut" abstract="true" eSuperTypes="#//commons/AspectMember platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//commons/NamedElement platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstract" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//modifiers/Abstract"
@@ -130,6 +91,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
           eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//members/Member"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="adapteeSub" eType="#//patterns/TypePattern"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrecedenceDeclaration" eSuperTypes="#//declaration/Declaration"/>
     <eClassifiers xsi:type="ecore:EClass" name="InterTypeDeclaration" eSuperTypes="#//declaration/Declaration"/>
@@ -142,7 +105,22 @@
   </eSubpackages>
   <eSubpackages name="pcexp" nsURI="http://www.emftext.org/language/bindingAspect/pcexp"
       nsPrefix="pcexp">
+    <eClassifiers xsi:type="ecore:EClass" name="PointcutExpressionChild" abstract="true"
+        eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/ConditionalExpressionChild"/>
     <eClassifiers xsi:type="ecore:EClass" name="PointcutExpression" eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/ConditionalExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PointcutOrExpression" eSuperTypes="#//pcexp/PointcutExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="#//pcexp/PointcutOrExpressionChild" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PointcutOrExpressionChild" abstract="true"
+        eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/ConditionalOrExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PointcutAndExpression" eSuperTypes="#//pcexp/PointcutOrExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="#//pcexp/PointcutAndExpressionChild" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PointcutAndExpressionChild" abstract="true"
+        eSuperTypes="#//pcexp/PointcutOrExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PcAssignmentOperator" eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//operators/AssignmentOperator"/>
   </eSubpackages>
   <eSubpackages name="patterns" nsURI="http://www.emftext.org/language/bindingAspect/patterns"
       nsPrefix="patterns">
@@ -182,11 +160,15 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//patterns/TypePattern" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TypePattern" eSuperTypes="#//patterns/Pattern">
+    <eClassifiers xsi:type="ecore:EClass" name="TypePattern" eSuperTypes="#//patterns/TypeOrIdPattern">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//types/TypeReference"
           containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IdPattern" eSuperTypes="#//patterns/TypeOrIdPattern">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="id" lowerBound="1" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//references/Reference"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeOrIdPattern" abstract="true" eSuperTypes="#//patterns/Pattern"/>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="http://www.emftext.org/language/bindingAspect/operators"
       nsPrefix="operators"/>
