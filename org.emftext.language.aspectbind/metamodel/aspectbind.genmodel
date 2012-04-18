@@ -70,6 +70,7 @@
       <genClasses ecoreClass="aspectbind.ecore#//binding/InstancePointcut">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//binding/InstancePointcut/instanceType"/>
       </genClasses>
+      <genClasses ecoreClass="aspectbind.ecore#//binding/Instance"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Declaration" basePackage="org.emftext.language.aspectbind"
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//declaration">
@@ -85,6 +86,10 @@
       <genClasses image="false" ecoreClass="aspectbind.ecore#//declaration/Declaration"/>
       <genClasses ecoreClass="aspectbind.ecore#//declaration/Adapter">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//declaration/Adapter/references"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aspectbind.ecore#//declaration/Adapter/abstract"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aspectbind.ecore#//declaration/Adapter/extend"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pcexp" basePackage="org.emftext.language.aspectbind"

@@ -38,6 +38,7 @@ TOKENSTYLES {
 	"target" COLOR #FF0011, BOLD;
 	"within" COLOR #FF0011, BOLD;
 	"adapts" COLOR #FF00AA, BOLD;
+	"instance" COLOR #114466, ITALIC;
 	"declare adapter:" COLOR #FF00AA, BOLD;
 	"->" COLOR #000000, BOLD;
 }
@@ -58,7 +59,8 @@ RULES {
 	 
 	 commons.PerClause ::= clause[] "("pointcut[]")";
 	 
-	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"(" #0 instanceType #0")" (assign exp:pcexp.PointcutExpression)?";";
+	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"<" #0 instanceType #0">" (assign exp:pcexp.PointcutExpression)?";";
+	 binding.Instance ::= "instance";
 	
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
 	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new" "("parameters? (","parameters)*")";
@@ -67,7 +69,7 @@ RULES {
 	 patterns.IdPattern ::= id[];
 	 
 	 declaration.AdapterDeclaration ::= "declare adapter:" adapter "adapts" adaptee[] ("<"adapteeSub">")? !1 "{" members* "}";
-	 declaration.Adapter::= name[]"[" references ("," references)* "]";
+	 declaration.Adapter::= abstract? name[] extend? "{" references ("," references)* "}";
 	 declaration.PrecedenceDeclaration ::= "declare precedence";
 	 declaration.InterTypeDeclaration ::= "declare parents";
 	 //JAVA SYNTAX
