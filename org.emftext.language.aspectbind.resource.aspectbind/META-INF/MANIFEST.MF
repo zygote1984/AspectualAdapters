@@ -26,3 +26,4 @@ Export-Package: org.emftext.language.aspectbind.resource.aspectbind,
   org.emftext.language.aspectbind.resource.aspectbind.grammar,
   org.emftext.language.aspectbind.resource.aspectbind.util
 Bundle-Activator: org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindPlugin
+Import-Package: org.zygote.aspectbind.generator.codegen
