@@ -58,8 +58,8 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 	
 	public ResultType interprete(org.eclipse.emf.ecore.EObject object, ContextType context) {
 		ResultType result = null;
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_ExecutionPointcut((org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) object, context);
+		if (object instanceof org.emftext.language.aspectbind.patterns.IdPattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_IdPattern((org.emftext.language.aspectbind.patterns.IdPattern) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -84,6 +84,12 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.emftext.language.aspectbind.binding.InstancePointcut) {
 			result = interprete_org_emftext_language_aspectbind_binding_InstancePointcut((org.emftext.language.aspectbind.binding.InstancePointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.binding.Instance) {
+			result = interprete_org_emftext_language_aspectbind_binding_Instance((org.emftext.language.aspectbind.binding.Instance) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -118,20 +124,44 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutExpressionChild) {
+			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutExpressionChild((org.emftext.language.aspectbind.pcexp.PointcutExpressionChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutExpression) {
 			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutExpression((org.emftext.language.aspectbind.pcexp.PointcutExpression) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutExpressionType) {
-			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutExpressionType((org.emftext.language.aspectbind.pcexp.PointcutExpressionType) object, context);
+		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutOrExpression) {
+			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutOrExpression((org.emftext.language.aspectbind.pcexp.PointcutOrExpression) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.patterns.ConstructorPattern) {
-			result = interprete_org_emftext_language_aspectbind_patterns_ConstructorPattern((org.emftext.language.aspectbind.patterns.ConstructorPattern) object, context);
+		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutAndExpression) {
+			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutAndExpression((org.emftext.language.aspectbind.pcexp.PointcutAndExpression) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild) {
+			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutAndExpressionChild((org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild) {
+			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutOrExpressionChild((org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) {
+			result = interprete_org_emftext_language_aspectbind_pcexp_PcAssignmentOperator((org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -148,26 +178,38 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.patterns.MethodPattern) {
-			result = interprete_org_emftext_language_aspectbind_patterns_MethodPattern((org.emftext.language.aspectbind.patterns.MethodPattern) object, context);
+		if (object instanceof org.emftext.language.aspectbind.patterns.ConstructorPattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_ConstructorPattern((org.emftext.language.aspectbind.patterns.ConstructorPattern) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.patterns.Pattern) {
-			result = interprete_org_emftext_language_aspectbind_patterns_Pattern((org.emftext.language.aspectbind.patterns.Pattern) object, context);
+		if (object instanceof org.emftext.language.aspectbind.patterns.TypeOrIdPattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_TypeOrIdPattern((org.emftext.language.aspectbind.patterns.TypeOrIdPattern) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
-			result = interprete_org_emftext_language_aspectbind_patterns_TypePattern((org.emftext.language.aspectbind.patterns.TypePattern) object, context);
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.CallPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_CallPointcut((org.emftext.language.aspectbind.pointcuts.CallPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_ExecutionPointcut((org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
 		if (object instanceof org.emftext.language.aspectbind.pointcuts.GetPointcut) {
 			result = interprete_org_emftext_language_aspectbind_pointcuts_GetPointcut((org.emftext.language.aspectbind.pointcuts.GetPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.patterns.MethodPattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_MethodPattern((org.emftext.language.aspectbind.patterns.MethodPattern) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -220,14 +262,14 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.CallPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_CallPointcut((org.emftext.language.aspectbind.pointcuts.CallPointcut) object, context);
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.ThisPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_ThisPointcut((org.emftext.language.aspectbind.pointcuts.ThisPointcut) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.ThisPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_ThisPointcut((org.emftext.language.aspectbind.pointcuts.ThisPointcut) object, context);
+		if (object instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_TypePattern((org.emftext.language.aspectbind.patterns.TypePattern) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -262,6 +304,12 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_PrimitivePointcut((org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.emftext.language.aspectbind.pointcuts.AspectJPointcut) {
 			result = interprete_org_emftext_language_aspectbind_pointcuts_AspectJPointcut((org.emftext.language.aspectbind.pointcuts.AspectJPointcut) object, context);
 		}
@@ -274,8 +322,8 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_PrimitivePointcut((org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) object, context);
+		if (object instanceof org.emftext.language.aspectbind.patterns.Pattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_Pattern((org.emftext.language.aspectbind.patterns.Pattern) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -299,6 +347,10 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
+	public ResultType interprete_org_emftext_language_aspectbind_binding_Instance(org.emftext.language.aspectbind.binding.Instance object, ContextType context) {
+		return null;
+	}
+	
 	public ResultType interprete_org_emftext_language_aspectbind_declaration_AdapterDeclaration(org.emftext.language.aspectbind.declaration.AdapterDeclaration object, ContextType context) {
 		return null;
 	}
@@ -319,11 +371,31 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
+	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutExpressionChild(org.emftext.language.aspectbind.pcexp.PointcutExpressionChild object, ContextType context) {
+		return null;
+	}
+	
 	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutExpression(org.emftext.language.aspectbind.pcexp.PointcutExpression object, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutExpressionType(org.emftext.language.aspectbind.pcexp.PointcutExpressionType object, ContextType context) {
+	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutOrExpression(org.emftext.language.aspectbind.pcexp.PointcutOrExpression object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutOrExpressionChild(org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutAndExpression(org.emftext.language.aspectbind.pcexp.PointcutAndExpression object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PointcutAndExpressionChild(org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_pcexp_PcAssignmentOperator(org.emftext.language.aspectbind.pcexp.PcAssignmentOperator object, ContextType context) {
 		return null;
 	}
 	
@@ -348,6 +420,14 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_org_emftext_language_aspectbind_patterns_TypePattern(org.emftext.language.aspectbind.patterns.TypePattern object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_patterns_IdPattern(org.emftext.language.aspectbind.patterns.IdPattern object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_patterns_TypeOrIdPattern(org.emftext.language.aspectbind.patterns.TypeOrIdPattern object, ContextType context) {
 		return null;
 	}
 	

@@ -51,116 +51,112 @@ import org.emftext.language.java.modifiers.Modifier;
  *
  * @generated
  */
-public class AspectImpl extends CompilationUnitImpl implements Aspect
-{
-  /**
+public class AspectImpl extends CompilationUnitImpl implements Aspect {
+	/**
    * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getMembers()
    * @generated
    * @ordered
    */
-  protected EList<AspectMember> members;
+	protected EList<AspectMember> members;
 
-  /**
+	/**
    * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getPackage()
    * @generated
    * @ordered
    */
-  protected org.emftext.language.java.containers.Package package_;
+	protected org.emftext.language.java.containers.Package package_;
 
-  /**
+	/**
    * The default value of the '{@link #isPriviliged() <em>Priviliged</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #isPriviliged()
    * @generated
    * @ordered
    */
-  protected static final boolean PRIVILIGED_EDEFAULT = false;
+	protected static final boolean PRIVILIGED_EDEFAULT = false;
 
-  /**
+	/**
    * The cached value of the '{@link #isPriviliged() <em>Priviliged</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #isPriviliged()
    * @generated
    * @ordered
    */
-  protected boolean priviliged = PRIVILIGED_EDEFAULT;
+	protected boolean priviliged = PRIVILIGED_EDEFAULT;
 
-  /**
+	/**
    * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getModifier()
    * @generated
    * @ordered
    */
-  protected EList<Modifier> modifier;
+	protected EList<Modifier> modifier;
 
-  /**
+	/**
    * The cached value of the '{@link #getExtend() <em>Extend</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getExtend()
    * @generated
    * @ordered
    */
-  protected ExtendsTypeArgument extend;
+	protected ExtendsTypeArgument extend;
 
-  /**
+	/**
    * The cached value of the '{@link #getImplement() <em>Implement</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getImplement()
    * @generated
    * @ordered
    */
-  protected EList<ExtendsTypeArgument> implement;
+	protected EList<ExtendsTypeArgument> implement;
 
-  /**
+	/**
    * The cached value of the '{@link #getPerclause() <em>Perclause</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getPerclause()
    * @generated
    * @ordered
    */
-  protected PerClause perclause;
+	protected PerClause perclause;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected AspectImpl()
-  {
+	protected AspectImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return CommonsPackage.Literals.ASPECT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AspectMember> getMembers()
-  {
+	public EList<AspectMember> getMembers() {
     if (members == null)
     {
       members = new EObjectContainmentEList<AspectMember>(AspectMember.class, this, CommonsPackage.ASPECT__MEMBERS);
@@ -168,23 +164,21 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return members;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public org.emftext.language.java.containers.Package getPackage()
-  {
+	public org.emftext.language.java.containers.Package getPackage() {
     return package_;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPackage(org.emftext.language.java.containers.Package newPackage, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPackage(org.emftext.language.java.containers.Package newPackage, NotificationChain msgs) {
     org.emftext.language.java.containers.Package oldPackage = package_;
     package_ = newPackage;
     if (eNotificationRequired())
@@ -195,13 +189,12 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setPackage(org.emftext.language.java.containers.Package newPackage)
-  {
+	public void setPackage(org.emftext.language.java.containers.Package newPackage) {
     if (newPackage != package_)
     {
       NotificationChain msgs = null;
@@ -216,36 +209,33 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.ASPECT__PACKAGE, newPackage, newPackage));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isPriviliged()
-  {
+	public boolean isPriviliged() {
     return priviliged;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setPriviliged(boolean newPriviliged)
-  {
+	public void setPriviliged(boolean newPriviliged) {
     boolean oldPriviliged = priviliged;
     priviliged = newPriviliged;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.ASPECT__PRIVILIGED, oldPriviliged, priviliged));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Modifier> getModifier()
-  {
+	public EList<Modifier> getModifier() {
     if (modifier == null)
     {
       modifier = new EObjectContainmentEList<Modifier>(Modifier.class, this, CommonsPackage.ASPECT__MODIFIER);
@@ -253,23 +243,21 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return modifier;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public ExtendsTypeArgument getExtend()
-  {
+	public ExtendsTypeArgument getExtend() {
     return extend;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExtend(ExtendsTypeArgument newExtend, NotificationChain msgs)
-  {
+	public NotificationChain basicSetExtend(ExtendsTypeArgument newExtend, NotificationChain msgs) {
     ExtendsTypeArgument oldExtend = extend;
     extend = newExtend;
     if (eNotificationRequired())
@@ -280,13 +268,12 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setExtend(ExtendsTypeArgument newExtend)
-  {
+	public void setExtend(ExtendsTypeArgument newExtend) {
     if (newExtend != extend)
     {
       NotificationChain msgs = null;
@@ -301,13 +288,12 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.ASPECT__EXTEND, newExtend, newExtend));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ExtendsTypeArgument> getImplement()
-  {
+	public EList<ExtendsTypeArgument> getImplement() {
     if (implement == null)
     {
       implement = new EObjectContainmentEList<ExtendsTypeArgument>(ExtendsTypeArgument.class, this, CommonsPackage.ASPECT__IMPLEMENT);
@@ -315,23 +301,21 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return implement;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PerClause getPerclause()
-  {
+	public PerClause getPerclause() {
     return perclause;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPerclause(PerClause newPerclause, NotificationChain msgs)
-  {
+	public NotificationChain basicSetPerclause(PerClause newPerclause, NotificationChain msgs) {
     PerClause oldPerclause = perclause;
     perclause = newPerclause;
     if (eNotificationRequired())
@@ -342,13 +326,12 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setPerclause(PerClause newPerclause)
-  {
+	public void setPerclause(PerClause newPerclause) {
     if (newPerclause != perclause)
     {
       NotificationChain msgs = null;
@@ -363,14 +346,13 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.ASPECT__PERCLAUSE, newPerclause, newPerclause));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case CommonsPackage.ASPECT__MEMBERS:
@@ -389,14 +371,13 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case CommonsPackage.ASPECT__MEMBERS:
@@ -417,15 +398,14 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case CommonsPackage.ASPECT__MEMBERS:
@@ -456,14 +436,13 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case CommonsPackage.ASPECT__MEMBERS:
@@ -491,14 +470,13 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case CommonsPackage.ASPECT__MEMBERS:
@@ -519,14 +497,13 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

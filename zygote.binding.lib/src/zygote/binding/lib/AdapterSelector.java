@@ -15,5 +15,6 @@ public class AdapterSelector {
 	}
 	
 	
+	//getAdapter(Object o, "HdmiAdapter").stream()
 	
 }

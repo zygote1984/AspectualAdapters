@@ -80,7 +80,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="instanceType" lowerBound="1"
           eType="#//patterns/TypePattern" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Instance" eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//references/Reference #//patterns/TypePattern"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Instance" eSuperTypes="#//patterns/TypePattern"/>
   </eSubpackages>
   <eSubpackages name="declaration" nsURI="http://www.emftext.org/language/bindingAspect/declaration"
       nsPrefix="declaration">

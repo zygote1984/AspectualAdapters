@@ -22,16 +22,14 @@ import org.emftext.language.aspectbind.declaration.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeclarationFactoryImpl extends EFactoryImpl implements DeclarationFactory
-{
-  /**
+public class DeclarationFactoryImpl extends EFactoryImpl implements DeclarationFactory {
+	/**
    * Creates the default factory implementation.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public static DeclarationFactory init()
-  {
+	public static DeclarationFactory init() {
     try
     {
       DeclarationFactory theDeclarationFactory = (DeclarationFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.emftext.org/language/bindingAspect/declaration"); 
@@ -47,25 +45,23 @@ public class DeclarationFactoryImpl extends EFactoryImpl implements DeclarationF
     return new DeclarationFactoryImpl();
   }
 
-  /**
+	/**
    * Creates an instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public DeclarationFactoryImpl()
-  {
+	public DeclarationFactoryImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public EObject create(EClass eClass)
-  {
+	@Override
+	public EObject create(EClass eClass) {
     switch (eClass.getClassifierID())
     {
       case DeclarationPackage.ADAPTER_DECLARATION: return createAdapterDeclaration();
@@ -77,69 +73,63 @@ public class DeclarationFactoryImpl extends EFactoryImpl implements DeclarationF
     }
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public AdapterDeclaration createAdapterDeclaration()
-  {
+	public AdapterDeclaration createAdapterDeclaration() {
     AdapterDeclarationImpl adapterDeclaration = new AdapterDeclarationImpl();
     return adapterDeclaration;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PrecedenceDeclaration createPrecedenceDeclaration()
-  {
+	public PrecedenceDeclaration createPrecedenceDeclaration() {
     PrecedenceDeclarationImpl precedenceDeclaration = new PrecedenceDeclarationImpl();
     return precedenceDeclaration;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public InterTypeDeclaration createInterTypeDeclaration()
-  {
+	public InterTypeDeclaration createInterTypeDeclaration() {
     InterTypeDeclarationImpl interTypeDeclaration = new InterTypeDeclarationImpl();
     return interTypeDeclaration;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Adapter createAdapter()
-  {
+	public Adapter createAdapter() {
     AdapterImpl adapter = new AdapterImpl();
     return adapter;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public DeclarationPackage getDeclarationPackage()
-  {
+	public DeclarationPackage getDeclarationPackage() {
     return (DeclarationPackage)getEPackage();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @deprecated
    * @generated
    */
-  @Deprecated
-  public static DeclarationPackage getPackage()
-  {
+	@Deprecated
+	public static DeclarationPackage getPackage() {
     return DeclarationPackage.eINSTANCE;
   }
 

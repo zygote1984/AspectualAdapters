@@ -24,11 +24,26 @@ public class AspectbindTokenStyleInformationProvider {
 		if ("this".equals(tokenName)) {
 			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0xFF, 0x00, 0x11}, null, true, false, false, false);
 		}
+		if ("args".equals(tokenName)) {
+			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0xFF, 0x00, 0x11}, null, true, false, false, false);
+		}
+		if ("target".equals(tokenName)) {
+			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0xFF, 0x00, 0x11}, null, true, false, false, false);
+		}
+		if ("within".equals(tokenName)) {
+			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0xFF, 0x00, 0x11}, null, true, false, false, false);
+		}
 		if ("adapts".equals(tokenName)) {
 			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0xFF, 0x00, 0xAA}, null, true, false, false, false);
 		}
+		if ("instance".equals(tokenName)) {
+			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0x11, 0x44, 0x66}, null, false, true, false, false);
+		}
 		if ("declare adapter:".equals(tokenName)) {
 			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0xFF, 0x00, 0xAA}, null, true, false, false, false);
+		}
+		if ("->".equals(tokenName)) {
+			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0x00, 0x00, 0x00}, null, true, false, false, false);
 		}
 		if ("ML_COMMENT".equals(tokenName)) {
 			return new org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTokenStyle(new int[] {0x00, 0x80, 0x00}, null, false, true, false, false);

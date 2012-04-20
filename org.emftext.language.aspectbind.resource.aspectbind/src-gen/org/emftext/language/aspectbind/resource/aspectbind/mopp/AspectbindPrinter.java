@@ -63,6 +63,18 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 			print_org_emftext_language_aspectbind_pointcuts_ThisPointcut((org.emftext.language.aspectbind.pointcuts.ThisPointcut) element, globaltab, out);
 			return;
 		}
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.ArgsPointcut) {
+			print_org_emftext_language_aspectbind_pointcuts_ArgsPointcut((org.emftext.language.aspectbind.pointcuts.ArgsPointcut) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.WithinPointcut) {
+			print_org_emftext_language_aspectbind_pointcuts_WithinPointcut((org.emftext.language.aspectbind.pointcuts.WithinPointcut) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.TargetPointcut) {
+			print_org_emftext_language_aspectbind_pointcuts_TargetPointcut((org.emftext.language.aspectbind.pointcuts.TargetPointcut) element, globaltab, out);
+			return;
+		}
 		if (element instanceof org.emftext.language.aspectbind.pointcuts.AspectJPointcut) {
 			print_org_emftext_language_aspectbind_pointcuts_AspectJPointcut((org.emftext.language.aspectbind.pointcuts.AspectJPointcut) element, globaltab, out);
 			return;
@@ -73,6 +85,10 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		}
 		if (element instanceof org.emftext.language.aspectbind.binding.InstancePointcut) {
 			print_org_emftext_language_aspectbind_binding_InstancePointcut((org.emftext.language.aspectbind.binding.InstancePointcut) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.binding.Instance) {
+			print_org_emftext_language_aspectbind_binding_Instance((org.emftext.language.aspectbind.binding.Instance) element, globaltab, out);
 			return;
 		}
 		if (element instanceof org.emftext.language.aspectbind.patterns.FieldPattern) {
@@ -89,6 +105,10 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		}
 		if (element instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
 			print_org_emftext_language_aspectbind_patterns_TypePattern((org.emftext.language.aspectbind.patterns.TypePattern) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.patterns.IdPattern) {
+			print_org_emftext_language_aspectbind_patterns_IdPattern((org.emftext.language.aspectbind.patterns.IdPattern) element, globaltab, out);
 			return;
 		}
 		if (element instanceof org.emftext.language.aspectbind.declaration.AdapterDeclaration) {
@@ -109,6 +129,18 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		}
 		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutExpression) {
 			print_org_emftext_language_aspectbind_pcexp_PointcutExpression((org.emftext.language.aspectbind.pcexp.PointcutExpression) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutOrExpression) {
+			print_org_emftext_language_aspectbind_pcexp_PointcutOrExpression((org.emftext.language.aspectbind.pcexp.PointcutOrExpression) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutAndExpression) {
+			print_org_emftext_language_aspectbind_pcexp_PointcutAndExpression((org.emftext.language.aspectbind.pcexp.PointcutAndExpression) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) {
+			print_org_emftext_language_aspectbind_pcexp_PcAssignmentOperator((org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) element, globaltab, out);
 			return;
 		}
 		if (element instanceof org.emftext.language.java.containers.EmptyModel) {
@@ -988,8 +1020,8 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.CALL_POINTCUT__NAMESPACES));
 		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.CALL_POINTCUT__SIGNATURE));
-		printCountingMap.put("signature", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.CALL_POINTCUT__PATTERN));
+		printCountingMap.put("pattern", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		{
 			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.CALL_POINTCUT__COMMENTS);
@@ -1003,18 +1035,18 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		int count;
 		// DEFINITION PART BEGINS (CsString)
 		out.print("call");
-		out.print(" ");
+		// DEFINITION PART BEGINS (WhiteSpaces)
 		// DEFINITION PART BEGINS (CsString)
 		out.print("(");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("signature");
+		count = printCountingMap.get("pattern");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.CALL_POINTCUT__SIGNATURE));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.CALL_POINTCUT__PATTERN));
 			if (o != null) {
 				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
-			printCountingMap.put("signature", count - 1);
+			printCountingMap.put("pattern", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print(")");
@@ -1035,8 +1067,8 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.THIS_POINTCUT__NAMESPACES));
 		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.THIS_POINTCUT__TYPE_PATTERN));
-		printCountingMap.put("typePattern", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.THIS_POINTCUT__PATTERN));
+		printCountingMap.put("pattern", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		{
 			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.THIS_POINTCUT__COMMENTS);
@@ -1050,18 +1082,159 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		int count;
 		// DEFINITION PART BEGINS (CsString)
 		out.print("this");
-		out.print(" ");
+		// DEFINITION PART BEGINS (WhiteSpaces)
 		// DEFINITION PART BEGINS (CsString)
 		out.print("(");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("typePattern");
+		count = printCountingMap.get("pattern");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.THIS_POINTCUT__TYPE_PATTERN));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.THIS_POINTCUT__PATTERN));
 			if (o != null) {
 				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
-			printCountingMap.put("typePattern", count - 1);
+			printCountingMap.put("pattern", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(")");
+		out.print(" ");
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_pointcuts_ArgsPointcut(org.emftext.language.aspectbind.pointcuts.ArgsPointcut element, String outertab, java.io.PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ARGS_POINTCUT__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ARGS_POINTCUT__NAMESPACES));
+		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ARGS_POINTCUT__PATTERN));
+		printCountingMap.put("pattern", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ARGS_POINTCUT__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("args");
+		// DEFINITION PART BEGINS (WhiteSpaces)
+		// DEFINITION PART BEGINS (CsString)
+		out.print("(");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("pattern");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ARGS_POINTCUT__PATTERN));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("pattern", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(")");
+		out.print(" ");
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_pointcuts_WithinPointcut(org.emftext.language.aspectbind.pointcuts.WithinPointcut element, String outertab, java.io.PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.WITHIN_POINTCUT__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.WITHIN_POINTCUT__NAMESPACES));
+		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.WITHIN_POINTCUT__PATTERN));
+		printCountingMap.put("pattern", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.WITHIN_POINTCUT__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("within");
+		// DEFINITION PART BEGINS (WhiteSpaces)
+		// DEFINITION PART BEGINS (CsString)
+		out.print("(");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("pattern");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.WITHIN_POINTCUT__PATTERN));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("pattern", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(")");
+		out.print(" ");
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_pointcuts_TargetPointcut(org.emftext.language.aspectbind.pointcuts.TargetPointcut element, String outertab, java.io.PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.TARGET_POINTCUT__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.TARGET_POINTCUT__NAMESPACES));
+		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.TARGET_POINTCUT__PATTERN));
+		printCountingMap.put("pattern", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.TARGET_POINTCUT__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("target");
+		// DEFINITION PART BEGINS (WhiteSpaces)
+		// DEFINITION PART BEGINS (CsString)
+		out.print("(");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("pattern");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.TARGET_POINTCUT__PATTERN));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("pattern", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print(")");
@@ -1084,12 +1257,12 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__EXP));
-		printCountingMap.put("exp", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ABSTRACT));
 		printCountingMap.put("abstract", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ASSIGN));
 		printCountingMap.put("assign", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__EXP));
+		printCountingMap.put("exp", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS));
 		printCountingMap.put("parameters", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -1106,15 +1279,12 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		java.io.StringWriter sWriter = null;
 		java.io.PrintWriter out1 = null;
 		java.util.Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
+		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("abstract");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ABSTRACT));
 			if (o != null) {
-				org.emftext.language.aspectbind.resource.aspectbind.IAspectbindTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getPointcutAbstractReferenceResolver().deResolve((org.emftext.language.java.modifiers.Abstract) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ABSTRACT)), element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ABSTRACT), element));
-				out.print(" ");
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
 			printCountingMap.put("abstract", count - 1);
 		}
@@ -1153,23 +1323,18 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		// DEFINITION PART BEGINS (CsString)
 		out.print(")");
 		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("assign");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ASSIGN));
-			if (o != null) {
-				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
-			}
-			printCountingMap.put("assign", count - 1);
-		}
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("exp");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__EXP));
-			if (o != null) {
-				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
-			}
-			printCountingMap.put("exp", count - 1);
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new java.io.StringWriter();
+		out1 = new java.io.PrintWriter(sWriter);
+		printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_emftext_language_aspectbind_pointcuts_AspectJPointcut_1(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
 		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print(";");
@@ -1239,6 +1404,29 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
 			printCountingMap.put("parameters", count - 1);
+		}
+	}
+	
+	public void print_org_emftext_language_aspectbind_pointcuts_AspectJPointcut_1(org.emftext.language.aspectbind.pointcuts.AspectJPointcut element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("assign");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__ASSIGN));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("assign", count - 1);
+		}
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("exp");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pointcuts.PointcutsPackage.ASPECT_JPOINTCUT__EXP));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("exp", count - 1);
 		}
 	}
 	
@@ -1316,12 +1504,12 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__EXP));
-		printCountingMap.put("exp", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__ABSTRACT));
 		printCountingMap.put("abstract", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__ASSIGN));
 		printCountingMap.put("assign", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__EXP));
+		printCountingMap.put("exp", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE));
 		printCountingMap.put("instanceType", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -1335,15 +1523,15 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 			}
 		}
 		int count;
-		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
+		java.io.StringWriter sWriter = null;
+		java.io.PrintWriter out1 = null;
+		java.util.Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("abstract");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__ABSTRACT));
 			if (o != null) {
-				org.emftext.language.aspectbind.resource.aspectbind.IAspectbindTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getPointcutAbstractReferenceResolver().deResolve((org.emftext.language.java.modifiers.Abstract) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__ABSTRACT)), element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE_POINTCUT__ABSTRACT), element));
-				out.print(" ");
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
 			printCountingMap.put("abstract", count - 1);
 		}
@@ -1363,7 +1551,7 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		}
 		// DEFINITION PART BEGINS (WhiteSpaces)
 		// DEFINITION PART BEGINS (CsString)
-		out.print("(");
+		out.print("<");
 		// DEFINITION PART BEGINS (WhiteSpaces)
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("instanceType");
@@ -1376,8 +1564,29 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		}
 		// DEFINITION PART BEGINS (WhiteSpaces)
 		// DEFINITION PART BEGINS (CsString)
-		out.print(")");
+		out.print(">");
 		out.print(" ");
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new java.io.StringWriter();
+		out1 = new java.io.PrintWriter(sWriter);
+		printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_emftext_language_aspectbind_binding_InstancePointcut_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(";");
+		out.print(" ");
+	}
+	
+	public void print_org_emftext_language_aspectbind_binding_InstancePointcut_0(org.emftext.language.aspectbind.binding.InstancePointcut element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("assign");
 		if (count > 0) {
@@ -1396,8 +1605,35 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 			}
 			printCountingMap.put("exp", count - 1);
 		}
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_binding_Instance(org.emftext.language.aspectbind.binding.Instance element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE__NAMESPACES));
+		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE__TYPE));
+		printCountingMap.put("type", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.binding.BindingPackage.INSTANCE__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print(";");
+		out.print("instance");
 		out.print(" ");
 	}
 	
@@ -1776,11 +2012,24 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(1);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
 		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.TYPE_PATTERN__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.TYPE_PATTERN__NAMESPACES));
+		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.TYPE_PATTERN__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
 		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.TYPE_PATTERN__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
 		int count;
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("type");
@@ -1794,6 +2043,46 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 	}
 	
 	
+	public void print_org_emftext_language_aspectbind_patterns_IdPattern(org.emftext.language.aspectbind.patterns.IdPattern element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__NAMESPACES));
+		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__ID));
+		printCountingMap.put("id", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		int count;
+		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
+		count = printCountingMap.get("id");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__ID));
+			if (o != null) {
+				org.emftext.language.aspectbind.resource.aspectbind.IAspectbindTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getIdPatternIdReferenceResolver().deResolve((org.emftext.language.java.references.Reference) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__ID)), element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.patterns.PatternsPackage.ID_PATTERN__ID), element));
+				out.print(" ");
+			}
+			printCountingMap.put("id", count - 1);
+		}
+	}
+	
+	
 	public void print_org_emftext_language_aspectbind_declaration_AdapterDeclaration(org.emftext.language.aspectbind.declaration.AdapterDeclaration element, String outertab, java.io.PrintWriter out) {
 		String localtab = outertab;
 		// The printCountingMap contains a mapping from feature names to the number of
@@ -1801,7 +2090,7 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(5);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(6);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER_DECLARATION__COMMENTS));
 		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
@@ -1813,6 +2102,8 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		printCountingMap.put("adaptee", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER_DECLARATION__MEMBERS));
 		printCountingMap.put("members", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER_DECLARATION__ADAPTEE_SUB));
+		printCountingMap.put("adapteeSub", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		{
 			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER_DECLARATION__COMMENTS);
@@ -1824,6 +2115,9 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 			}
 		}
 		int count;
+		java.io.StringWriter sWriter = null;
+		java.io.PrintWriter out1 = null;
+		java.util.Map<String, Integer> printCountingMap1 = null;
 		// DEFINITION PART BEGINS (CsString)
 		out.print("declare adapter:");
 		out.print(" ");
@@ -1850,6 +2144,19 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 				out.print(" ");
 			}
 			printCountingMap.put("adaptee", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new java.io.StringWriter();
+		out1 = new java.io.PrintWriter(sWriter);
+		printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_emftext_language_aspectbind_declaration_AdapterDeclaration_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
 		}
 		// DEFINITION PART BEGINS (LineBreak)
 		localtab += "	";
@@ -1878,6 +2185,26 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		out.print(" ");
 	}
 	
+	public void print_org_emftext_language_aspectbind_declaration_AdapterDeclaration_0(org.emftext.language.aspectbind.declaration.AdapterDeclaration element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("<");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("adapteeSub");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER_DECLARATION__ADAPTEE_SUB));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("adapteeSub", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(">");
+		out.print(" ");
+	}
+	
 	
 	public void print_org_emftext_language_aspectbind_declaration_Adapter(org.emftext.language.aspectbind.declaration.Adapter element, String outertab, java.io.PrintWriter out) {
 		String localtab = outertab;
@@ -1886,7 +2213,7 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(5);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__COMMENTS));
 		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
@@ -1894,6 +2221,10 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		printCountingMap.put("name", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__REFERENCES));
 		printCountingMap.put("references", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__ABSTRACT));
+		printCountingMap.put("abstract", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__EXTEND));
+		printCountingMap.put("extend", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		{
 			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__COMMENTS);
@@ -1909,6 +2240,15 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		java.io.StringWriter sWriter = null;
 		java.io.PrintWriter out1 = null;
 		java.util.Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("abstract");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__ABSTRACT));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("abstract", count - 1);
+		}
 		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
 		count = printCountingMap.get("name");
 		if (count > 0) {
@@ -1921,8 +2261,17 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 			}
 			printCountingMap.put("name", count - 1);
 		}
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("extend");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.declaration.DeclarationPackage.ADAPTER__EXTEND));
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("extend", count - 1);
+		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print("[");
+		out.print("{");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("references");
@@ -1958,7 +2307,7 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 			}
 		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print("]");
+		out.print("}");
 		out.print(" ");
 	}
 	
@@ -2050,20 +2399,16 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(6);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(4);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__COMMENTS));
 		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__NAMESPACES));
-		printCountingMap.put("namespaces", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__CHILD));
 		printCountingMap.put("child", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__EXPRESSION_IF));
 		printCountingMap.put("expressionIf", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__EXPRESSION_ELSE));
 		printCountingMap.put("expressionElse", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__CHILDREN));
-		printCountingMap.put("children", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
 		{
 			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__COMMENTS);
@@ -2076,20 +2421,216 @@ public class AspectbindPrinter implements org.emftext.language.aspectbind.resour
 		}
 		int count;
 		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("children");
+		count = printCountingMap.get("child");
 		if (count > 0) {
-			java.util.List<?> list = (java.util.List<?>)element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__CHILDREN));
-			int index  = list.size() - count;
-			if (index < 0) {
-				index = 0;
-			}
-			java.util.ListIterator<?> it  = list.listIterator(index);
-			while (it.hasNext()) {
-				Object o = it.next();
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_EXPRESSION__CHILD));
+			if (o != null) {
 				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
-			printCountingMap.put("children", 0);
+			printCountingMap.put("child", count - 1);
 		}
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_pcexp_PointcutOrExpression(org.emftext.language.aspectbind.pcexp.PointcutOrExpression element, String outertab, java.io.PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_OR_EXPRESSION__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_OR_EXPRESSION__CHILDREN));
+		printCountingMap.put("children", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_OR_EXPRESSION__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		int count;
+		boolean iterate = true;
+		java.io.StringWriter sWriter = null;
+		java.io.PrintWriter out1 = null;
+		java.util.Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("children");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_OR_EXPRESSION__CHILDREN));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("children", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		iterate = true;
+		while (iterate) {
+			sWriter = new java.io.StringWriter();
+			out1 = new java.io.PrintWriter(sWriter);
+			printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+			print_org_emftext_language_aspectbind_pcexp_PointcutOrExpression_0(element, localtab, out1, printCountingMap1);
+			if (printCountingMap.equals(printCountingMap1)) {
+				iterate = false;
+				out1.close();
+			} else {
+				out1.flush();
+				out1.close();
+				out.print(sWriter.toString());
+				printCountingMap.putAll(printCountingMap1);
+			}
+		}
+	}
+	
+	public void print_org_emftext_language_aspectbind_pcexp_PointcutOrExpression_0(org.emftext.language.aspectbind.pcexp.PointcutOrExpression element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("||");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("children");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_OR_EXPRESSION__CHILDREN));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("children", count - 1);
+		}
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_pcexp_PointcutAndExpression(org.emftext.language.aspectbind.pcexp.PointcutAndExpression element, String outertab, java.io.PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_AND_EXPRESSION__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_AND_EXPRESSION__CHILDREN));
+		printCountingMap.put("children", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_AND_EXPRESSION__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		int count;
+		boolean iterate = true;
+		java.io.StringWriter sWriter = null;
+		java.io.PrintWriter out1 = null;
+		java.util.Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("children");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_AND_EXPRESSION__CHILDREN));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("children", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		iterate = true;
+		while (iterate) {
+			sWriter = new java.io.StringWriter();
+			out1 = new java.io.PrintWriter(sWriter);
+			printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+			print_org_emftext_language_aspectbind_pcexp_PointcutAndExpression_0(element, localtab, out1, printCountingMap1);
+			if (printCountingMap.equals(printCountingMap1)) {
+				iterate = false;
+				out1.close();
+			} else {
+				out1.flush();
+				out1.close();
+				out.print(sWriter.toString());
+				printCountingMap.putAll(printCountingMap1);
+			}
+		}
+	}
+	
+	public void print_org_emftext_language_aspectbind_pcexp_PointcutAndExpression_0(org.emftext.language.aspectbind.pcexp.PointcutAndExpression element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("&&");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("children");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.POINTCUT_AND_EXPRESSION__CHILDREN));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("children", count - 1);
+		}
+	}
+	
+	
+	public void print_org_emftext_language_aspectbind_pcexp_PcAssignmentOperator(org.emftext.language.aspectbind.pcexp.PcAssignmentOperator element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(1);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.PC_ASSIGNMENT_OPERATOR__COMMENTS));
+		printCountingMap.put("comments", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		// print collected hidden tokens
+		{
+			org.eclipse.emf.ecore.EStructuralFeature feature = element.eClass().getEStructuralFeature(org.emftext.language.aspectbind.pcexp.PcexpPackage.PC_ASSIGNMENT_OPERATOR__COMMENTS);
+			Object value = element.eGet(feature);
+			if (value instanceof java.util.List) {
+				for (Object next : (java.util.List<?>) value) {
+					out.print(tokenResolverFactory.createCollectInTokenResolver("comments").deResolve(next, feature, element));
+				}
+			}
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(":");
+		out.print(" ");
 	}
 	
 	

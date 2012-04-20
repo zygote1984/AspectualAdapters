@@ -38,46 +38,42 @@ import org.emftext.language.java.parameters.Parametrizable;
  *
  * @generated
  */
-public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
-{
-  /**
+public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut {
+	/**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<Parameter> parameters;
+	protected EList<Parameter> parameters;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected AspectJPointcutImpl()
-  {
+	protected AspectJPointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PointcutsPackage.Literals.ASPECT_JPOINTCUT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parameter> getParameters()
-  {
+	public EList<Parameter> getParameters() {
     if (parameters == null)
     {
       parameters = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS);
@@ -85,14 +81,13 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     return parameters;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS:
@@ -101,14 +96,13 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS:
@@ -117,15 +111,14 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS:
@@ -136,14 +129,13 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS:
@@ -153,14 +145,13 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.ASPECT_JPOINTCUT__PARAMETERS:
@@ -169,14 +160,13 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
     if (baseClass == Parametrizable.class)
     {
       switch (derivedFeatureID)
@@ -188,14 +178,13 @@ public class AspectJPointcutImpl extends PointcutImpl implements AspectJPointcut
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
     if (baseClass == Parametrizable.class)
     {
       switch (baseFeatureID)

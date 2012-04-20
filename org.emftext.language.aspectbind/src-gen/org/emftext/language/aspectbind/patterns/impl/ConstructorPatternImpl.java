@@ -42,66 +42,62 @@ import org.emftext.language.java.modifiers.Modifier;
  *
  * @generated
  */
-public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements ConstructorPattern
-{
-  /**
+public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements ConstructorPattern {
+	/**
    * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getModifiers()
    * @generated
    * @ordered
    */
-  protected EList<Modifier> modifiers;
+	protected EList<Modifier> modifiers;
 
-  /**
+	/**
    * The cached value of the '{@link #getDeclaringType() <em>Declaring Type</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getDeclaringType()
    * @generated
    * @ordered
    */
-  protected TypePattern declaringType;
+	protected TypePattern declaringType;
 
-  /**
+	/**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<TypePattern> parameters;
+	protected EList<TypePattern> parameters;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected ConstructorPatternImpl()
-  {
+	protected ConstructorPatternImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PatternsPackage.Literals.CONSTRUCTOR_PATTERN;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Modifier> getModifiers()
-  {
+	public EList<Modifier> getModifiers() {
     if (modifiers == null)
     {
       modifiers = new EObjectContainmentEList<Modifier>(Modifier.class, this, PatternsPackage.CONSTRUCTOR_PATTERN__MODIFIERS);
@@ -109,23 +105,21 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     return modifiers;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypePattern getDeclaringType()
-  {
+	public TypePattern getDeclaringType() {
     return declaringType;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDeclaringType(TypePattern newDeclaringType, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDeclaringType(TypePattern newDeclaringType, NotificationChain msgs) {
     TypePattern oldDeclaringType = declaringType;
     declaringType = newDeclaringType;
     if (eNotificationRequired())
@@ -136,13 +130,12 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setDeclaringType(TypePattern newDeclaringType)
-  {
+	public void setDeclaringType(TypePattern newDeclaringType) {
     if (newDeclaringType != declaringType)
     {
       NotificationChain msgs = null;
@@ -157,13 +150,12 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
       eNotify(new ENotificationImpl(this, Notification.SET, PatternsPackage.CONSTRUCTOR_PATTERN__DECLARING_TYPE, newDeclaringType, newDeclaringType));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypePattern> getParameters()
-  {
+	public EList<TypePattern> getParameters() {
     if (parameters == null)
     {
       parameters = new EObjectContainmentEList<TypePattern>(TypePattern.class, this, PatternsPackage.CONSTRUCTOR_PATTERN__PARAMETERS);
@@ -171,14 +163,13 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     return parameters;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case PatternsPackage.CONSTRUCTOR_PATTERN__MODIFIERS:
@@ -191,14 +182,13 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PatternsPackage.CONSTRUCTOR_PATTERN__MODIFIERS:
@@ -211,15 +201,14 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PatternsPackage.CONSTRUCTOR_PATTERN__MODIFIERS:
@@ -237,14 +226,13 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.CONSTRUCTOR_PATTERN__MODIFIERS:
@@ -260,14 +248,13 @@ public class ConstructorPatternImpl extends AbstractMethodPatternImpl implements
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.CONSTRUCTOR_PATTERN__MODIFIERS:

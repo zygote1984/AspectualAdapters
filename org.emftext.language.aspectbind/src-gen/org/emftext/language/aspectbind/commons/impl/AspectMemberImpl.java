@@ -22,26 +22,23 @@ import org.emftext.language.java.commons.impl.NamespaceAwareElementImpl;
  *
  * @generated
  */
-public abstract class AspectMemberImpl extends NamespaceAwareElementImpl implements AspectMember
-{
-  /**
+public abstract class AspectMemberImpl extends NamespaceAwareElementImpl implements AspectMember {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected AspectMemberImpl()
-  {
+	protected AspectMemberImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return CommonsPackage.Literals.ASPECT_MEMBER;
   }
 

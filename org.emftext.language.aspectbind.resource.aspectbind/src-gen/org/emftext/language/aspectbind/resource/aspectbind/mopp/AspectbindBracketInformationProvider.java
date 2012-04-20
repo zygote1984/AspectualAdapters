@@ -38,8 +38,8 @@ public class AspectbindBracketInformationProvider {
 		java.util.Collection<org.emftext.language.aspectbind.resource.aspectbind.IAspectbindBracketPair> result = new java.util.ArrayList<org.emftext.language.aspectbind.resource.aspectbind.IAspectbindBracketPair>();
 		result.add(new BracketPair("{", "}", true));
 		result.add(new BracketPair("(", ")", true));
-		result.add(new BracketPair("[", "]", true));
 		result.add(new BracketPair("<", ">", true));
+		result.add(new BracketPair("[", "]", true));
 		return result;
 	}
 	

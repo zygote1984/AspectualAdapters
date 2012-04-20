@@ -22,16 +22,14 @@ import org.emftext.language.aspectbind.commons.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory
-{
-  /**
+public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory {
+	/**
    * Creates the default factory implementation.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public static CommonsFactory init()
-  {
+	public static CommonsFactory init() {
     try
     {
       CommonsFactory theCommonsFactory = (CommonsFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.emftext.org/language/bindingAspect/commons"); 
@@ -47,25 +45,23 @@ public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory
     return new CommonsFactoryImpl();
   }
 
-  /**
+	/**
    * Creates an instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public CommonsFactoryImpl()
-  {
+	public CommonsFactoryImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public EObject create(EClass eClass)
-  {
+	@Override
+	public EObject create(EClass eClass) {
     switch (eClass.getClassifierID())
     {
       case CommonsPackage.ASPECT: return createAspect();
@@ -75,47 +71,43 @@ public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory
     }
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Aspect createAspect()
-  {
+	public Aspect createAspect() {
     AspectImpl aspect = new AspectImpl();
     return aspect;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PerClause createPerClause()
-  {
+	public PerClause createPerClause() {
     PerClauseImpl perClause = new PerClauseImpl();
     return perClause;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public CommonsPackage getCommonsPackage()
-  {
+	public CommonsPackage getCommonsPackage() {
     return (CommonsPackage)getEPackage();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @deprecated
    * @generated
    */
-  @Deprecated
-  public static CommonsPackage getPackage()
-  {
+	@Deprecated
+	public static CommonsPackage getPackage() {
     return CommonsPackage.eINSTANCE;
   }
 

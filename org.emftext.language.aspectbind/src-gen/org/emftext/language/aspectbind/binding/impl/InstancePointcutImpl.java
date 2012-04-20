@@ -34,56 +34,51 @@ import org.emftext.language.aspectbind.pointcuts.impl.PointcutImpl;
  *
  * @generated
  */
-public class InstancePointcutImpl extends PointcutImpl implements InstancePointcut
-{
-  /**
+public class InstancePointcutImpl extends PointcutImpl implements InstancePointcut {
+	/**
    * The cached value of the '{@link #getInstanceType() <em>Instance Type</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getInstanceType()
    * @generated
    * @ordered
    */
-  protected TypePattern instanceType;
+	protected TypePattern instanceType;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected InstancePointcutImpl()
-  {
+	protected InstancePointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return BindingPackage.Literals.INSTANCE_POINTCUT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypePattern getInstanceType()
-  {
+	public TypePattern getInstanceType() {
     return instanceType;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInstanceType(TypePattern newInstanceType, NotificationChain msgs)
-  {
+	public NotificationChain basicSetInstanceType(TypePattern newInstanceType, NotificationChain msgs) {
     TypePattern oldInstanceType = instanceType;
     instanceType = newInstanceType;
     if (eNotificationRequired())
@@ -94,13 +89,12 @@ public class InstancePointcutImpl extends PointcutImpl implements InstancePointc
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setInstanceType(TypePattern newInstanceType)
-  {
+	public void setInstanceType(TypePattern newInstanceType) {
     if (newInstanceType != instanceType)
     {
       NotificationChain msgs = null;
@@ -115,14 +109,13 @@ public class InstancePointcutImpl extends PointcutImpl implements InstancePointc
       eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE, newInstanceType, newInstanceType));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE:
@@ -131,14 +124,13 @@ public class InstancePointcutImpl extends PointcutImpl implements InstancePointc
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE:
@@ -147,14 +139,13 @@ public class InstancePointcutImpl extends PointcutImpl implements InstancePointc
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE:
@@ -164,14 +155,13 @@ public class InstancePointcutImpl extends PointcutImpl implements InstancePointc
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE:
@@ -181,14 +171,13 @@ public class InstancePointcutImpl extends PointcutImpl implements InstancePointc
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case BindingPackage.INSTANCE_POINTCUT__INSTANCE_TYPE:

@@ -20,26 +20,23 @@ import org.emftext.language.aspectbind.declaration.InterTypeDeclaration;
  *
  * @generated
  */
-public class InterTypeDeclarationImpl extends DeclarationImpl implements InterTypeDeclaration
-{
-  /**
+public class InterTypeDeclarationImpl extends DeclarationImpl implements InterTypeDeclaration {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected InterTypeDeclarationImpl()
-  {
+	protected InterTypeDeclarationImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return DeclarationPackage.Literals.INTER_TYPE_DECLARATION;
   }
 

@@ -17,6 +17,5 @@ package org.emftext.language.aspectbind.declaration;
  * @model
  * @generated
  */
-public interface PrecedenceDeclaration extends Declaration
-{
+public interface PrecedenceDeclaration extends Declaration {
 } // PrecedenceDeclaration

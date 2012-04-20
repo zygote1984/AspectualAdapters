@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.emftext.language.aspectbind.patterns.PatternsPackage;
 import org.emftext.language.aspectbind.patterns.TypePattern;
@@ -33,56 +32,51 @@ import org.emftext.language.java.types.TypeReference;
  *
  * @generated
  */
-public class TypePatternImpl extends EObjectImpl implements TypePattern
-{
-  /**
+public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern {
+	/**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected TypeReference type;
+	protected TypeReference type;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected TypePatternImpl()
-  {
+	protected TypePatternImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PatternsPackage.Literals.TYPE_PATTERN;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypeReference getType()
-  {
+	public TypeReference getType() {
     return type;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(TypeReference newType, NotificationChain msgs)
-  {
+	public NotificationChain basicSetType(TypeReference newType, NotificationChain msgs) {
     TypeReference oldType = type;
     type = newType;
     if (eNotificationRequired())
@@ -93,13 +87,12 @@ public class TypePatternImpl extends EObjectImpl implements TypePattern
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(TypeReference newType)
-  {
+	public void setType(TypeReference newType) {
     if (newType != type)
     {
       NotificationChain msgs = null;
@@ -114,14 +107,13 @@ public class TypePatternImpl extends EObjectImpl implements TypePattern
       eNotify(new ENotificationImpl(this, Notification.SET, PatternsPackage.TYPE_PATTERN__TYPE, newType, newType));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
@@ -130,14 +122,13 @@ public class TypePatternImpl extends EObjectImpl implements TypePattern
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
@@ -146,14 +137,13 @@ public class TypePatternImpl extends EObjectImpl implements TypePattern
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
@@ -163,14 +153,13 @@ public class TypePatternImpl extends EObjectImpl implements TypePattern
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
@@ -180,14 +169,13 @@ public class TypePatternImpl extends EObjectImpl implements TypePattern
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:

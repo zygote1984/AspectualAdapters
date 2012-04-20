@@ -8,8 +8,8 @@ package org.emftext.language.aspectbind.resource.aspectbind.mopp;
 
 public class AspectbindReferenceResolverSwitch implements org.emftext.language.aspectbind.resource.aspectbind.IAspectbindReferenceResolverSwitch {
 	
-	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.PointcutAbstractReferenceResolver pointcutAbstractReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.PointcutAbstractReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.PerClausePointcutReferenceResolver perClausePointcutReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.PerClausePointcutReferenceResolver();
+	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.IdPatternIdReferenceResolver idPatternIdReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.IdPatternIdReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterDeclarationAdapteeReferenceResolver adapterDeclarationAdapteeReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterDeclarationAdapteeReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.ClassifierImportClassifierReferenceResolver classifierImportClassifierReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.ClassifierImportClassifierReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.StaticMemberImportStaticMembersReferenceResolver staticMemberImportStaticMembersReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.StaticMemberImportStaticMembersReferenceResolver();
@@ -19,12 +19,12 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.ElementReferenceTargetReferenceResolver elementReferenceTargetReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.ElementReferenceTargetReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.JumpTargetReferenceResolver jumpTargetReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.JumpTargetReferenceResolver();
 	
-	public org.emftext.language.aspectbind.resource.aspectbind.analysis.PointcutAbstractReferenceResolver getPointcutAbstractReferenceResolver() {
-		return pointcutAbstractReferenceResolver;
-	}
-	
 	public org.emftext.language.aspectbind.resource.aspectbind.analysis.PerClausePointcutReferenceResolver getPerClausePointcutReferenceResolver() {
 		return perClausePointcutReferenceResolver;
+	}
+	
+	public org.emftext.language.aspectbind.resource.aspectbind.analysis.IdPatternIdReferenceResolver getIdPatternIdReferenceResolver() {
+		return idPatternIdReferenceResolver;
 	}
 	
 	public org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterDeclarationAdapteeReferenceResolver getAdapterDeclarationAdapteeReferenceResolver() {
@@ -60,8 +60,8 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 	}
 	
 	public void setOptions(java.util.Map<?, ?> options) {
-		pointcutAbstractReferenceResolver.setOptions(options);
 		perClausePointcutReferenceResolver.setOptions(options);
+		idPatternIdReferenceResolver.setOptions(options);
 		adapterDeclarationAdapteeReferenceResolver.setOptions(options);
 		classifierImportClassifierReferenceResolver.setOptions(options);
 		staticMemberImportStaticMembersReferenceResolver.setOptions(options);
@@ -76,20 +76,20 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 		if (container == null) {
 			return;
 		}
-		if (org.emftext.language.aspectbind.pointcuts.PointcutsPackage.eINSTANCE.getPointcut().isInstance(container)) {
-			AspectbindFuzzyResolveResult<org.emftext.language.java.modifiers.Abstract> frr = new AspectbindFuzzyResolveResult<org.emftext.language.java.modifiers.Abstract>(result);
-			String referenceName = reference.getName();
-			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
-			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("abstract")) {
-				pointcutAbstractReferenceResolver.resolve(identifier, (org.emftext.language.aspectbind.pointcuts.Pointcut) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
-			}
-		}
 		if (org.emftext.language.aspectbind.commons.CommonsPackage.eINSTANCE.getPerClause().isInstance(container)) {
 			AspectbindFuzzyResolveResult<org.emftext.language.aspectbind.pointcuts.Pointcut> frr = new AspectbindFuzzyResolveResult<org.emftext.language.aspectbind.pointcuts.Pointcut>(result);
 			String referenceName = reference.getName();
 			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
 			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("pointcut")) {
 				perClausePointcutReferenceResolver.resolve(identifier, (org.emftext.language.aspectbind.commons.PerClause) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
+			}
+		}
+		if (org.emftext.language.aspectbind.patterns.PatternsPackage.eINSTANCE.getIdPattern().isInstance(container)) {
+			AspectbindFuzzyResolveResult<org.emftext.language.java.references.Reference> frr = new AspectbindFuzzyResolveResult<org.emftext.language.java.references.Reference>(result);
+			String referenceName = reference.getName();
+			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
+			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("id")) {
+				idPatternIdReferenceResolver.resolve(identifier, (org.emftext.language.aspectbind.patterns.IdPattern) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
 			}
 		}
 		if (org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdapterDeclaration().isInstance(container)) {
@@ -159,11 +159,11 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 	}
 	
 	public org.emftext.language.aspectbind.resource.aspectbind.IAspectbindReferenceResolver<? extends org.eclipse.emf.ecore.EObject, ? extends org.eclipse.emf.ecore.EObject> getResolver(org.eclipse.emf.ecore.EStructuralFeature reference) {
-		if (reference == org.emftext.language.aspectbind.pointcuts.PointcutsPackage.eINSTANCE.getPointcut_Abstract()) {
-			return pointcutAbstractReferenceResolver;
-		}
 		if (reference == org.emftext.language.aspectbind.commons.CommonsPackage.eINSTANCE.getPerClause_Pointcut()) {
 			return perClausePointcutReferenceResolver;
+		}
+		if (reference == org.emftext.language.aspectbind.patterns.PatternsPackage.eINSTANCE.getIdPattern_Id()) {
+			return idPatternIdReferenceResolver;
 		}
 		if (reference == org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdapterDeclaration_Adaptee()) {
 			return adapterDeclarationAdapteeReferenceResolver;

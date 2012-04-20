@@ -80,44 +80,43 @@ import org.emftext.language.java.variables.VariablesPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeclarationPackageImpl extends EPackageImpl implements DeclarationPackage
-{
-  /**
+public class DeclarationPackageImpl extends EPackageImpl implements DeclarationPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass adapterDeclarationEClass = null;
+	private EClass adapterDeclarationEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass precedenceDeclarationEClass = null;
+	private EClass precedenceDeclarationEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass interTypeDeclarationEClass = null;
+	private EClass interTypeDeclarationEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass declarationEClass = null;
+	private EClass declarationEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass adapterEClass = null;
+	private EClass adapterEClass = null;
 
-  /**
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -126,38 +125,36 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see org.emftext.language.aspectbind.declaration.DeclarationPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private DeclarationPackageImpl()
-  {
+	private DeclarationPackageImpl() {
     super(eNS_URI, DeclarationFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link DeclarationPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static DeclarationPackage init()
-  {
+	public static DeclarationPackage init() {
     if (isInited) return (DeclarationPackage)EPackage.Registry.INSTANCE.getEPackage(DeclarationPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -217,122 +214,138 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     return theDeclarationPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAdapterDeclaration()
-  {
+	public EClass getAdapterDeclaration() {
     return adapterDeclarationEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdapterDeclaration_Adapter()
-  {
+	public EReference getAdapterDeclaration_Adapter() {
     return (EReference)adapterDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdapterDeclaration_Adaptee()
-  {
+	public EReference getAdapterDeclaration_Adaptee() {
     return (EReference)adapterDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdapterDeclaration_Members()
-  {
+	public EReference getAdapterDeclaration_Members() {
     return (EReference)adapterDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPrecedenceDeclaration()
-  {
+	public EReference getAdapterDeclaration_AdapteeSub() {
+    return (EReference)adapterDeclarationEClass.getEStructuralFeatures().get(3);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getPrecedenceDeclaration() {
     return precedenceDeclarationEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getInterTypeDeclaration()
-  {
+	public EClass getInterTypeDeclaration() {
     return interTypeDeclarationEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDeclaration()
-  {
+	public EClass getDeclaration() {
     return declarationEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAdapter()
-  {
+	public EClass getAdapter() {
     return adapterEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdapter_References()
-  {
+	public EReference getAdapter_References() {
     return (EReference)adapterEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public DeclarationFactory getDeclarationFactory()
-  {
+	public EReference getAdapter_Abstract() {
+    return (EReference)adapterEClass.getEStructuralFeatures().get(1);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EReference getAdapter_Extend() {
+    return (EReference)adapterEClass.getEStructuralFeatures().get(2);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public DeclarationFactory getDeclarationFactory() {
     return (DeclarationFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
@@ -341,6 +354,7 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     createEReference(adapterDeclarationEClass, ADAPTER_DECLARATION__ADAPTER);
     createEReference(adapterDeclarationEClass, ADAPTER_DECLARATION__ADAPTEE);
     createEReference(adapterDeclarationEClass, ADAPTER_DECLARATION__MEMBERS);
+    createEReference(adapterDeclarationEClass, ADAPTER_DECLARATION__ADAPTEE_SUB);
 
     precedenceDeclarationEClass = createEClass(PRECEDENCE_DECLARATION);
 
@@ -350,24 +364,25 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
 
     adapterEClass = createEClass(ADAPTER);
     createEReference(adapterEClass, ADAPTER__REFERENCES);
+    createEReference(adapterEClass, ADAPTER__ABSTRACT);
+    createEReference(adapterEClass, ADAPTER__EXTEND);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 
@@ -379,9 +394,12 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     // Obtain other dependent packages
     BindingPackage theBindingPackage = (BindingPackage)EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI);
     MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
+    PatternsPackage thePatternsPackage = (PatternsPackage)EPackage.Registry.INSTANCE.getEPackage(PatternsPackage.eNS_URI);
     org.emftext.language.aspectbind.commons.CommonsPackage theCommonsPackage_1 = (org.emftext.language.aspectbind.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.emftext.language.aspectbind.commons.CommonsPackage.eNS_URI);
     CommonsPackage theCommonsPackage = (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
     ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
+    ModifiersPackage theModifiersPackage = (ModifiersPackage)EPackage.Registry.INSTANCE.getEPackage(ModifiersPackage.eNS_URI);
+    GenericsPackage theGenericsPackage = (GenericsPackage)EPackage.Registry.INSTANCE.getEPackage(GenericsPackage.eNS_URI);
 
     // Create type parameters
 
@@ -399,6 +417,7 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     initEReference(getAdapterDeclaration_Adapter(), this.getAdapter(), null, "adapter", null, 1, 1, AdapterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdapterDeclaration_Adaptee(), theBindingPackage.getInstancePointcut(), null, "adaptee", null, 1, 1, AdapterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdapterDeclaration_Members(), theMembersPackage.getMember(), null, "members", null, 0, -1, AdapterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdapterDeclaration_AdapteeSub(), thePatternsPackage.getTypePattern(), null, "adapteeSub", null, 0, 1, AdapterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(precedenceDeclarationEClass, PrecedenceDeclaration.class, "PrecedenceDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -408,6 +427,8 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
 
     initEClass(adapterEClass, Adapter.class, "Adapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAdapter_References(), theReferencesPackage.getReference(), null, "references", null, 1, -1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdapter_Abstract(), theModifiersPackage.getAbstract(), null, "abstract", null, 0, 1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdapter_Extend(), theGenericsPackage.getExtendsTypeArgument(), null, "extend", null, 0, 1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

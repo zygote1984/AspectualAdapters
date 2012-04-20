@@ -22,26 +22,23 @@ import org.emftext.language.aspectbind.declaration.DeclarationPackage;
  *
  * @generated
  */
-public abstract class DeclarationImpl extends AspectMemberImpl implements Declaration
-{
-  /**
+public abstract class DeclarationImpl extends AspectMemberImpl implements Declaration {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected DeclarationImpl()
-  {
+	protected DeclarationImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return DeclarationPackage.Literals.DECLARATION;
   }
 

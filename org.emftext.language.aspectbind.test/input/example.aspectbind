@@ -6,6 +6,6 @@ import java.lang.*;
 public aspect Kardo{
 
 	pointcut pc1(ArrayList o, Object j);
-	instance pointcut pc2(Object) = call
+	instance pointcut pc2(Object) : call(public void ArrayList.add(Object)) && this(Object);
 
 }

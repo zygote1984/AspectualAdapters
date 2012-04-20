@@ -43,86 +43,82 @@ import org.emftext.language.java.modifiers.Modifier;
  *
  * @generated
  */
-public class FieldPatternImpl extends PatternImpl implements FieldPattern
-{
-  /**
+public class FieldPatternImpl extends PatternImpl implements FieldPattern {
+	/**
    * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' containment reference list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getModifiers()
    * @generated
    * @ordered
    */
-  protected EList<Modifier> modifiers;
+	protected EList<Modifier> modifiers;
 
-  /**
+	/**
    * The cached value of the '{@link #getDeclaringType() <em>Declaring Type</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getDeclaringType()
    * @generated
    * @ordered
    */
-  protected TypePattern declaringType;
+	protected TypePattern declaringType;
 
-  /**
+	/**
    * The cached value of the '{@link #getFieldType() <em>Field Type</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getFieldType()
    * @generated
    * @ordered
    */
-  protected TypePattern fieldType;
+	protected TypePattern fieldType;
 
-  /**
+	/**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected FieldPatternImpl()
-  {
+	protected FieldPatternImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PatternsPackage.Literals.FIELD_PATTERN;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Modifier> getModifiers()
-  {
+	public EList<Modifier> getModifiers() {
     if (modifiers == null)
     {
       modifiers = new EObjectContainmentEList<Modifier>(Modifier.class, this, PatternsPackage.FIELD_PATTERN__MODIFIERS);
@@ -130,23 +126,21 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     return modifiers;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypePattern getDeclaringType()
-  {
+	public TypePattern getDeclaringType() {
     return declaringType;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDeclaringType(TypePattern newDeclaringType, NotificationChain msgs)
-  {
+	public NotificationChain basicSetDeclaringType(TypePattern newDeclaringType, NotificationChain msgs) {
     TypePattern oldDeclaringType = declaringType;
     declaringType = newDeclaringType;
     if (eNotificationRequired())
@@ -157,13 +151,12 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setDeclaringType(TypePattern newDeclaringType)
-  {
+	public void setDeclaringType(TypePattern newDeclaringType) {
     if (newDeclaringType != declaringType)
     {
       NotificationChain msgs = null;
@@ -178,23 +171,21 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
       eNotify(new ENotificationImpl(this, Notification.SET, PatternsPackage.FIELD_PATTERN__DECLARING_TYPE, newDeclaringType, newDeclaringType));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public TypePattern getFieldType()
-  {
+	public TypePattern getFieldType() {
     return fieldType;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFieldType(TypePattern newFieldType, NotificationChain msgs)
-  {
+	public NotificationChain basicSetFieldType(TypePattern newFieldType, NotificationChain msgs) {
     TypePattern oldFieldType = fieldType;
     fieldType = newFieldType;
     if (eNotificationRequired())
@@ -205,13 +196,12 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setFieldType(TypePattern newFieldType)
-  {
+	public void setFieldType(TypePattern newFieldType) {
     if (newFieldType != fieldType)
     {
       NotificationChain msgs = null;
@@ -226,37 +216,34 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
       eNotify(new ENotificationImpl(this, Notification.SET, PatternsPackage.FIELD_PATTERN__FIELD_TYPE, newFieldType, newFieldType));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
+	public String getName() {
     return name;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PatternsPackage.FIELD_PATTERN__NAME, oldName, name));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
       case PatternsPackage.FIELD_PATTERN__MODIFIERS:
@@ -269,14 +256,13 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PatternsPackage.FIELD_PATTERN__MODIFIERS:
@@ -291,15 +277,14 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PatternsPackage.FIELD_PATTERN__MODIFIERS:
@@ -319,14 +304,13 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.FIELD_PATTERN__MODIFIERS:
@@ -345,14 +329,13 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.FIELD_PATTERN__MODIFIERS:
@@ -367,14 +350,13 @@ public class FieldPatternImpl extends PatternImpl implements FieldPattern
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

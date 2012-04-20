@@ -17,6 +17,5 @@ package org.emftext.language.aspectbind.pointcuts;
  * @model abstract="true"
  * @generated
  */
-public interface AdviceExecutionPointcut extends PrimitivePointcut
-{
+public interface AdviceExecutionPointcut extends PrimitivePointcut {
 } // AdviceExecutionPointcut

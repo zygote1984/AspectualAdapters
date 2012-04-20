@@ -39,46 +39,42 @@ import org.emftext.language.java.commons.impl.CommentableImpl;
  *
  * @generated
  */
-public abstract class PatternImpl extends CommentableImpl implements Pattern
-{
-  /**
+public abstract class PatternImpl extends CommentableImpl implements Pattern {
+	/**
    * The cached value of the '{@link #getNamespaces() <em>Namespaces</em>}' attribute list.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getNamespaces()
    * @generated
    * @ordered
    */
-  protected EList<String> namespaces;
+	protected EList<String> namespaces;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected PatternImpl()
-  {
+	protected PatternImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PatternsPackage.Literals.PATTERN;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getNamespaces()
-  {
+	public EList<String> getNamespaces() {
     if (namespaces == null)
     {
       namespaces = new EDataTypeEList<String>(String.class, this, PatternsPackage.PATTERN__NAMESPACES);
@@ -86,13 +82,12 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     return namespaces;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public String getNamespacesAsString()
-  {
+	public String getNamespacesAsString() {
     java.lang.String containerName = "" ; 
     for ( java.util.Iterator < java.lang.String > it = getNamespaces ( ) .iterator ( ) ; it .hasNext ( ) ; ) { 
       java.lang.String namespaceFragment = it .next ( ) ; 
@@ -120,13 +115,12 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public ConcreteClassifier getClassifierAtNamespaces()
-  {
+	public ConcreteClassifier getClassifierAtNamespaces() {
     java.lang.String fullQualifiedName = getNamespacesAsString ( ) ; 
     if ( fullQualifiedName == null || fullQualifiedName .endsWith ( org.emftext.language.java.JavaUniquePathConstructor .PACKAGE_SEPARATOR ) ) { 
       return null ; 
@@ -137,14 +131,13 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PatternsPackage.PATTERN__NAMESPACES:
@@ -153,15 +146,14 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PatternsPackage.PATTERN__NAMESPACES:
@@ -172,14 +164,13 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.PATTERN__NAMESPACES:
@@ -189,14 +180,13 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PatternsPackage.PATTERN__NAMESPACES:
@@ -205,14 +195,13 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
     if (baseClass == NamespaceAwareElement.class)
     {
       switch (derivedFeatureID)
@@ -231,14 +220,13 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
     if (baseClass == NamespaceAwareElement.class)
     {
       switch (baseFeatureID)
@@ -257,14 +245,13 @@ public abstract class PatternImpl extends CommentableImpl implements Pattern
     return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

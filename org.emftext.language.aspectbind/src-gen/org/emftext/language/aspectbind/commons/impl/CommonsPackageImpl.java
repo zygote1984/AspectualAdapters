@@ -79,30 +79,29 @@ import org.emftext.language.java.variables.VariablesPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage
-{
-  /**
+public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass aspectMemberEClass = null;
+	private EClass aspectMemberEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass aspectEClass = null;
+	private EClass aspectEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass perClauseEClass = null;
+	private EClass perClauseEClass = null;
 
-  /**
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -111,38 +110,36 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see org.emftext.language.aspectbind.commons.CommonsPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private CommonsPackageImpl()
-  {
+	private CommonsPackageImpl() {
     super(eNS_URI, CommonsFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link CommonsPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static CommonsPackage init()
-  {
+	public static CommonsPackage init() {
     if (isInited) return (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -202,152 +199,138 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage
     return theCommonsPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAspectMember()
-  {
+	public EClass getAspectMember() {
     return aspectMemberEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAspect()
-  {
+	public EClass getAspect() {
     return aspectEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAspect_Members()
-  {
+	public EReference getAspect_Members() {
     return (EReference)aspectEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAspect_Package()
-  {
+	public EReference getAspect_Package() {
     return (EReference)aspectEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAspect_Priviliged()
-  {
+	public EAttribute getAspect_Priviliged() {
     return (EAttribute)aspectEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAspect_Modifier()
-  {
+	public EReference getAspect_Modifier() {
     return (EReference)aspectEClass.getEStructuralFeatures().get(3);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAspect_Extend()
-  {
+	public EReference getAspect_Extend() {
     return (EReference)aspectEClass.getEStructuralFeatures().get(4);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAspect_Implement()
-  {
+	public EReference getAspect_Implement() {
     return (EReference)aspectEClass.getEStructuralFeatures().get(5);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAspect_Perclause()
-  {
+	public EReference getAspect_Perclause() {
     return (EReference)aspectEClass.getEStructuralFeatures().get(6);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPerClause()
-  {
+	public EClass getPerClause() {
     return perClauseEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPerClause_Clause()
-  {
+	public EAttribute getPerClause_Clause() {
     return (EAttribute)perClauseEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPerClause_Pointcut()
-  {
+	public EReference getPerClause_Pointcut() {
     return (EReference)perClauseEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public CommonsFactory getCommonsFactory()
-  {
+	public CommonsFactory getCommonsFactory() {
     return (CommonsFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
@@ -368,22 +351,21 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage
     createEReference(perClauseEClass, PER_CLAUSE__POINTCUT);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 

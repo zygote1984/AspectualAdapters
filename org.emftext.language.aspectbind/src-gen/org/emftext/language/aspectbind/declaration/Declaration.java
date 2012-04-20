@@ -18,6 +18,5 @@ import org.emftext.language.aspectbind.commons.AspectMember;
  * @model abstract="true"
  * @generated
  */
-public interface Declaration extends AspectMember
-{
+public interface Declaration extends AspectMember {
 } // Declaration

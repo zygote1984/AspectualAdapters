@@ -18,6 +18,5 @@ import org.emftext.language.java.commons.NamespaceAwareElement;
  * @model abstract="true"
  * @generated
  */
-public interface AspectMember extends NamespaceAwareElement
-{
+public interface AspectMember extends NamespaceAwareElement {
 } // AspectMember

@@ -18,6 +18,5 @@ import org.emftext.language.java.parameters.Parametrizable;
  * @model
  * @generated
  */
-public interface AspectJPointcut extends Pointcut, Parametrizable
-{
+public interface AspectJPointcut extends Pointcut, Parametrizable {
 } // AspectJPointcut

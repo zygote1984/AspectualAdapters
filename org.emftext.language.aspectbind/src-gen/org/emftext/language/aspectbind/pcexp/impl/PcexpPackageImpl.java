@@ -26,10 +26,15 @@ import org.emftext.language.aspectbind.patterns.PatternsPackage;
 
 import org.emftext.language.aspectbind.patterns.impl.PatternsPackageImpl;
 
+import org.emftext.language.aspectbind.pcexp.PcAssignmentOperator;
 import org.emftext.language.aspectbind.pcexp.PcexpFactory;
 import org.emftext.language.aspectbind.pcexp.PcexpPackage;
+import org.emftext.language.aspectbind.pcexp.PointcutAndExpression;
+import org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild;
 import org.emftext.language.aspectbind.pcexp.PointcutExpression;
-import org.emftext.language.aspectbind.pcexp.PointcutExpressionType;
+import org.emftext.language.aspectbind.pcexp.PointcutExpressionChild;
+import org.emftext.language.aspectbind.pcexp.PointcutOrExpression;
+import org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild;
 
 import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
@@ -77,23 +82,57 @@ import org.emftext.language.java.variables.VariablesPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PcexpPackageImpl extends EPackageImpl implements PcexpPackage
-{
-  /**
+public class PcexpPackageImpl extends EPackageImpl implements PcexpPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass pointcutExpressionEClass = null;
+	private EClass pointcutExpressionChildEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass pointcutExpressionTypeEClass = null;
+	private EClass pointcutExpressionEClass = null;
 
-  /**
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass pointcutOrExpressionEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass pointcutOrExpressionChildEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass pointcutAndExpressionEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass pointcutAndExpressionChildEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass pcAssignmentOperatorEClass = null;
+
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -102,38 +141,36 @@ public class PcexpPackageImpl extends EPackageImpl implements PcexpPackage
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see org.emftext.language.aspectbind.pcexp.PcexpPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private PcexpPackageImpl()
-  {
+	private PcexpPackageImpl() {
     super(eNS_URI, PcexpFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link PcexpPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static PcexpPackage init()
-  {
+	public static PcexpPackage init() {
     if (isInited) return (PcexpPackage)EPackage.Registry.INSTANCE.getEPackage(PcexpPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -193,88 +230,147 @@ public class PcexpPackageImpl extends EPackageImpl implements PcexpPackage
     return thePcexpPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPointcutExpression()
-  {
+	public EClass getPointcutExpressionChild() {
+    return pointcutExpressionChildEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getPointcutExpression() {
     return pointcutExpressionEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPointcutExpression_Children()
-  {
-    return (EReference)pointcutExpressionEClass.getEStructuralFeatures().get(0);
+	public EClass getPointcutOrExpression() {
+    return pointcutOrExpressionEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPointcutExpressionType()
-  {
-    return pointcutExpressionTypeEClass;
+	public EReference getPointcutOrExpression_Children() {
+    return (EReference)pointcutOrExpressionEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PcexpFactory getPcexpFactory()
-  {
+	public EClass getPointcutOrExpressionChild() {
+    return pointcutOrExpressionChildEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getPointcutAndExpression() {
+    return pointcutAndExpressionEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EReference getPointcutAndExpression_Children() {
+    return (EReference)pointcutAndExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getPointcutAndExpressionChild() {
+    return pointcutAndExpressionChildEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getPcAssignmentOperator() {
+    return pcAssignmentOperatorEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public PcexpFactory getPcexpFactory() {
     return (PcexpFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
     // Create classes and their features
-    pointcutExpressionEClass = createEClass(POINTCUT_EXPRESSION);
-    createEReference(pointcutExpressionEClass, POINTCUT_EXPRESSION__CHILDREN);
+    pointcutExpressionChildEClass = createEClass(POINTCUT_EXPRESSION_CHILD);
 
-    pointcutExpressionTypeEClass = createEClass(POINTCUT_EXPRESSION_TYPE);
+    pointcutExpressionEClass = createEClass(POINTCUT_EXPRESSION);
+
+    pointcutOrExpressionEClass = createEClass(POINTCUT_OR_EXPRESSION);
+    createEReference(pointcutOrExpressionEClass, POINTCUT_OR_EXPRESSION__CHILDREN);
+
+    pointcutOrExpressionChildEClass = createEClass(POINTCUT_OR_EXPRESSION_CHILD);
+
+    pointcutAndExpressionEClass = createEClass(POINTCUT_AND_EXPRESSION);
+    createEReference(pointcutAndExpressionEClass, POINTCUT_AND_EXPRESSION__CHILDREN);
+
+    pointcutAndExpressionChildEClass = createEClass(POINTCUT_AND_EXPRESSION_CHILD);
+
+    pcAssignmentOperatorEClass = createEClass(PC_ASSIGNMENT_OPERATOR);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 
@@ -284,23 +380,38 @@ public class PcexpPackageImpl extends EPackageImpl implements PcexpPackage
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
-    org.emftext.language.aspectbind.commons.CommonsPackage theCommonsPackage_1 = (org.emftext.language.aspectbind.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.emftext.language.aspectbind.commons.CommonsPackage.eNS_URI);
     ExpressionsPackage theExpressionsPackage = (ExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+    OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
     // Create type parameters
 
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    pointcutExpressionEClass.getESuperTypes().add(theCommonsPackage_1.getAspectMember());
+    pointcutExpressionChildEClass.getESuperTypes().add(theExpressionsPackage.getConditionalExpressionChild());
     pointcutExpressionEClass.getESuperTypes().add(theExpressionsPackage.getConditionalExpression());
-    pointcutExpressionTypeEClass.getESuperTypes().add(theExpressionsPackage.getConditionalExpressionChild());
+    pointcutOrExpressionEClass.getESuperTypes().add(this.getPointcutExpressionChild());
+    pointcutOrExpressionChildEClass.getESuperTypes().add(theExpressionsPackage.getConditionalOrExpressionChild());
+    pointcutAndExpressionEClass.getESuperTypes().add(this.getPointcutOrExpressionChild());
+    pointcutAndExpressionChildEClass.getESuperTypes().add(this.getPointcutOrExpressionChild());
+    pcAssignmentOperatorEClass.getESuperTypes().add(theOperatorsPackage.getAssignmentOperator());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(pointcutExpressionEClass, PointcutExpression.class, "PointcutExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPointcutExpression_Children(), this.getPointcutExpressionType(), null, "children", null, 1, -1, PointcutExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pointcutExpressionChildEClass, PointcutExpressionChild.class, "PointcutExpressionChild", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(pointcutExpressionTypeEClass, PointcutExpressionType.class, "PointcutExpressionType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(pointcutExpressionEClass, PointcutExpression.class, "PointcutExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(pointcutOrExpressionEClass, PointcutOrExpression.class, "PointcutOrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPointcutOrExpression_Children(), this.getPointcutOrExpressionChild(), null, "children", null, 1, -1, PointcutOrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointcutOrExpressionChildEClass, PointcutOrExpressionChild.class, "PointcutOrExpressionChild", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(pointcutAndExpressionEClass, PointcutAndExpression.class, "PointcutAndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPointcutAndExpression_Children(), this.getPointcutAndExpressionChild(), null, "children", null, 1, -1, PointcutAndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointcutAndExpressionChildEClass, PointcutAndExpressionChild.class, "PointcutAndExpressionChild", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(pcAssignmentOperatorEClass, PcAssignmentOperator.class, "PcAssignmentOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

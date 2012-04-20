@@ -15,7 +15,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.emftext.language.aspectbind.commons.AspectMember;
 
-import org.emftext.language.aspectbind.pcexp.PointcutExpressionType;
+import org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild;
+import org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild;
 
 import org.emftext.language.aspectbind.pointcuts.*;
 
@@ -29,6 +30,7 @@ import org.emftext.language.java.commons.NamespaceAwareElement;
 
 import org.emftext.language.java.expressions.AssignmentExpressionChild;
 import org.emftext.language.java.expressions.ConditionalExpressionChild;
+import org.emftext.language.java.expressions.ConditionalOrExpressionChild;
 import org.emftext.language.java.expressions.Expression;
 
 import org.emftext.language.java.parameters.Parametrizable;
@@ -41,41 +43,38 @@ import org.emftext.language.java.parameters.Parametrizable;
  * @see org.emftext.language.aspectbind.pointcuts.PointcutsPackage
  * @generated
  */
-public class PointcutsAdapterFactory extends AdapterFactoryImpl
-{
-  /**
+public class PointcutsAdapterFactory extends AdapterFactoryImpl {
+	/**
    * The cached model package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected static PointcutsPackage modelPackage;
+	protected static PointcutsPackage modelPackage;
 
-  /**
+	/**
    * Creates an instance of the adapter factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PointcutsAdapterFactory()
-  {
+	public PointcutsAdapterFactory() {
     if (modelPackage == null)
     {
       modelPackage = PointcutsPackage.eINSTANCE;
     }
   }
 
-  /**
+	/**
    * Returns whether this factory is applicable for the type of the object.
    * <!-- begin-user-doc -->
-   * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
-   * <!-- end-user-doc -->
+	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * <!-- end-user-doc -->
    * @return whether this factory is applicable for the type of the object.
    * @generated
    */
-  @Override
-  public boolean isFactoryForType(Object object)
-  {
+	@Override
+	public boolean isFactoryForType(Object object) {
     if (object == modelPackage)
     {
       return true;
@@ -87,14 +86,14 @@ public class PointcutsAdapterFactory extends AdapterFactoryImpl
     return false;
   }
 
-  /**
+	/**
    * The switch that delegates to the <code>createXXX</code> methods.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected PointcutsSwitch<Adapter> modelSwitch =
-    new PointcutsSwitch<Adapter>()
+	protected PointcutsSwitch<Adapter> modelSwitch =
+		new PointcutsSwitch<Adapter>()
     {
       @Override
       public Adapter casePrimitivePointcut(PrimitivePointcut object)
@@ -237,9 +236,19 @@ public class PointcutsAdapterFactory extends AdapterFactoryImpl
         return createConditionalExpressionChildAdapter();
       }
       @Override
-      public Adapter casePointcutExpressionType(PointcutExpressionType object)
+      public Adapter caseConditionalOrExpressionChild(ConditionalOrExpressionChild object)
       {
-        return createPointcutExpressionTypeAdapter();
+        return createConditionalOrExpressionChildAdapter();
+      }
+      @Override
+      public Adapter casePointcutOrExpressionChild(PointcutOrExpressionChild object)
+      {
+        return createPointcutOrExpressionChildAdapter();
+      }
+      @Override
+      public Adapter casePointcutAndExpressionChild(PointcutAndExpressionChild object)
+      {
+        return createPointcutAndExpressionChildAdapter();
       }
       @Override
       public Adapter caseNamedElement(NamedElement object)
@@ -258,496 +267,491 @@ public class PointcutsAdapterFactory extends AdapterFactoryImpl
       }
     };
 
-  /**
+	/**
    * Creates an adapter for the <code>target</code>.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @param target the object to adapt.
    * @return the adapter for the <code>target</code>.
    * @generated
    */
-  @Override
-  public Adapter createAdapter(Notifier target)
-  {
+	@Override
+	public Adapter createAdapter(Notifier target) {
     return modelSwitch.doSwitch((EObject)target);
   }
 
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.PrimitivePointcut <em>Primitive Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.PrimitivePointcut
    * @generated
    */
-  public Adapter createPrimitivePointcutAdapter()
-  {
+	public Adapter createPrimitivePointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.CallPointcut <em>Call Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.CallPointcut
    * @generated
    */
-  public Adapter createCallPointcutAdapter()
-  {
+	public Adapter createCallPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.ExecutionPointcut <em>Execution Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.ExecutionPointcut
    * @generated
    */
-  public Adapter createExecutionPointcutAdapter()
-  {
+	public Adapter createExecutionPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.GetPointcut <em>Get Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.GetPointcut
    * @generated
    */
-  public Adapter createGetPointcutAdapter()
-  {
+	public Adapter createGetPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.SetPointcut <em>Set Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.SetPointcut
    * @generated
    */
-  public Adapter createSetPointcutAdapter()
-  {
+	public Adapter createSetPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.HandlerPointcut <em>Handler Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.HandlerPointcut
    * @generated
    */
-  public Adapter createHandlerPointcutAdapter()
-  {
+	public Adapter createHandlerPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.AdviceExecutionPointcut <em>Advice Execution Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.AdviceExecutionPointcut
    * @generated
    */
-  public Adapter createAdviceExecutionPointcutAdapter()
-  {
+	public Adapter createAdviceExecutionPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.StaticInitPointcut <em>Static Init Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.StaticInitPointcut
    * @generated
    */
-  public Adapter createStaticInitPointcutAdapter()
-  {
+	public Adapter createStaticInitPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.InitPointcut <em>Init Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.InitPointcut
    * @generated
    */
-  public Adapter createInitPointcutAdapter()
-  {
+	public Adapter createInitPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.PreInitPointcut <em>Pre Init Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.PreInitPointcut
    * @generated
    */
-  public Adapter createPreInitPointcutAdapter()
-  {
+	public Adapter createPreInitPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.WithinPointcut <em>Within Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.WithinPointcut
    * @generated
    */
-  public Adapter createWithinPointcutAdapter()
-  {
+	public Adapter createWithinPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.WithinCodePointcut <em>Within Code Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.WithinCodePointcut
    * @generated
    */
-  public Adapter createWithinCodePointcutAdapter()
-  {
+	public Adapter createWithinCodePointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.ThisPointcut <em>This Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.ThisPointcut
    * @generated
    */
-  public Adapter createThisPointcutAdapter()
-  {
+	public Adapter createThisPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.TargetPointcut <em>Target Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.TargetPointcut
    * @generated
    */
-  public Adapter createTargetPointcutAdapter()
-  {
+	public Adapter createTargetPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.ArgsPointcut <em>Args Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.ArgsPointcut
    * @generated
    */
-  public Adapter createArgsPointcutAdapter()
-  {
+	public Adapter createArgsPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.CFlowPointcut <em>CFlow Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.CFlowPointcut
    * @generated
    */
-  public Adapter createCFlowPointcutAdapter()
-  {
+	public Adapter createCFlowPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.CFlowBelowPointcut <em>CFlow Below Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.CFlowBelowPointcut
    * @generated
    */
-  public Adapter createCFlowBelowPointcutAdapter()
-  {
+	public Adapter createCFlowBelowPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.IfPointcut <em>If Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.IfPointcut
    * @generated
    */
-  public Adapter createIfPointcutAdapter()
-  {
+	public Adapter createIfPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.Pointcut <em>Pointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.Pointcut
    * @generated
    */
-  public Adapter createPointcutAdapter()
-  {
+	public Adapter createPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pointcuts.AspectJPointcut <em>Aspect JPointcut</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.pointcuts.AspectJPointcut
    * @generated
    */
-  public Adapter createAspectJPointcutAdapter()
-  {
+	public Adapter createAspectJPointcutAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.commons.Commentable <em>Commentable</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.commons.Commentable
    * @generated
    */
-  public Adapter createCommentableAdapter()
-  {
+	public Adapter createCommentableAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.commons.NamespaceAwareElement <em>Namespace Aware Element</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.commons.NamespaceAwareElement
    * @generated
    */
-  public Adapter createNamespaceAwareElementAdapter()
-  {
+	public Adapter createNamespaceAwareElementAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.commons.AspectMember <em>Aspect Member</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.aspectbind.commons.AspectMember
    * @generated
    */
-  public Adapter createAspectMemberAdapter()
-  {
+	public Adapter createAspectMemberAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.arrays.ArrayInitializationValue <em>Array Initialization Value</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.arrays.ArrayInitializationValue
    * @generated
    */
-  public Adapter createArrayInitializationValueAdapter()
-  {
+	public Adapter createArrayInitializationValueAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.annotations.AnnotationValue <em>Annotation Value</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.annotations.AnnotationValue
    * @generated
    */
-  public Adapter createAnnotationValueAdapter()
-  {
+	public Adapter createAnnotationValueAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.expressions.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.expressions.Expression
    * @generated
    */
-  public Adapter createExpressionAdapter()
-  {
+	public Adapter createExpressionAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.expressions.AssignmentExpressionChild <em>Assignment Expression Child</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.expressions.AssignmentExpressionChild
    * @generated
    */
-  public Adapter createAssignmentExpressionChildAdapter()
-  {
+	public Adapter createAssignmentExpressionChildAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.expressions.ConditionalExpressionChild <em>Conditional Expression Child</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.expressions.ConditionalExpressionChild
    * @generated
    */
-  public Adapter createConditionalExpressionChildAdapter()
-  {
+	public Adapter createConditionalExpressionChildAdapter() {
     return null;
   }
 
-  /**
-   * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pcexp.PointcutExpressionType <em>Pointcut Expression Type</em>}'.
+	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.java.expressions.ConditionalOrExpressionChild <em>Conditional Or Expression Child</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.emftext.language.aspectbind.pcexp.PointcutExpressionType
+   * @see org.emftext.language.java.expressions.ConditionalOrExpressionChild
    * @generated
    */
-  public Adapter createPointcutExpressionTypeAdapter()
-  {
+	public Adapter createConditionalOrExpressionChildAdapter() {
     return null;
   }
 
-  /**
+	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild <em>Pointcut Or Expression Child</em>}'.
+   * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emftext.language.aspectbind.pcexp.PointcutOrExpressionChild
+   * @generated
+   */
+	public Adapter createPointcutOrExpressionChildAdapter() {
+    return null;
+  }
+
+	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild <em>Pointcut And Expression Child</em>}'.
+   * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emftext.language.aspectbind.pcexp.PointcutAndExpressionChild
+   * @generated
+   */
+	public Adapter createPointcutAndExpressionChildAdapter() {
+    return null;
+  }
+
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.commons.NamedElement <em>Named Element</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.commons.NamedElement
    * @generated
    */
-  public Adapter createNamedElementAdapter()
-  {
+	public Adapter createNamedElementAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.parameters.Parametrizable <em>Parametrizable</em>}'.
    * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @see org.emftext.language.java.parameters.Parametrizable
    * @generated
    */
-  public Adapter createParametrizableAdapter()
-  {
+	public Adapter createParametrizableAdapter() {
     return null;
   }
 
-  /**
+	/**
    * Creates a new adapter for the default case.
    * <!-- begin-user-doc -->
-   * This default implementation returns null.
-   * <!-- end-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
    * @return the new adapter.
    * @generated
    */
-  public Adapter createEObjectAdapter()
-  {
+	public Adapter createEObjectAdapter() {
     return null;
   }
 

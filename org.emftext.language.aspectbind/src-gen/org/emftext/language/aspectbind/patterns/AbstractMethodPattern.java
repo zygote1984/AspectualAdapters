@@ -17,6 +17,5 @@ package org.emftext.language.aspectbind.patterns;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractMethodPattern extends Pattern
-{
+public interface AbstractMethodPattern extends Pattern {
 } // AbstractMethodPattern

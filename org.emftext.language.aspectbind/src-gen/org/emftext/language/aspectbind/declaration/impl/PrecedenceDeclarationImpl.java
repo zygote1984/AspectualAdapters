@@ -20,26 +20,23 @@ import org.emftext.language.aspectbind.declaration.PrecedenceDeclaration;
  *
  * @generated
  */
-public class PrecedenceDeclarationImpl extends DeclarationImpl implements PrecedenceDeclaration
-{
-  /**
+public class PrecedenceDeclarationImpl extends DeclarationImpl implements PrecedenceDeclaration {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected PrecedenceDeclarationImpl()
-  {
+	protected PrecedenceDeclarationImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return DeclarationPackage.Literals.PRECEDENCE_DECLARATION;
   }
 

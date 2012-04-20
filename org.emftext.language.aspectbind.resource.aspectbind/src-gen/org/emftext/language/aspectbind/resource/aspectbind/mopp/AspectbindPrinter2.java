@@ -121,52 +121,84 @@ public class AspectbindPrinter2 implements org.emftext.language.aspectbind.resou
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_2, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.pointcuts.AspectJPointcut) {
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.ArgsPointcut) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_3, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.commons.PerClause) {
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.WithinPointcut) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_4, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.binding.InstancePointcut) {
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.TargetPointcut) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_5, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.patterns.FieldPattern) {
+		if (element instanceof org.emftext.language.aspectbind.pointcuts.AspectJPointcut) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_6, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.patterns.ConstructorPattern) {
+		if (element instanceof org.emftext.language.aspectbind.commons.PerClause) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_7, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.patterns.MethodPattern) {
+		if (element instanceof org.emftext.language.aspectbind.binding.InstancePointcut) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_8, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
+		if (element instanceof org.emftext.language.aspectbind.binding.Instance) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_9, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.declaration.AdapterDeclaration) {
+		if (element instanceof org.emftext.language.aspectbind.patterns.FieldPattern) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_10, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.declaration.Adapter) {
+		if (element instanceof org.emftext.language.aspectbind.patterns.ConstructorPattern) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_11, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.declaration.PrecedenceDeclaration) {
+		if (element instanceof org.emftext.language.aspectbind.patterns.MethodPattern) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_12, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.declaration.InterTypeDeclaration) {
+		if (element instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_13, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutExpression) {
+		if (element instanceof org.emftext.language.aspectbind.patterns.IdPattern) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_14, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.declaration.AdapterDeclaration) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_15, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.declaration.Adapter) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_16, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.declaration.PrecedenceDeclaration) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_17, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.declaration.InterTypeDeclaration) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_18, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutExpression) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_19, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutOrExpression) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_20, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutAndExpression) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_21, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_22, foundFormattingElements);
 			return;
 		}
 		if (element instanceof org.emftext.language.java.containers.EmptyModel) {

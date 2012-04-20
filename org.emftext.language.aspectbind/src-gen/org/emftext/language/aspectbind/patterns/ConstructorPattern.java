@@ -28,64 +28,63 @@ import org.emftext.language.java.modifiers.Modifier;
  * @model
  * @generated
  */
-public interface ConstructorPattern extends AbstractMethodPattern
-{
-  /**
+public interface ConstructorPattern extends AbstractMethodPattern {
+	/**
    * Returns the value of the '<em><b>Modifiers</b></em>' containment reference list.
    * The list contents are of type {@link org.emftext.language.java.modifiers.Modifier}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Modifiers</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Modifiers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
    * @return the value of the '<em>Modifiers</em>' containment reference list.
    * @see org.emftext.language.aspectbind.patterns.PatternsPackage#getConstructorPattern_Modifiers()
    * @model containment="true"
    * @generated
    */
-  EList<Modifier> getModifiers();
+	EList<Modifier> getModifiers();
 
-  /**
+	/**
    * Returns the value of the '<em><b>Declaring Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Declaring Type</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Declaring Type</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
    * @return the value of the '<em>Declaring Type</em>' containment reference.
    * @see #setDeclaringType(TypePattern)
    * @see org.emftext.language.aspectbind.patterns.PatternsPackage#getConstructorPattern_DeclaringType()
    * @model containment="true" required="true"
    * @generated
    */
-  TypePattern getDeclaringType();
+	TypePattern getDeclaringType();
 
-  /**
+	/**
    * Sets the value of the '{@link org.emftext.language.aspectbind.patterns.ConstructorPattern#getDeclaringType <em>Declaring Type</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @param value the new value of the '<em>Declaring Type</em>' containment reference.
    * @see #getDeclaringType()
    * @generated
    */
-  void setDeclaringType(TypePattern value);
+	void setDeclaringType(TypePattern value);
 
-  /**
+	/**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
    * The list contents are of type {@link org.emftext.language.aspectbind.patterns.TypePattern}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
    * @see org.emftext.language.aspectbind.patterns.PatternsPackage#getConstructorPattern_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<TypePattern> getParameters();
+	EList<TypePattern> getParameters();
 
 } // ConstructorPattern

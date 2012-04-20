@@ -20,6 +20,5 @@ import org.emftext.language.java.commons.Commentable;
  * @model abstract="true"
  * @generated
  */
-public interface Pattern extends Commentable, AspectMember
-{
+public interface Pattern extends Commentable, AspectMember {
 } // Pattern

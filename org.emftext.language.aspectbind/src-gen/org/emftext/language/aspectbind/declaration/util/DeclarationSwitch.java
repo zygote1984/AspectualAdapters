@@ -32,54 +32,50 @@ import org.emftext.language.java.commons.NamespaceAwareElement;
  * @see org.emftext.language.aspectbind.declaration.DeclarationPackage
  * @generated
  */
-public class DeclarationSwitch<T> extends Switch<T>
-{
-  /**
+public class DeclarationSwitch<T> extends Switch<T> {
+	/**
    * The cached model package
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected static DeclarationPackage modelPackage;
+	protected static DeclarationPackage modelPackage;
 
-  /**
+	/**
    * Creates an instance of the switch.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public DeclarationSwitch()
-  {
+	public DeclarationSwitch() {
     if (modelPackage == null)
     {
       modelPackage = DeclarationPackage.eINSTANCE;
     }
   }
 
-  /**
+	/**
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @parameter ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
-  @Override
-  protected boolean isSwitchFor(EPackage ePackage)
-  {
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
     return ePackage == modelPackage;
   }
 
-  /**
+	/**
    * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return the first non-null result returned by a <code>caseXXX</code> call.
    * @generated
    */
-  @Override
-  protected T doSwitch(int classifierID, EObject theEObject)
-  {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
     switch (classifierID)
     {
       case DeclarationPackage.ADAPTER_DECLARATION:
@@ -138,164 +134,154 @@ public class DeclarationSwitch<T> extends Switch<T>
     }
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Adapter Declaration</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Adapter Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAdapterDeclaration(AdapterDeclaration object)
-  {
+	public T caseAdapterDeclaration(AdapterDeclaration object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Precedence Declaration</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Precedence Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePrecedenceDeclaration(PrecedenceDeclaration object)
-  {
+	public T casePrecedenceDeclaration(PrecedenceDeclaration object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Inter Type Declaration</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Inter Type Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInterTypeDeclaration(InterTypeDeclaration object)
-  {
+	public T caseInterTypeDeclaration(InterTypeDeclaration object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDeclaration(Declaration object)
-  {
+	public T caseDeclaration(Declaration object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Adapter</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Adapter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAdapter(Adapter object)
-  {
+	public T caseAdapter(Adapter object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Commentable</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Commentable</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCommentable(Commentable object)
-  {
+	public T caseCommentable(Commentable object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Namespace Aware Element</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Namespace Aware Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNamespaceAwareElement(NamespaceAwareElement object)
-  {
+	public T caseNamespaceAwareElement(NamespaceAwareElement object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Aspect Member</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Aspect Member</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAspectMember(AspectMember object)
-  {
+	public T caseAspectMember(AspectMember object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNamedElement(NamedElement object)
-  {
+	public T caseNamedElement(NamedElement object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch, but this is the last case anyway.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject)
    * @generated
    */
-  @Override
-  public T defaultCase(EObject object)
-  {
+	@Override
+	public T defaultCase(EObject object) {
     return null;
   }
 

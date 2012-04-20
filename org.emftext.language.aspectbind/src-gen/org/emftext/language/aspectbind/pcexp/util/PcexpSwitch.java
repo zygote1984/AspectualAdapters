@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.emftext.language.aspectbind.commons.AspectMember;
-
 import org.emftext.language.aspectbind.pcexp.*;
 
 import org.emftext.language.java.annotations.AnnotationValue;
@@ -20,12 +18,15 @@ import org.emftext.language.java.annotations.AnnotationValue;
 import org.emftext.language.java.arrays.ArrayInitializationValue;
 
 import org.emftext.language.java.commons.Commentable;
-import org.emftext.language.java.commons.NamespaceAwareElement;
 
 import org.emftext.language.java.expressions.AssignmentExpressionChild;
 import org.emftext.language.java.expressions.ConditionalExpression;
 import org.emftext.language.java.expressions.ConditionalExpressionChild;
+import org.emftext.language.java.expressions.ConditionalOrExpressionChild;
 import org.emftext.language.java.expressions.Expression;
+
+import org.emftext.language.java.operators.AssignmentOperator;
+import org.emftext.language.java.operators.Operator;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,63 +41,70 @@ import org.emftext.language.java.expressions.Expression;
  * @see org.emftext.language.aspectbind.pcexp.PcexpPackage
  * @generated
  */
-public class PcexpSwitch<T> extends Switch<T>
-{
-  /**
+public class PcexpSwitch<T> extends Switch<T> {
+	/**
    * The cached model package
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected static PcexpPackage modelPackage;
+	protected static PcexpPackage modelPackage;
 
-  /**
+	/**
    * Creates an instance of the switch.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PcexpSwitch()
-  {
+	public PcexpSwitch() {
     if (modelPackage == null)
     {
       modelPackage = PcexpPackage.eINSTANCE;
     }
   }
 
-  /**
+	/**
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @parameter ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
-  @Override
-  protected boolean isSwitchFor(EPackage ePackage)
-  {
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
     return ePackage == modelPackage;
   }
 
-  /**
+	/**
    * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return the first non-null result returned by a <code>caseXXX</code> call.
    * @generated
    */
-  @Override
-  protected T doSwitch(int classifierID, EObject theEObject)
-  {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
     switch (classifierID)
     {
+      case PcexpPackage.POINTCUT_EXPRESSION_CHILD:
+      {
+        PointcutExpressionChild pointcutExpressionChild = (PointcutExpressionChild)theEObject;
+        T result = casePointcutExpressionChild(pointcutExpressionChild);
+        if (result == null) result = caseConditionalExpressionChild(pointcutExpressionChild);
+        if (result == null) result = caseAssignmentExpressionChild(pointcutExpressionChild);
+        if (result == null) result = caseExpression(pointcutExpressionChild);
+        if (result == null) result = caseArrayInitializationValue(pointcutExpressionChild);
+        if (result == null) result = caseAnnotationValue(pointcutExpressionChild);
+        if (result == null) result = caseCommentable(pointcutExpressionChild);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PcexpPackage.POINTCUT_EXPRESSION:
       {
         PointcutExpression pointcutExpression = (PointcutExpression)theEObject;
         T result = casePointcutExpression(pointcutExpression);
-        if (result == null) result = caseAspectMember(pointcutExpression);
         if (result == null) result = caseConditionalExpression(pointcutExpression);
-        if (result == null) result = caseNamespaceAwareElement(pointcutExpression);
         if (result == null) result = caseAssignmentExpressionChild(pointcutExpression);
         if (result == null) result = caseExpression(pointcutExpression);
         if (result == null) result = caseArrayInitializationValue(pointcutExpression);
@@ -105,16 +113,71 @@ public class PcexpSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PcexpPackage.POINTCUT_EXPRESSION_TYPE:
+      case PcexpPackage.POINTCUT_OR_EXPRESSION:
       {
-        PointcutExpressionType pointcutExpressionType = (PointcutExpressionType)theEObject;
-        T result = casePointcutExpressionType(pointcutExpressionType);
-        if (result == null) result = caseConditionalExpressionChild(pointcutExpressionType);
-        if (result == null) result = caseAssignmentExpressionChild(pointcutExpressionType);
-        if (result == null) result = caseExpression(pointcutExpressionType);
-        if (result == null) result = caseArrayInitializationValue(pointcutExpressionType);
-        if (result == null) result = caseAnnotationValue(pointcutExpressionType);
-        if (result == null) result = caseCommentable(pointcutExpressionType);
+        PointcutOrExpression pointcutOrExpression = (PointcutOrExpression)theEObject;
+        T result = casePointcutOrExpression(pointcutOrExpression);
+        if (result == null) result = casePointcutExpressionChild(pointcutOrExpression);
+        if (result == null) result = caseConditionalExpressionChild(pointcutOrExpression);
+        if (result == null) result = caseAssignmentExpressionChild(pointcutOrExpression);
+        if (result == null) result = caseExpression(pointcutOrExpression);
+        if (result == null) result = caseArrayInitializationValue(pointcutOrExpression);
+        if (result == null) result = caseAnnotationValue(pointcutOrExpression);
+        if (result == null) result = caseCommentable(pointcutOrExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PcexpPackage.POINTCUT_OR_EXPRESSION_CHILD:
+      {
+        PointcutOrExpressionChild pointcutOrExpressionChild = (PointcutOrExpressionChild)theEObject;
+        T result = casePointcutOrExpressionChild(pointcutOrExpressionChild);
+        if (result == null) result = caseConditionalOrExpressionChild(pointcutOrExpressionChild);
+        if (result == null) result = caseConditionalExpressionChild(pointcutOrExpressionChild);
+        if (result == null) result = caseAssignmentExpressionChild(pointcutOrExpressionChild);
+        if (result == null) result = caseExpression(pointcutOrExpressionChild);
+        if (result == null) result = caseArrayInitializationValue(pointcutOrExpressionChild);
+        if (result == null) result = caseAnnotationValue(pointcutOrExpressionChild);
+        if (result == null) result = caseCommentable(pointcutOrExpressionChild);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PcexpPackage.POINTCUT_AND_EXPRESSION:
+      {
+        PointcutAndExpression pointcutAndExpression = (PointcutAndExpression)theEObject;
+        T result = casePointcutAndExpression(pointcutAndExpression);
+        if (result == null) result = casePointcutOrExpressionChild(pointcutAndExpression);
+        if (result == null) result = caseConditionalOrExpressionChild(pointcutAndExpression);
+        if (result == null) result = caseConditionalExpressionChild(pointcutAndExpression);
+        if (result == null) result = caseAssignmentExpressionChild(pointcutAndExpression);
+        if (result == null) result = caseExpression(pointcutAndExpression);
+        if (result == null) result = caseArrayInitializationValue(pointcutAndExpression);
+        if (result == null) result = caseAnnotationValue(pointcutAndExpression);
+        if (result == null) result = caseCommentable(pointcutAndExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PcexpPackage.POINTCUT_AND_EXPRESSION_CHILD:
+      {
+        PointcutAndExpressionChild pointcutAndExpressionChild = (PointcutAndExpressionChild)theEObject;
+        T result = casePointcutAndExpressionChild(pointcutAndExpressionChild);
+        if (result == null) result = casePointcutOrExpressionChild(pointcutAndExpressionChild);
+        if (result == null) result = caseConditionalOrExpressionChild(pointcutAndExpressionChild);
+        if (result == null) result = caseConditionalExpressionChild(pointcutAndExpressionChild);
+        if (result == null) result = caseAssignmentExpressionChild(pointcutAndExpressionChild);
+        if (result == null) result = caseExpression(pointcutAndExpressionChild);
+        if (result == null) result = caseArrayInitializationValue(pointcutAndExpressionChild);
+        if (result == null) result = caseAnnotationValue(pointcutAndExpressionChild);
+        if (result == null) result = caseCommentable(pointcutAndExpressionChild);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PcexpPackage.PC_ASSIGNMENT_OPERATOR:
+      {
+        PcAssignmentOperator pcAssignmentOperator = (PcAssignmentOperator)theEObject;
+        T result = casePcAssignmentOperator(pcAssignmentOperator);
+        if (result == null) result = caseAssignmentOperator(pcAssignmentOperator);
+        if (result == null) result = caseOperator(pcAssignmentOperator);
+        if (result == null) result = caseCommentable(pcAssignmentOperator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,196 +185,274 @@ public class PcexpSwitch<T> extends Switch<T>
     }
   }
 
-  /**
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Pointcut Expression Child</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pointcut Expression Child</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T casePointcutExpressionChild(PointcutExpressionChild object) {
+    return null;
+  }
+
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Pointcut Expression</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Pointcut Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePointcutExpression(PointcutExpression object)
-  {
+	public T casePointcutExpression(PointcutExpression object) {
     return null;
   }
 
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Pointcut Expression Type</em>'.
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Pointcut Or Expression</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pointcut Expression Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Pointcut Or Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePointcutExpressionType(PointcutExpressionType object)
-  {
+	public T casePointcutOrExpression(PointcutOrExpression object) {
     return null;
   }
 
-  /**
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Pointcut Or Expression Child</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pointcut Or Expression Child</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T casePointcutOrExpressionChild(PointcutOrExpressionChild object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Pointcut And Expression</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pointcut And Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T casePointcutAndExpression(PointcutAndExpression object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Pointcut And Expression Child</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pointcut And Expression Child</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T casePointcutAndExpressionChild(PointcutAndExpressionChild object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Pc Assignment Operator</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pc Assignment Operator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T casePcAssignmentOperator(PcAssignmentOperator object) {
+    return null;
+  }
+
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Commentable</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Commentable</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCommentable(Commentable object)
-  {
+	public T caseCommentable(Commentable object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Array Initialization Value</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Array Initialization Value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseArrayInitializationValue(ArrayInitializationValue object)
-  {
+	public T caseArrayInitializationValue(ArrayInitializationValue object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Annotation Value</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Annotation Value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAnnotationValue(AnnotationValue object)
-  {
+	public T caseAnnotationValue(AnnotationValue object) {
     return null;
   }
 
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpression(Expression object)
-  {
+	public T caseExpression(Expression object) {
     return null;
   }
 
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Namespace Aware Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Namespace Aware Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNamespaceAwareElement(NamespaceAwareElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Aspect Member</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Aspect Member</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAspectMember(AspectMember object)
-  {
-    return null;
-  }
-
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Assignment Expression Child</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Assignment Expression Child</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAssignmentExpressionChild(AssignmentExpressionChild object)
-  {
+	public T caseAssignmentExpressionChild(AssignmentExpressionChild object) {
     return null;
   }
 
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConditionalExpression(ConditionalExpression object)
-  {
-    return null;
-  }
-
-  /**
+	/**
    * Returns the result of interpreting the object as an instance of '<em>Conditional Expression Child</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Conditional Expression Child</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConditionalExpressionChild(ConditionalExpressionChild object)
-  {
+	public T caseConditionalExpressionChild(ConditionalExpressionChild object) {
     return null;
   }
 
-  /**
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T caseConditionalExpression(ConditionalExpression object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Or Expression Child</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Or Expression Child</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T caseConditionalOrExpressionChild(ConditionalOrExpressionChild object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Operator</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T caseOperator(Operator object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Assignment Operator</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assignment Operator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T caseAssignmentOperator(AssignmentOperator object) {
+    return null;
+  }
+
+	/**
    * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch, but this is the last case anyway.
-   * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject)
    * @generated
    */
-  @Override
-  public T defaultCase(EObject object)
-  {
+	@Override
+	public T defaultCase(EObject object) {
     return null;
   }
 

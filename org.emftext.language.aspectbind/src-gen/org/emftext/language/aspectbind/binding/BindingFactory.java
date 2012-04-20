@@ -16,32 +16,40 @@ import org.eclipse.emf.ecore.EFactory;
  * @see org.emftext.language.aspectbind.binding.BindingPackage
  * @generated
  */
-public interface BindingFactory extends EFactory
-{
-  /**
+public interface BindingFactory extends EFactory {
+	/**
    * The singleton instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  BindingFactory eINSTANCE = org.emftext.language.aspectbind.binding.impl.BindingFactoryImpl.init();
+	BindingFactory eINSTANCE = org.emftext.language.aspectbind.binding.impl.BindingFactoryImpl.init();
 
-  /**
+	/**
    * Returns a new object of class '<em>Instance Pointcut</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Instance Pointcut</em>'.
    * @generated
    */
-  InstancePointcut createInstancePointcut();
+	InstancePointcut createInstancePointcut();
 
-  /**
+	/**
+   * Returns a new object of class '<em>Instance</em>'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return a new object of class '<em>Instance</em>'.
+   * @generated
+   */
+	Instance createInstance();
+
+	/**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return the package supported by this factory.
    * @generated
    */
-  BindingPackage getBindingPackage();
+	BindingPackage getBindingPackage();
 
 } //BindingFactory

@@ -20,26 +20,23 @@ import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
  *
  * @generated
  */
-public abstract class AdviceExecutionPointcutImpl extends PrimitivePointcutImpl implements AdviceExecutionPointcut
-{
-  /**
+public abstract class AdviceExecutionPointcutImpl extends PrimitivePointcutImpl implements AdviceExecutionPointcut {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected AdviceExecutionPointcutImpl()
-  {
+	protected AdviceExecutionPointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PointcutsPackage.Literals.ADVICE_EXECUTION_POINTCUT;
   }
 

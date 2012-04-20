@@ -3,3 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Source
 Bundle-SymbolicName: zygote.binding.lib
 Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.jdt.apt.core;bundle-version="3.3.500",
+ org.eclipse.jdt.apt.pluggable.core;bundle-version="1.0.400",
+ org.eclipse.jdt.compiler.apt.source;bundle-version="1.0.400",
+ org.aspectj.runtime

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.emftext.language.aspectbind.pointcuts.IfPointcut;
 import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
-import org.emftext.language.java.expressions.Expression;
+import org.emftext.language.java.expressions.ConditionalExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,50 +31,46 @@ import org.emftext.language.java.expressions.Expression;
  *
  * @generated
  */
-public abstract class IfPointcutImpl extends PrimitivePointcutImpl implements IfPointcut
-{
-  /**
+public class IfPointcutImpl extends PrimitivePointcutImpl implements IfPointcut {
+	/**
    * The cached value of the '{@link #getExp() <em>Exp</em>}' reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getExp()
    * @generated
    * @ordered
    */
-  protected Expression exp;
+	protected ConditionalExpression exp;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected IfPointcutImpl()
-  {
+	protected IfPointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PointcutsPackage.Literals.IF_POINTCUT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExp()
-  {
+	public ConditionalExpression getExp() {
     if (exp != null && exp.eIsProxy())
     {
       InternalEObject oldExp = (InternalEObject)exp;
-      exp = (Expression)eResolveProxy(oldExp);
+      exp = (ConditionalExpression)eResolveProxy(oldExp);
       if (exp != oldExp)
       {
         if (eNotificationRequired())
@@ -84,37 +80,34 @@ public abstract class IfPointcutImpl extends PrimitivePointcutImpl implements If
     return exp;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Expression basicGetExp()
-  {
+	public ConditionalExpression basicGetExp() {
     return exp;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp(Expression newExp)
-  {
-    Expression oldExp = exp;
+	public void setExp(ConditionalExpression newExp) {
+    ConditionalExpression oldExp = exp;
     exp = newExp;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.IF_POINTCUT__EXP, oldExp, exp));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PointcutsPackage.IF_POINTCUT__EXP:
@@ -124,48 +117,45 @@ public abstract class IfPointcutImpl extends PrimitivePointcutImpl implements If
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PointcutsPackage.IF_POINTCUT__EXP:
-        setExp((Expression)newValue);
+        setExp((ConditionalExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.IF_POINTCUT__EXP:
-        setExp((Expression)null);
+        setExp((ConditionalExpression)null);
         return;
     }
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.IF_POINTCUT__EXP:

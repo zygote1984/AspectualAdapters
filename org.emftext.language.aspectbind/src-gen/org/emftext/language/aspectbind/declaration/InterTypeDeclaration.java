@@ -17,6 +17,5 @@ package org.emftext.language.aspectbind.declaration;
  * @model
  * @generated
  */
-public interface InterTypeDeclaration extends Declaration
-{
+public interface InterTypeDeclaration extends Declaration {
 } // InterTypeDeclaration

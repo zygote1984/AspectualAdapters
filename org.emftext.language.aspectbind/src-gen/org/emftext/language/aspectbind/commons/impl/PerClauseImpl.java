@@ -34,89 +34,83 @@ import org.emftext.language.java.commons.impl.CommentableImpl;
  *
  * @generated
  */
-public class PerClauseImpl extends CommentableImpl implements PerClause
-{
-  /**
+public class PerClauseImpl extends CommentableImpl implements PerClause {
+	/**
    * The default value of the '{@link #getClause() <em>Clause</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getClause()
    * @generated
    * @ordered
    */
-  protected static final String CLAUSE_EDEFAULT = null;
+	protected static final String CLAUSE_EDEFAULT = null;
 
-  /**
+	/**
    * The cached value of the '{@link #getClause() <em>Clause</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getClause()
    * @generated
    * @ordered
    */
-  protected String clause = CLAUSE_EDEFAULT;
+	protected String clause = CLAUSE_EDEFAULT;
 
-  /**
+	/**
    * The cached value of the '{@link #getPointcut() <em>Pointcut</em>}' reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getPointcut()
    * @generated
    * @ordered
    */
-  protected Pointcut pointcut;
+	protected Pointcut pointcut;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected PerClauseImpl()
-  {
+	protected PerClauseImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return CommonsPackage.Literals.PER_CLAUSE;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public String getClause()
-  {
+	public String getClause() {
     return clause;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setClause(String newClause)
-  {
+	public void setClause(String newClause) {
     String oldClause = clause;
     clause = newClause;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.PER_CLAUSE__CLAUSE, oldClause, clause));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Pointcut getPointcut()
-  {
+	public Pointcut getPointcut() {
     if (pointcut != null && pointcut.eIsProxy())
     {
       InternalEObject oldPointcut = (InternalEObject)pointcut;
@@ -130,37 +124,34 @@ public class PerClauseImpl extends CommentableImpl implements PerClause
     return pointcut;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Pointcut basicGetPointcut()
-  {
+	public Pointcut basicGetPointcut() {
     return pointcut;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setPointcut(Pointcut newPointcut)
-  {
+	public void setPointcut(Pointcut newPointcut) {
     Pointcut oldPointcut = pointcut;
     pointcut = newPointcut;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.PER_CLAUSE__POINTCUT, oldPointcut, pointcut));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case CommonsPackage.PER_CLAUSE__CLAUSE:
@@ -172,14 +163,13 @@ public class PerClauseImpl extends CommentableImpl implements PerClause
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case CommonsPackage.PER_CLAUSE__CLAUSE:
@@ -192,14 +182,13 @@ public class PerClauseImpl extends CommentableImpl implements PerClause
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case CommonsPackage.PER_CLAUSE__CLAUSE:
@@ -212,14 +201,13 @@ public class PerClauseImpl extends CommentableImpl implements PerClause
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case CommonsPackage.PER_CLAUSE__CLAUSE:
@@ -230,14 +218,13 @@ public class PerClauseImpl extends CommentableImpl implements PerClause
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

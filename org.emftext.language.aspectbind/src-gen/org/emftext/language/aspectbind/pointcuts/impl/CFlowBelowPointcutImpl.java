@@ -30,46 +30,42 @@ import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
  *
  * @generated
  */
-public abstract class CFlowBelowPointcutImpl extends PrimitivePointcutImpl implements CFlowBelowPointcut
-{
-  /**
+public class CFlowBelowPointcutImpl extends PrimitivePointcutImpl implements CFlowBelowPointcut {
+	/**
    * The cached value of the '{@link #getPointcut() <em>Pointcut</em>}' reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getPointcut()
    * @generated
    * @ordered
    */
-  protected Pointcut pointcut;
+	protected Pointcut pointcut;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected CFlowBelowPointcutImpl()
-  {
+	protected CFlowBelowPointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PointcutsPackage.Literals.CFLOW_BELOW_POINTCUT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Pointcut getPointcut()
-  {
+	public Pointcut getPointcut() {
     if (pointcut != null && pointcut.eIsProxy())
     {
       InternalEObject oldPointcut = (InternalEObject)pointcut;
@@ -83,37 +79,34 @@ public abstract class CFlowBelowPointcutImpl extends PrimitivePointcutImpl imple
     return pointcut;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Pointcut basicGetPointcut()
-  {
+	public Pointcut basicGetPointcut() {
     return pointcut;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setPointcut(Pointcut newPointcut)
-  {
+	public void setPointcut(Pointcut newPointcut) {
     Pointcut oldPointcut = pointcut;
     pointcut = newPointcut;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.CFLOW_BELOW_POINTCUT__POINTCUT, oldPointcut, pointcut));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PointcutsPackage.CFLOW_BELOW_POINTCUT__POINTCUT:
@@ -123,14 +116,13 @@ public abstract class CFlowBelowPointcutImpl extends PrimitivePointcutImpl imple
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PointcutsPackage.CFLOW_BELOW_POINTCUT__POINTCUT:
@@ -140,14 +132,13 @@ public abstract class CFlowBelowPointcutImpl extends PrimitivePointcutImpl imple
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.CFLOW_BELOW_POINTCUT__POINTCUT:
@@ -157,14 +148,13 @@ public abstract class CFlowBelowPointcutImpl extends PrimitivePointcutImpl imple
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.CFLOW_BELOW_POINTCUT__POINTCUT:

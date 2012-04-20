@@ -20,26 +20,23 @@ import org.emftext.language.aspectbind.patterns.PatternsPackage;
  *
  * @generated
  */
-public abstract class AbstractMethodPatternImpl extends PatternImpl implements AbstractMethodPattern
-{
-  /**
+public abstract class AbstractMethodPatternImpl extends PatternImpl implements AbstractMethodPattern {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected AbstractMethodPatternImpl()
-  {
+	protected AbstractMethodPatternImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PatternsPackage.Literals.ABSTRACT_METHOD_PATTERN;
   }
 

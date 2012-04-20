@@ -6,9 +6,17 @@
  */
 package org.emftext.language.aspectbind.pointcuts.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.emftext.language.aspectbind.commons.impl.AspectMemberImpl;
+
+import org.emftext.language.aspectbind.patterns.Pattern;
 
 import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 import org.emftext.language.aspectbind.pointcuts.PrimitivePointcut;
@@ -20,62 +28,115 @@ import org.emftext.language.java.types.Type;
  * An implementation of the model object '<em><b>Primitive Pointcut</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.emftext.language.aspectbind.pointcuts.impl.PrimitivePointcutImpl#getPattern <em>Pattern</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class PrimitivePointcutImpl extends AspectMemberImpl implements PrimitivePointcut
-{
-  /**
+public abstract class PrimitivePointcutImpl extends AspectMemberImpl implements PrimitivePointcut {
+	/**
+   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
+   * @see #getPattern()
+   * @generated
+   * @ordered
+   */
+	protected Pattern pattern;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected PrimitivePointcutImpl()
-  {
+	protected PrimitivePointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PointcutsPackage.Literals.PRIMITIVE_POINTCUT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type getType()
-  {
+	public Pattern getPattern() {
+    return pattern;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+    Pattern oldPattern = pattern;
+    pattern = newPattern;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN, oldPattern, newPattern);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public void setPattern(Pattern newPattern) {
+    if (newPattern != pattern)
+    {
+      NotificationChain msgs = null;
+      if (pattern != null)
+        msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN, null, msgs);
+      if (newPattern != null)
+        msgs = ((InternalEObject)newPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN, null, msgs);
+      msgs = basicSetPattern(newPattern, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN, newPattern, newPattern));
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public Type getType() {
     return getOneType ( false ) ; 
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type getAlternativeType()
-  {
+	public Type getAlternativeType() {
     return getOneType ( true ) ; 
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type getOneType(boolean alternative)
-  {
+	public Type getOneType(boolean alternative) {
     org.emftext.language.java.classifiers.Class stringClass = getStringClass ( ) ; 
     org.emftext.language.java.types.Type type = null ; 
     if ( this instanceof org.emftext.language.java.references.Reference ) { 
@@ -149,13 +210,12 @@ public abstract class PrimitivePointcutImpl extends AspectMemberImpl implements 
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public long getArrayDimension()
-  {
+	public long getArrayDimension() {
     long size = 0 ; 
     org.emftext.language.java.arrays.ArrayTypeable arrayType = null ; 
     if ( this instanceof org.emftext.language.java.expressions.NestedExpression && ( ( org.emftext.language.java.expressions.NestedExpression ) this ) .getNext ( ) == null ) { 
@@ -222,6 +282,83 @@ public abstract class PrimitivePointcutImpl extends AspectMemberImpl implements 
     } 
     return size ; 
     
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    switch (featureID)
+    {
+      case PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN:
+        return basicSetPattern(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    switch (featureID)
+    {
+      case PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN:
+        return getPattern();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+    switch (featureID)
+    {
+      case PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN:
+        setPattern((Pattern)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	@Override
+	public void eUnset(int featureID) {
+    switch (featureID)
+    {
+      case PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN:
+        setPattern((Pattern)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	@Override
+	public boolean eIsSet(int featureID) {
+    switch (featureID)
+    {
+      case PointcutsPackage.PRIMITIVE_POINTCUT__PATTERN:
+        return pattern != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //PrimitivePointcutImpl

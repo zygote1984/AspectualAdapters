@@ -16,59 +16,58 @@ import org.eclipse.emf.ecore.EFactory;
  * @see org.emftext.language.aspectbind.declaration.DeclarationPackage
  * @generated
  */
-public interface DeclarationFactory extends EFactory
-{
-  /**
+public interface DeclarationFactory extends EFactory {
+	/**
    * The singleton instance of the factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  DeclarationFactory eINSTANCE = org.emftext.language.aspectbind.declaration.impl.DeclarationFactoryImpl.init();
+	DeclarationFactory eINSTANCE = org.emftext.language.aspectbind.declaration.impl.DeclarationFactoryImpl.init();
 
-  /**
+	/**
    * Returns a new object of class '<em>Adapter Declaration</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Adapter Declaration</em>'.
    * @generated
    */
-  AdapterDeclaration createAdapterDeclaration();
+	AdapterDeclaration createAdapterDeclaration();
 
-  /**
+	/**
    * Returns a new object of class '<em>Precedence Declaration</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Precedence Declaration</em>'.
    * @generated
    */
-  PrecedenceDeclaration createPrecedenceDeclaration();
+	PrecedenceDeclaration createPrecedenceDeclaration();
 
-  /**
+	/**
    * Returns a new object of class '<em>Inter Type Declaration</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Inter Type Declaration</em>'.
    * @generated
    */
-  InterTypeDeclaration createInterTypeDeclaration();
+	InterTypeDeclaration createInterTypeDeclaration();
 
-  /**
+	/**
    * Returns a new object of class '<em>Adapter</em>'.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return a new object of class '<em>Adapter</em>'.
    * @generated
    */
-  Adapter createAdapter();
+	Adapter createAdapter();
 
-  /**
+	/**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @return the package supported by this factory.
    * @generated
    */
-  DeclarationPackage getDeclarationPackage();
+	DeclarationPackage getDeclarationPackage();
 
 } //DeclarationFactory

@@ -26,10 +26,12 @@ import org.emftext.language.aspectbind.declaration.impl.DeclarationPackageImpl;
 import org.emftext.language.aspectbind.patterns.AbstractMethodPattern;
 import org.emftext.language.aspectbind.patterns.ConstructorPattern;
 import org.emftext.language.aspectbind.patterns.FieldPattern;
+import org.emftext.language.aspectbind.patterns.IdPattern;
 import org.emftext.language.aspectbind.patterns.MethodPattern;
 import org.emftext.language.aspectbind.patterns.Pattern;
 import org.emftext.language.aspectbind.patterns.PatternsFactory;
 import org.emftext.language.aspectbind.patterns.PatternsPackage;
+import org.emftext.language.aspectbind.patterns.TypeOrIdPattern;
 import org.emftext.language.aspectbind.patterns.TypePattern;
 
 import org.emftext.language.aspectbind.pcexp.PcexpPackage;
@@ -82,51 +84,64 @@ import org.emftext.language.java.variables.VariablesPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
-{
-  /**
+public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass patternEClass = null;
+	private EClass patternEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractMethodPatternEClass = null;
+	private EClass abstractMethodPatternEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fieldPatternEClass = null;
+	private EClass fieldPatternEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass constructorPatternEClass = null;
+	private EClass constructorPatternEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass methodPatternEClass = null;
+	private EClass methodPatternEClass = null;
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typePatternEClass = null;
+	private EClass typePatternEClass = null;
 
-  /**
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass idPatternEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass typeOrIdPatternEClass = null;
+
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -135,38 +150,36 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see org.emftext.language.aspectbind.patterns.PatternsPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private PatternsPackageImpl()
-  {
+	private PatternsPackageImpl() {
     super(eNS_URI, PatternsFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link PatternsPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static PatternsPackage init()
-  {
+	public static PatternsPackage init() {
     if (isInited) return (PatternsPackage)EPackage.Registry.INSTANCE.getEPackage(PatternsPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -226,222 +239,228 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
     return thePatternsPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPattern()
-  {
+	public EClass getPattern() {
     return patternEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAbstractMethodPattern()
-  {
+	public EClass getAbstractMethodPattern() {
     return abstractMethodPatternEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFieldPattern()
-  {
+	public EClass getFieldPattern() {
     return fieldPatternEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFieldPattern_Modifiers()
-  {
+	public EReference getFieldPattern_Modifiers() {
     return (EReference)fieldPatternEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFieldPattern_DeclaringType()
-  {
+	public EReference getFieldPattern_DeclaringType() {
     return (EReference)fieldPatternEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFieldPattern_FieldType()
-  {
+	public EReference getFieldPattern_FieldType() {
     return (EReference)fieldPatternEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldPattern_Name()
-  {
+	public EAttribute getFieldPattern_Name() {
     return (EAttribute)fieldPatternEClass.getEStructuralFeatures().get(3);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getConstructorPattern()
-  {
+	public EClass getConstructorPattern() {
     return constructorPatternEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstructorPattern_Modifiers()
-  {
+	public EReference getConstructorPattern_Modifiers() {
     return (EReference)constructorPatternEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstructorPattern_DeclaringType()
-  {
+	public EReference getConstructorPattern_DeclaringType() {
     return (EReference)constructorPatternEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstructorPattern_Parameters()
-  {
+	public EReference getConstructorPattern_Parameters() {
     return (EReference)constructorPatternEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMethodPattern()
-  {
+	public EClass getMethodPattern() {
     return methodPatternEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_Modifiers()
-  {
+	public EReference getMethodPattern_Modifiers() {
     return (EReference)methodPatternEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_ReturnType()
-  {
+	public EReference getMethodPattern_ReturnType() {
     return (EReference)methodPatternEClass.getEStructuralFeatures().get(1);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethodPattern_Name()
-  {
+	public EAttribute getMethodPattern_Name() {
     return (EAttribute)methodPatternEClass.getEStructuralFeatures().get(2);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_DeclaringType()
-  {
+	public EReference getMethodPattern_DeclaringType() {
     return (EReference)methodPatternEClass.getEStructuralFeatures().get(3);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_Parameters()
-  {
+	public EReference getMethodPattern_Parameters() {
     return (EReference)methodPatternEClass.getEStructuralFeatures().get(4);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTypePattern()
-  {
+	public EClass getTypePattern() {
     return typePatternEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypePattern_Type()
-  {
+	public EReference getTypePattern_Type() {
     return (EReference)typePatternEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PatternsFactory getPatternsFactory()
-  {
+	public EClass getIdPattern() {
+    return idPatternEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EReference getIdPattern_Id() {
+    return (EReference)idPatternEClass.getEStructuralFeatures().get(0);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getTypeOrIdPattern() {
+    return typeOrIdPatternEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public PatternsFactory getPatternsFactory() {
     return (PatternsFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
@@ -470,24 +489,28 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
 
     typePatternEClass = createEClass(TYPE_PATTERN);
     createEReference(typePatternEClass, TYPE_PATTERN__TYPE);
+
+    idPatternEClass = createEClass(ID_PATTERN);
+    createEReference(idPatternEClass, ID_PATTERN__ID);
+
+    typeOrIdPatternEClass = createEClass(TYPE_OR_ID_PATTERN);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 
@@ -501,6 +524,7 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
     org.emftext.language.aspectbind.commons.CommonsPackage theCommonsPackage_1 = (org.emftext.language.aspectbind.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.emftext.language.aspectbind.commons.CommonsPackage.eNS_URI);
     ModifiersPackage theModifiersPackage = (ModifiersPackage)EPackage.Registry.INSTANCE.getEPackage(ModifiersPackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+    ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 
     // Create type parameters
 
@@ -513,6 +537,9 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
     fieldPatternEClass.getESuperTypes().add(this.getPattern());
     constructorPatternEClass.getESuperTypes().add(this.getAbstractMethodPattern());
     methodPatternEClass.getESuperTypes().add(this.getAbstractMethodPattern());
+    typePatternEClass.getESuperTypes().add(this.getTypeOrIdPattern());
+    idPatternEClass.getESuperTypes().add(this.getTypeOrIdPattern());
+    typeOrIdPatternEClass.getESuperTypes().add(this.getPattern());
 
     // Initialize classes and features; add operations and parameters
     initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -539,6 +566,11 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
 
     initEClass(typePatternEClass, TypePattern.class, "TypePattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypePattern_Type(), theTypesPackage.getTypeReference(), null, "type", null, 1, 1, TypePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(idPatternEClass, IdPattern.class, "IdPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIdPattern_Id(), theReferencesPackage.getReference(), null, "id", null, 1, 1, IdPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeOrIdPatternEClass, TypeOrIdPattern.class, "TypeOrIdPattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

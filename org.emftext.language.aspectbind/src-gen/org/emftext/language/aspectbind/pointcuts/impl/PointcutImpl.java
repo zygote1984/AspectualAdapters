@@ -16,9 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.emftext.language.aspectbind.commons.impl.AspectMemberImpl;
 
-import org.emftext.language.aspectbind.pcexp.PointcutExpression;
-import org.emftext.language.aspectbind.pcexp.PointcutExpressionType;
-
 import org.emftext.language.aspectbind.pointcuts.Pointcut;
 import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
@@ -29,13 +26,12 @@ import org.emftext.language.java.arrays.ArrayInitializationValue;
 import org.emftext.language.java.commons.CommonsPackage;
 import org.emftext.language.java.commons.NamedElement;
 
-import org.emftext.language.java.expressions.AssignmentExpressionChild;
-import org.emftext.language.java.expressions.ConditionalExpressionChild;
+import org.emftext.language.java.expressions.ConditionalExpression;
 import org.emftext.language.java.expressions.Expression;
 
 import org.emftext.language.java.modifiers.Abstract;
 
-import org.emftext.language.java.operators.Assignment;
+import org.emftext.language.java.operators.AssignmentOperator;
 
 import org.emftext.language.java.types.Type;
 
@@ -47,219 +43,166 @@ import org.emftext.language.java.types.Type;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.emftext.language.aspectbind.pointcuts.impl.PointcutImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.emftext.language.aspectbind.pointcuts.impl.PointcutImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link org.emftext.language.aspectbind.pointcuts.impl.PointcutImpl#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.emftext.language.aspectbind.pointcuts.impl.PointcutImpl#getAssign <em>Assign</em>}</li>
+ *   <li>{@link org.emftext.language.aspectbind.pointcuts.impl.PointcutImpl#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
-{
-  /**
+public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut {
+	/**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
+	/**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
-  /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+	/**
+   * The cached value of the '{@link #getAbstract() <em>Abstract</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp()
-   * @generated
-   * @ordered
-   */
-  protected PointcutExpression exp;
-
-  /**
-   * The cached value of the '{@link #getAbstract() <em>Abstract</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getAbstract()
    * @generated
    * @ordered
    */
-  protected Abstract abstract_;
+	protected Abstract abstract_;
 
-  /**
+	/**
    * The cached value of the '{@link #getAssign() <em>Assign</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #getAssign()
    * @generated
    * @ordered
    */
-  protected Assignment assign;
+	protected AssignmentOperator assign;
 
-  /**
+	/**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+	protected ConditionalExpression exp;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  protected PointcutImpl()
-  {
+	protected PointcutImpl() {
     super();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EClass eStaticClass()
-  {
+	@Override
+	protected EClass eStaticClass() {
     return PointcutsPackage.Literals.POINTCUT;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
+	public String getName() {
     return name;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
-  {
+	public void setName(String newName) {
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__NAME, oldName, name));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public PointcutExpression getExp()
-  {
-    return exp;
+	public Abstract getAbstract() {
+    return abstract_;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp(PointcutExpression newExp, NotificationChain msgs)
-  {
-    PointcutExpression oldExp = exp;
-    exp = newExp;
+	public NotificationChain basicSetAbstract(Abstract newAbstract, NotificationChain msgs) {
+    Abstract oldAbstract = abstract_;
+    abstract_ = newAbstract;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__EXP, oldExp, newExp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__ABSTRACT, oldAbstract, newAbstract);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp(PointcutExpression newExp)
-  {
-    if (newExp != exp)
+	public void setAbstract(Abstract newAbstract) {
+    if (newAbstract != abstract_)
     {
       NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.POINTCUT__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.POINTCUT__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
+      if (abstract_ != null)
+        msgs = ((InternalEObject)abstract_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.POINTCUT__ABSTRACT, null, msgs);
+      if (newAbstract != null)
+        msgs = ((InternalEObject)newAbstract).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.POINTCUT__ABSTRACT, null, msgs);
+      msgs = basicSetAbstract(newAbstract, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__EXP, newExp, newExp));
+      eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__ABSTRACT, newAbstract, newAbstract));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Abstract getAbstract()
-  {
-    if (abstract_ != null && abstract_.eIsProxy())
-    {
-      InternalEObject oldAbstract = (InternalEObject)abstract_;
-      abstract_ = (Abstract)eResolveProxy(oldAbstract);
-      if (abstract_ != oldAbstract)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, PointcutsPackage.POINTCUT__ABSTRACT, oldAbstract, abstract_));
-      }
-    }
-    return abstract_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Abstract basicGetAbstract()
-  {
-    return abstract_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAbstract(Abstract newAbstract)
-  {
-    Abstract oldAbstract = abstract_;
-    abstract_ = newAbstract;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__ABSTRACT, oldAbstract, abstract_));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Assignment getAssign()
-  {
+	public AssignmentOperator getAssign() {
     return assign;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAssign(Assignment newAssign, NotificationChain msgs)
-  {
-    Assignment oldAssign = assign;
+	public NotificationChain basicSetAssign(AssignmentOperator newAssign, NotificationChain msgs) {
+    AssignmentOperator oldAssign = assign;
     assign = newAssign;
     if (eNotificationRequired())
     {
@@ -269,13 +212,12 @@ public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
     return msgs;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void setAssign(Assignment newAssign)
-  {
+	public void setAssign(AssignmentOperator newAssign) {
     if (newAssign != assign)
     {
       NotificationChain msgs = null;
@@ -290,35 +232,77 @@ public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
       eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__ASSIGN, newAssign, newAssign));
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type getType()
-  {
+	public ConditionalExpression getExp() {
+    return exp;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public NotificationChain basicSetExp(ConditionalExpression newExp, NotificationChain msgs) {
+    ConditionalExpression oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public void setExp(ConditionalExpression newExp) {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.POINTCUT__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PointcutsPackage.POINTCUT__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PointcutsPackage.POINTCUT__EXP, newExp, newExp));
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public Type getType() {
     return getOneType ( false ) ; 
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type getAlternativeType()
-  {
+	public Type getAlternativeType() {
     return getOneType ( true ) ; 
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public Type getOneType(boolean alternative)
-  {
+	public Type getOneType(boolean alternative) {
     org.emftext.language.java.classifiers.Class stringClass = getStringClass ( ) ; 
     org.emftext.language.java.types.Type type = null ; 
     if ( this instanceof org.emftext.language.java.references.Reference ) { 
@@ -392,13 +376,12 @@ public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public long getArrayDimension()
-  {
+	public long getArrayDimension() {
     long size = 0 ; 
     org.emftext.language.java.arrays.ArrayTypeable arrayType = null ; 
     if ( this instanceof org.emftext.language.java.expressions.NestedExpression && ( ( org.emftext.language.java.expressions.NestedExpression ) this ) .getNext ( ) == null ) { 
@@ -467,129 +450,124 @@ public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
     
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID)
     {
-      case PointcutsPackage.POINTCUT__EXP:
-        return basicSetExp(null, msgs);
+      case PointcutsPackage.POINTCUT__ABSTRACT:
+        return basicSetAbstract(null, msgs);
       case PointcutsPackage.POINTCUT__ASSIGN:
         return basicSetAssign(null, msgs);
+      case PointcutsPackage.POINTCUT__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID)
     {
       case PointcutsPackage.POINTCUT__NAME:
         return getName();
-      case PointcutsPackage.POINTCUT__EXP:
-        return getExp();
       case PointcutsPackage.POINTCUT__ABSTRACT:
-        if (resolve) return getAbstract();
-        return basicGetAbstract();
+        return getAbstract();
       case PointcutsPackage.POINTCUT__ASSIGN:
         return getAssign();
+      case PointcutsPackage.POINTCUT__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
+	@Override
+	public void eSet(int featureID, Object newValue) {
     switch (featureID)
     {
       case PointcutsPackage.POINTCUT__NAME:
         setName((String)newValue);
         return;
-      case PointcutsPackage.POINTCUT__EXP:
-        setExp((PointcutExpression)newValue);
-        return;
       case PointcutsPackage.POINTCUT__ABSTRACT:
         setAbstract((Abstract)newValue);
         return;
       case PointcutsPackage.POINTCUT__ASSIGN:
-        setAssign((Assignment)newValue);
+        setAssign((AssignmentOperator)newValue);
+        return;
+      case PointcutsPackage.POINTCUT__EXP:
+        setExp((ConditionalExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void eUnset(int featureID)
-  {
+	@Override
+	public void eUnset(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.POINTCUT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case PointcutsPackage.POINTCUT__EXP:
-        setExp((PointcutExpression)null);
-        return;
       case PointcutsPackage.POINTCUT__ABSTRACT:
         setAbstract((Abstract)null);
         return;
       case PointcutsPackage.POINTCUT__ASSIGN:
-        setAssign((Assignment)null);
+        setAssign((AssignmentOperator)null);
+        return;
+      case PointcutsPackage.POINTCUT__EXP:
+        setExp((ConditionalExpression)null);
         return;
     }
     super.eUnset(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
+	@Override
+	public boolean eIsSet(int featureID) {
     switch (featureID)
     {
       case PointcutsPackage.POINTCUT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case PointcutsPackage.POINTCUT__EXP:
-        return exp != null;
       case PointcutsPackage.POINTCUT__ABSTRACT:
         return abstract_ != null;
       case PointcutsPackage.POINTCUT__ASSIGN:
         return assign != null;
+      case PointcutsPackage.POINTCUT__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
     if (baseClass == NamedElement.class)
     {
       switch (derivedFeatureID)
@@ -619,38 +597,16 @@ public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
         default: return -1;
       }
     }
-    if (baseClass == AssignmentExpressionChild.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConditionalExpressionChild.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PointcutExpressionType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
     return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
     if (baseClass == NamedElement.class)
     {
       switch (baseFeatureID)
@@ -680,38 +636,16 @@ public abstract class PointcutImpl extends AspectMemberImpl implements Pointcut
         default: return -1;
       }
     }
-    if (baseClass == AssignmentExpressionChild.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConditionalExpressionChild.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PointcutExpressionType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
     return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public String toString()
-  {
+	@Override
+	public String toString() {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());

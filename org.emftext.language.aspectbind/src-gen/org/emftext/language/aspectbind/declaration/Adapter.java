@@ -10,6 +10,10 @@ import org.eclipse.emf.common.util.EList;
 
 import org.emftext.language.java.commons.NamedElement;
 
+import org.emftext.language.java.generics.ExtendsTypeArgument;
+
+import org.emftext.language.java.modifiers.Abstract;
+
 import org.emftext.language.java.references.Reference;
 
 /**
@@ -21,6 +25,8 @@ import org.emftext.language.java.references.Reference;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.emftext.language.aspectbind.declaration.Adapter#getReferences <em>References</em>}</li>
+ *   <li>{@link org.emftext.language.aspectbind.declaration.Adapter#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link org.emftext.language.aspectbind.declaration.Adapter#getExtend <em>Extend</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,22 +34,73 @@ import org.emftext.language.java.references.Reference;
  * @model
  * @generated
  */
-public interface Adapter extends NamedElement
-{
-  /**
+public interface Adapter extends NamedElement {
+	/**
    * Returns the value of the '<em><b>References</b></em>' containment reference list.
    * The list contents are of type {@link org.emftext.language.java.references.Reference}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>References</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>References</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
    * @return the value of the '<em>References</em>' containment reference list.
    * @see org.emftext.language.aspectbind.declaration.DeclarationPackage#getAdapter_References()
    * @model containment="true" required="true"
    * @generated
    */
-  EList<Reference> getReferences();
+	EList<Reference> getReferences();
+
+	/**
+   * Returns the value of the '<em><b>Abstract</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+   * @return the value of the '<em>Abstract</em>' containment reference.
+   * @see #setAbstract(Abstract)
+   * @see org.emftext.language.aspectbind.declaration.DeclarationPackage#getAdapter_Abstract()
+   * @model containment="true"
+   * @generated
+   */
+	Abstract getAbstract();
+
+	/**
+   * Sets the value of the '{@link org.emftext.language.aspectbind.declaration.Adapter#getAbstract <em>Abstract</em>}' containment reference.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Abstract</em>' containment reference.
+   * @see #getAbstract()
+   * @generated
+   */
+	void setAbstract(Abstract value);
+
+	/**
+   * Returns the value of the '<em><b>Extend</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extend</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+   * @return the value of the '<em>Extend</em>' containment reference.
+   * @see #setExtend(ExtendsTypeArgument)
+   * @see org.emftext.language.aspectbind.declaration.DeclarationPackage#getAdapter_Extend()
+   * @model containment="true"
+   * @generated
+   */
+	ExtendsTypeArgument getExtend();
+
+	/**
+   * Sets the value of the '{@link org.emftext.language.aspectbind.declaration.Adapter#getExtend <em>Extend</em>}' containment reference.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extend</em>' containment reference.
+   * @see #getExtend()
+   * @generated
+   */
+	void setExtend(ExtendsTypeArgument value);
 
 } // Adapter

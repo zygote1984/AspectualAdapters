@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.emftext.language.aspectbind.binding.BindingFactory;
 import org.emftext.language.aspectbind.binding.BindingPackage;
+import org.emftext.language.aspectbind.binding.Instance;
 import org.emftext.language.aspectbind.binding.InstancePointcut;
 
 import org.emftext.language.aspectbind.commons.impl.CommonsPackageImpl;
@@ -76,16 +77,22 @@ import org.emftext.language.java.variables.VariablesPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BindingPackageImpl extends EPackageImpl implements BindingPackage
-{
-  /**
+public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private EClass instancePointcutEClass = null;
+	private EClass instancePointcutEClass = null;
 
-  /**
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass instanceEClass = null;
+
+	/**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -94,38 +101,36 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage
    * initialization of the package, or returns the registered package,
    * if one already exists.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
    * @see org.emftext.language.aspectbind.binding.BindingPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private BindingPackageImpl()
-  {
+	private BindingPackageImpl() {
     super(eNS_URI, BindingFactory.eINSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private static boolean isInited = false;
+	private static boolean isInited = false;
 
-  /**
+	/**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
    * <p>This method is used to initialize {@link BindingPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @see #eNS_URI
    * @see #createPackageContents()
    * @see #initializePackageContents()
    * @generated
    */
-  public static BindingPackage init()
-  {
+	public static BindingPackage init() {
     if (isInited) return (BindingPackage)EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI);
 
     // Obtain or create and register package
@@ -185,76 +190,82 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage
     return theBindingPackage;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getInstancePointcut()
-  {
+	public EClass getInstancePointcut() {
     return instancePointcutEClass;
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInstancePointcut_InstanceType()
-  {
+	public EReference getInstancePointcut_InstanceType() {
     return (EReference)instancePointcutEClass.getEStructuralFeatures().get(0);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public BindingFactory getBindingFactory()
-  {
+	public EClass getInstance() {
+    return instanceEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public BindingFactory getBindingFactory() {
     return (BindingFactory)getEFactoryInstance();
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isCreated = false;
+	private boolean isCreated = false;
 
-  /**
+	/**
    * Creates the meta-model objects for the package.  This method is
    * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void createPackageContents()
-  {
+	public void createPackageContents() {
     if (isCreated) return;
     isCreated = true;
 
     // Create classes and their features
     instancePointcutEClass = createEClass(INSTANCE_POINTCUT);
     createEReference(instancePointcutEClass, INSTANCE_POINTCUT__INSTANCE_TYPE);
+
+    instanceEClass = createEClass(INSTANCE);
   }
 
-  /**
+	/**
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-  /**
+	/**
    * Complete the initialization of the package and its meta-model.  This
    * method is guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
    * @generated
    */
-  public void initializePackageContents()
-  {
+	public void initializePackageContents() {
     if (isInitialized) return;
     isInitialized = true;
 
@@ -273,10 +284,13 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage
 
     // Add supertypes to classes
     instancePointcutEClass.getESuperTypes().add(thePointcutsPackage.getPointcut());
+    instanceEClass.getESuperTypes().add(thePatternsPackage.getTypePattern());
 
     // Initialize classes and features; add operations and parameters
     initEClass(instancePointcutEClass, InstancePointcut.class, "InstancePointcut", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInstancePointcut_InstanceType(), thePatternsPackage.getTypePattern(), null, "instanceType", null, 1, 1, InstancePointcut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(instanceEClass, Instance.class, "Instance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);
