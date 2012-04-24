@@ -5,6 +5,6 @@ Aspectual Adapters is a research project for easy declaration of [adapters](http
 ## Working development environment
 
 * [Eclipse Modeling Tools](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/indigosr2) (Indigo, 3.7.2)
-* [EMFText](http://www.emftext.org/index.php/EMFText) SDK plug-in (1.4.0)
+* [EMFText SDK](http://www.emftext.org/index.php/EMFText) plug-in (1.4.0)
 * [XTend SDK](http://marketplace.eclipse.org/content/eclipse-xtend) plug-in (2.2.1)
 * [AJDT](http://www.eclipse.org/ajdt/downloads/) plug-in (2.1.3)
