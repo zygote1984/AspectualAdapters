@@ -6,6 +6,27 @@ import java.lang.*;
 public aspect Kardo{
 
 	pointcut pc1(ArrayList o, Object j);
-	instance pointcut pc2(Object) : call(public void ArrayList.add(Object)) && this(Object);
+	instance pointcut pc2<Object> : call(public void ArrayList->add(Object)) && this(instance);
+	instance pointcut pc3<String> : call(public String->new()) && target(instance);
+	
+	
+	declare adapter: Something{Runnable} adapts pc2
+	{
+	
+		public void run()
+		{
+			adaptee.add("Something");
+			System.out.println("RUN");
+		}
+		
+	}
+	
+	declare adapter: OtherThing{Comparable} extends Something adapts pc3
+	{
+	
+	
+	}
+	
+	
 
 }

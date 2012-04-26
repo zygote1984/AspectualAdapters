@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emftext.language.aspectbind.commons.Aspect;
 import org.emftext.language.aspectbind.commons.impl.AspectImpl;
 import org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindResource;
@@ -26,7 +27,7 @@ public class AspectBindTest {
 	
 	@Test
 	public void testInterpreter() {
-		AspectBindGenerator generator = new AspectBindGenerator(true);
+		AspectBindGenerator generator = new AspectBindGenerator(false);
 		String templateFile = "input" + File.separator + "example.aspectbind";
 		System.out.println(templateFile);
 		Resource resource = null;
@@ -44,11 +45,12 @@ public class AspectBindTest {
 		for(EObject o:clist)
 			System.out.println("[TEST] : Resource Contents " + o.toString());
 		Aspect content = (Aspect) resource.getContents().get(0);
-		generator.setOutputPath(URI.createURI("D:/Profiles/hatunk/Desktop/EMFTextWS/org.emftext.language.aspectbind.test"));
+		generator.setOutputPath(URI.createURI("D:/Profiles/hatunk/Desktop/EMFTextWS/AspectBind/org.emftext.language.aspectbind.test"), true);
 		System.out.println("[TEST]" + content.toString());
 		System.out.println("[TEST]" + ((AspectImpl)content).getPackage());
 		System.out.println("[TEST]" + ((AspectImpl)content).getMembers() );
 		System.out.println("[TEST]" + content.getNamespaces());
+		EcoreUtil.resolveAll(resource);
 		generator.generate(resource);
 	
 		
