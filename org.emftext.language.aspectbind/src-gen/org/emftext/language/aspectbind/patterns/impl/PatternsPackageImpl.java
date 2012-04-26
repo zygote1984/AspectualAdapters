@@ -42,6 +42,8 @@ import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
 import org.emftext.language.aspectbind.pointcuts.impl.PointcutsPackageImpl;
 
+import org.emftext.language.aspectbind.wildcard.WildcardPackage;
+import org.emftext.language.aspectbind.wildcard.impl.WildcardPackageImpl;
 import org.emftext.language.java.annotations.AnnotationsPackage;
 
 import org.emftext.language.java.arrays.ArraysPackage;
@@ -412,6 +414,16 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypePattern_Subtypes()
+  {
+    return (EReference)typePatternEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -489,6 +501,7 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
 
     typePatternEClass = createEClass(TYPE_PATTERN);
     createEReference(typePatternEClass, TYPE_PATTERN__TYPE);
+    createEReference(typePatternEClass, TYPE_PATTERN__SUBTYPES);
 
     idPatternEClass = createEClass(ID_PATTERN);
     createEReference(idPatternEClass, ID_PATTERN__ID);
@@ -524,6 +537,7 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
     org.emftext.language.aspectbind.commons.CommonsPackage theCommonsPackage_1 = (org.emftext.language.aspectbind.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.emftext.language.aspectbind.commons.CommonsPackage.eNS_URI);
     ModifiersPackage theModifiersPackage = (ModifiersPackage)EPackage.Registry.INSTANCE.getEPackage(ModifiersPackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+    OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
     ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 
     // Create type parameters
@@ -566,6 +580,7 @@ public class PatternsPackageImpl extends EPackageImpl implements PatternsPackage
 
     initEClass(typePatternEClass, TypePattern.class, "TypePattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypePattern_Type(), theTypesPackage.getTypeReference(), null, "type", null, 1, 1, TypePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypePattern_Subtypes(), theOperatorsPackage.getAddition(), null, "subtypes", null, 0, 1, TypePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(idPatternEClass, IdPattern.class, "IdPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIdPattern_Id(), theReferencesPackage.getReference(), null, "id", null, 1, 1, IdPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

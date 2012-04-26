@@ -10,15 +10,12 @@ IMPORTS{
 	 pcexp:<http://www.emftext.org/language/bindingAspect/pcexp>
 	 patterns:<http://www.emftext.org/language/bindingAspect/patterns>
 	 pointcuts:<http://www.emftext.org/language/bindingAspect/pointcuts>
-
-
 }
 
 
 OPTIONS {	
 	defaultTokenName = "IDENTIFIER";
 	usePredefinedTokens = "false";
-    resolveProxyElementsAfterParsing = "false";
 	disableDebugSupport = "true";
 	disableLaunchSupport = "true";
 	generateCodeFromGeneratorModel = "true";
@@ -39,6 +36,7 @@ TOKENSTYLES {
 	"within" COLOR #FF0011, BOLD;
 	"adapts" COLOR #FF00AA, BOLD;
 	"instance" COLOR #114466, ITALIC;
+	"adaptee" COLOR #11FF66, ITALIC;
 	"declare adapter:" COLOR #FF00AA, BOLD;
 	"->" COLOR #000000, BOLD;
 }
@@ -63,20 +61,23 @@ RULES {
 	 binding.Instance ::= "instance";
 	
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
-	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new" "("parameters? (","parameters)*")";
-	 patterns.MethodPattern ::= modifiers* returnType declaringType#0"->"#0name[]  "("parameters? (","parameters)* ")";
-	 patterns.TypePattern ::=  type;
+	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new"#0"("parameters? (","parameters)*")";
+	 patterns.MethodPattern ::= modifiers* returnType declaringType #0 "->" #0 name[] #0 "("parameters? (","parameters)* ")";
+	 patterns.TypePattern ::=  type#0subtypes?;
 	 patterns.IdPattern ::= id[];
+
 	 
 	 declaration.AdapterDeclaration ::= "declare adapter:" adapter "adapts" adaptee[] ("<"adapteeSub">")? !1 "{" members* "}";
-	 declaration.Adapter::= abstract? name[] extend? "{" references ("," references)* "}";
+	 declaration.Adapter::= abstract? name[] "{" references ("," references)* "}" ("extends" extend[])?;
 	 declaration.PrecedenceDeclaration ::= "declare precedence";
 	 declaration.InterTypeDeclaration ::= "declare parents";
+	 declaration.Adaptee ::= "adaptee";
 	 //JAVA SYNTAX
 	pcexp.PointcutExpression ::= child:pcexp.PointcutOrExpression;
 	pcexp.PointcutOrExpression ::= children:pcexp.PointcutAndExpression ( "||" children:pcexp.PointcutAndExpression )*;
 	pcexp.PointcutAndExpression ::= children:pointcuts.PrimitivePointcut ( "&&" children:pointcuts.PrimitivePointcut )*;
 	pcexp.PcAssignmentOperator ::= ":";
+	
 	
 	
 }

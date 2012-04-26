@@ -429,13 +429,22 @@ public interface PatternsPackage extends EPackage {
 	int TYPE_PATTERN__TYPE = TYPE_OR_ID_PATTERN_FEATURE_COUNT + 0;
 
 	/**
+   * The feature id for the '<em><b>Subtypes</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_PATTERN__SUBTYPES = TYPE_OR_ID_PATTERN_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Type Pattern</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int TYPE_PATTERN_FEATURE_COUNT = TYPE_OR_ID_PATTERN_FEATURE_COUNT + 1;
+	int TYPE_PATTERN_FEATURE_COUNT = TYPE_OR_ID_PATTERN_FEATURE_COUNT + 2;
 
 	/**
    * The meta object id for the '{@link org.emftext.language.aspectbind.patterns.impl.IdPatternImpl <em>Id Pattern</em>}' class.
@@ -688,6 +697,17 @@ public interface PatternsPackage extends EPackage {
 	EReference getTypePattern_Type();
 
 	/**
+   * Returns the meta object for the containment reference '{@link org.emftext.language.aspectbind.patterns.TypePattern#getSubtypes <em>Subtypes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Subtypes</em>'.
+   * @see org.emftext.language.aspectbind.patterns.TypePattern#getSubtypes()
+   * @see #getTypePattern()
+   * @generated
+   */
+  EReference getTypePattern_Subtypes();
+
+  /**
    * Returns the meta object for class '{@link org.emftext.language.aspectbind.patterns.IdPattern <em>Id Pattern</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -905,6 +925,14 @@ public interface PatternsPackage extends EPackage {
 		EReference TYPE_PATTERN__TYPE = eINSTANCE.getTypePattern_Type();
 
 		/**
+     * The meta object literal for the '<em><b>Subtypes</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_PATTERN__SUBTYPES = eINSTANCE.getTypePattern_Subtypes();
+
+    /**
      * The meta object literal for the '{@link org.emftext.language.aspectbind.patterns.impl.IdPatternImpl <em>Id Pattern</em>}' class.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

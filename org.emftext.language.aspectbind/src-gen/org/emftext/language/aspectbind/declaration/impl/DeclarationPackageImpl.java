@@ -18,6 +18,7 @@ import org.emftext.language.aspectbind.binding.impl.BindingPackageImpl;
 
 import org.emftext.language.aspectbind.commons.impl.CommonsPackageImpl;
 
+import org.emftext.language.aspectbind.declaration.Adaptee;
 import org.emftext.language.aspectbind.declaration.Adapter;
 import org.emftext.language.aspectbind.declaration.AdapterDeclaration;
 import org.emftext.language.aspectbind.declaration.Declaration;
@@ -38,6 +39,8 @@ import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
 import org.emftext.language.aspectbind.pointcuts.impl.PointcutsPackageImpl;
 
+import org.emftext.language.aspectbind.wildcard.WildcardPackage;
+import org.emftext.language.aspectbind.wildcard.impl.WildcardPackageImpl;
 import org.emftext.language.java.annotations.AnnotationsPackage;
 
 import org.emftext.language.java.arrays.ArraysPackage;
@@ -117,6 +120,13 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
 	private EClass adapterEClass = null;
 
 	/**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass adapteeEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -324,6 +334,16 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAdaptee()
+  {
+    return adapteeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -366,6 +386,8 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     createEReference(adapterEClass, ADAPTER__REFERENCES);
     createEReference(adapterEClass, ADAPTER__ABSTRACT);
     createEReference(adapterEClass, ADAPTER__EXTEND);
+
+    adapteeEClass = createEClass(ADAPTEE);
   }
 
 	/**
@@ -397,9 +419,8 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     PatternsPackage thePatternsPackage = (PatternsPackage)EPackage.Registry.INSTANCE.getEPackage(PatternsPackage.eNS_URI);
     org.emftext.language.aspectbind.commons.CommonsPackage theCommonsPackage_1 = (org.emftext.language.aspectbind.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.emftext.language.aspectbind.commons.CommonsPackage.eNS_URI);
     CommonsPackage theCommonsPackage = (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
-    ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
     ModifiersPackage theModifiersPackage = (ModifiersPackage)EPackage.Registry.INSTANCE.getEPackage(ModifiersPackage.eNS_URI);
-    GenericsPackage theGenericsPackage = (GenericsPackage)EPackage.Registry.INSTANCE.getEPackage(GenericsPackage.eNS_URI);
+    LiteralsPackage theLiteralsPackage = (LiteralsPackage)EPackage.Registry.INSTANCE.getEPackage(LiteralsPackage.eNS_URI);
 
     // Create type parameters
 
@@ -411,6 +432,7 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     interTypeDeclarationEClass.getESuperTypes().add(this.getDeclaration());
     declarationEClass.getESuperTypes().add(theCommonsPackage_1.getAspectMember());
     adapterEClass.getESuperTypes().add(theCommonsPackage.getNamedElement());
+    adapteeEClass.getESuperTypes().add(theLiteralsPackage.getSelf());
 
     // Initialize classes and features; add operations and parameters
     initEClass(adapterDeclarationEClass, AdapterDeclaration.class, "AdapterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -426,9 +448,11 @@ public class DeclarationPackageImpl extends EPackageImpl implements DeclarationP
     initEClass(declarationEClass, Declaration.class, "Declaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(adapterEClass, Adapter.class, "Adapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAdapter_References(), theReferencesPackage.getReference(), null, "references", null, 1, -1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdapter_References(), thePatternsPackage.getTypePattern(), null, "references", null, 1, -1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdapter_Abstract(), theModifiersPackage.getAbstract(), null, "abstract", null, 0, 1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAdapter_Extend(), theGenericsPackage.getExtendsTypeArgument(), null, "extend", null, 0, 1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdapter_Extend(), this.getAdapter(), null, "extend", null, 0, 1, Adapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(adapteeEClass, Adaptee.class, "Adaptee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

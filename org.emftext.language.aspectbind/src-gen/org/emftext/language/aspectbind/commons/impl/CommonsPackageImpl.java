@@ -39,6 +39,8 @@ import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
 import org.emftext.language.aspectbind.pointcuts.impl.PointcutsPackageImpl;
 
+import org.emftext.language.aspectbind.wildcard.WildcardPackage;
+import org.emftext.language.aspectbind.wildcard.impl.WildcardPackageImpl;
 import org.emftext.language.java.annotations.AnnotationsPackage;
 
 import org.emftext.language.java.arrays.ArraysPackage;
@@ -378,6 +380,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
     org.emftext.language.java.commons.CommonsPackage theCommonsPackage_1 = (org.emftext.language.java.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.emftext.language.java.commons.CommonsPackage.eNS_URI);
     ContainersPackage theContainersPackage = (ContainersPackage)EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
     ModifiersPackage theModifiersPackage = (ModifiersPackage)EPackage.Registry.INSTANCE.getEPackage(ModifiersPackage.eNS_URI);
+    TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
     GenericsPackage theGenericsPackage = (GenericsPackage)EPackage.Registry.INSTANCE.getEPackage(GenericsPackage.eNS_URI);
     PointcutsPackage thePointcutsPackage = (PointcutsPackage)EPackage.Registry.INSTANCE.getEPackage(PointcutsPackage.eNS_URI);
 
@@ -398,7 +401,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
     initEReference(getAspect_Package(), theContainersPackage.getPackage(), null, "package", null, 0, 1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAspect_Priviliged(), ecorePackage.getEBoolean(), "priviliged", "false", 0, 1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAspect_Modifier(), theModifiersPackage.getModifier(), null, "modifier", null, 0, -1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAspect_Extend(), theGenericsPackage.getExtendsTypeArgument(), null, "extend", null, 0, 1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAspect_Extend(), theTypesPackage.getTypeReference(), null, "extend", null, 0, 1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAspect_Implement(), theGenericsPackage.getExtendsTypeArgument(), null, "implement", null, 0, -1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAspect_Perclause(), this.getPerClause(), null, "perclause", null, 0, 1, Aspect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

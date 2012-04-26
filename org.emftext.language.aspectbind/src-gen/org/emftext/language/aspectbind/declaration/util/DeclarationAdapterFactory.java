@@ -20,6 +20,7 @@ import org.emftext.language.aspectbind.declaration.*;
 import org.emftext.language.java.commons.Commentable;
 import org.emftext.language.java.commons.NamedElement;
 import org.emftext.language.java.commons.NamespaceAwareElement;
+import org.emftext.language.java.literals.Self;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,6 +108,11 @@ public class DeclarationAdapterFactory extends AdapterFactoryImpl {
         return createAdapterAdapter();
       }
       @Override
+      public Adapter caseAdaptee(Adaptee object)
+      {
+        return createAdapteeAdapter();
+      }
+      @Override
       public Adapter caseCommentable(Commentable object)
       {
         return createCommentableAdapter();
@@ -125,6 +131,11 @@ public class DeclarationAdapterFactory extends AdapterFactoryImpl {
       public Adapter caseNamedElement(NamedElement object)
       {
         return createNamedElementAdapter();
+      }
+      @Override
+      public Adapter caseSelf(Self object)
+      {
+        return createSelfAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -218,6 +229,21 @@ public class DeclarationAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.aspectbind.declaration.Adaptee <em>Adaptee</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emftext.language.aspectbind.declaration.Adaptee
+   * @generated
+   */
+  public Adapter createAdapteeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.emftext.language.java.commons.Commentable <em>Commentable</em>}'.
    * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -274,6 +300,21 @@ public class DeclarationAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.java.literals.Self <em>Self</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emftext.language.java.literals.Self
+   * @generated
+   */
+  public Adapter createSelfAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for the default case.
    * <!-- begin-user-doc -->
 	 * This default implementation returns null.

@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.emftext.language.aspectbind.patterns.PatternsPackage;
 import org.emftext.language.aspectbind.patterns.TypePattern;
 
+import org.emftext.language.java.operators.Addition;
+import org.emftext.language.aspectbind.wildcard.SubtypeWC;
 import org.emftext.language.java.types.TypeReference;
 
 /**
@@ -27,6 +29,7 @@ import org.emftext.language.java.types.TypeReference;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.emftext.language.aspectbind.patterns.impl.TypePatternImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.emftext.language.aspectbind.patterns.impl.TypePatternImpl#getSubtypes <em>Subtypes</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +47,16 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
 	protected TypeReference type;
 
 	/**
+   * The cached value of the '{@link #getSubtypes() <em>Subtypes</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubtypes()
+   * @generated
+   * @ordered
+   */
+  protected Addition subtypes;
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -109,6 +122,54 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Addition getSubtypes()
+  {
+    return subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSubtypes(Addition newSubtypes, NotificationChain msgs)
+  {
+    Addition oldSubtypes = subtypes;
+    subtypes = newSubtypes;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternsPackage.TYPE_PATTERN__SUBTYPES, oldSubtypes, newSubtypes);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSubtypes(Addition newSubtypes)
+  {
+    if (newSubtypes != subtypes)
+    {
+      NotificationChain msgs = null;
+      if (subtypes != null)
+        msgs = ((InternalEObject)subtypes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternsPackage.TYPE_PATTERN__SUBTYPES, null, msgs);
+      if (newSubtypes != null)
+        msgs = ((InternalEObject)newSubtypes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternsPackage.TYPE_PATTERN__SUBTYPES, null, msgs);
+      msgs = basicSetSubtypes(newSubtypes, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PatternsPackage.TYPE_PATTERN__SUBTYPES, newSubtypes, newSubtypes));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -118,6 +179,8 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
         return basicSetType(null, msgs);
+      case PatternsPackage.TYPE_PATTERN__SUBTYPES:
+        return basicSetSubtypes(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -133,6 +196,8 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
         return getType();
+      case PatternsPackage.TYPE_PATTERN__SUBTYPES:
+        return getSubtypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -148,6 +213,9 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
         setType((TypeReference)newValue);
+        return;
+      case PatternsPackage.TYPE_PATTERN__SUBTYPES:
+        setSubtypes((Addition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -165,6 +233,9 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
       case PatternsPackage.TYPE_PATTERN__TYPE:
         setType((TypeReference)null);
         return;
+      case PatternsPackage.TYPE_PATTERN__SUBTYPES:
+        setSubtypes((Addition)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -180,6 +251,8 @@ public class TypePatternImpl extends TypeOrIdPatternImpl implements TypePattern 
     {
       case PatternsPackage.TYPE_PATTERN__TYPE:
         return type != null;
+      case PatternsPackage.TYPE_PATTERN__SUBTYPES:
+        return subtypes != null;
     }
     return super.eIsSet(featureID);
   }

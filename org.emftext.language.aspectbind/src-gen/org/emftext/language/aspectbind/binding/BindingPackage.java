@@ -182,6 +182,15 @@ public interface BindingPackage extends EPackage {
 	int INSTANCE__TYPE = PatternsPackage.TYPE_PATTERN__TYPE;
 
 	/**
+   * The feature id for the '<em><b>Subtypes</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTANCE__SUBTYPES = PatternsPackage.TYPE_PATTERN__SUBTYPES;
+
+  /**
    * The number of structural features of the '<em>Instance</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

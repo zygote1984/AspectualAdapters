@@ -13,6 +13,7 @@ import org.emftext.language.java.containers.CompilationUnit;
 import org.emftext.language.java.generics.ExtendsTypeArgument;
 
 import org.emftext.language.java.modifiers.Modifier;
+import org.emftext.language.java.types.TypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,24 +132,24 @@ public interface Aspect extends CompilationUnit {
 	 * </p>
 	 * <!-- end-user-doc -->
    * @return the value of the '<em>Extend</em>' containment reference.
-   * @see #setExtend(ExtendsTypeArgument)
+   * @see #setExtend(TypeReference)
    * @see org.emftext.language.aspectbind.commons.CommonsPackage#getAspect_Extend()
    * @model containment="true"
    * @generated
    */
-	ExtendsTypeArgument getExtend();
+	TypeReference getExtend();
 
 	/**
    * Sets the value of the '{@link org.emftext.language.aspectbind.commons.Aspect#getExtend <em>Extend</em>}' containment reference.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @param value the new value of the '<em>Extend</em>' containment reference.
    * @see #getExtend()
    * @generated
    */
-	void setExtend(ExtendsTypeArgument value);
+  void setExtend(TypeReference value);
 
-	/**
+  /**
    * Returns the value of the '<em><b>Implement</b></em>' containment reference list.
    * The list contents are of type {@link org.emftext.language.java.generics.ExtendsTypeArgument}.
    * <!-- begin-user-doc -->

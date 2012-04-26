@@ -24,12 +24,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.emftext.language.aspectbind.declaration.Adapter;
 import org.emftext.language.aspectbind.declaration.DeclarationPackage;
 
+import org.emftext.language.aspectbind.patterns.TypePattern;
 import org.emftext.language.java.commons.impl.NamedElementImpl;
 
 import org.emftext.language.java.generics.ExtendsTypeArgument;
 
 import org.emftext.language.java.modifiers.Abstract;
 
+import org.emftext.language.java.types.TypeReference;
 import org.emftext.language.java.references.Reference;
 
 /**
@@ -56,7 +58,7 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
    * @generated
    * @ordered
    */
-	protected EList<Reference> references;
+	protected EList<TypePattern> references;
 
 	/**
    * The cached value of the '{@link #getAbstract() <em>Abstract</em>}' containment reference.
@@ -69,14 +71,14 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
 	protected Abstract abstract_;
 
 	/**
-   * The cached value of the '{@link #getExtend() <em>Extend</em>}' containment reference.
+   * The cached value of the '{@link #getExtend() <em>Extend</em>}' reference.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @see #getExtend()
    * @generated
    * @ordered
    */
-	protected ExtendsTypeArgument extend;
+	protected Adapter extend;
 
 	/**
    * <!-- begin-user-doc -->
@@ -102,10 +104,10 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
 	 * <!-- end-user-doc -->
    * @generated
    */
-	public EList<Reference> getReferences() {
+	public EList<TypePattern> getReferences() {
     if (references == null)
     {
-      references = new EObjectContainmentEList<Reference>(Reference.class, this, DeclarationPackage.ADAPTER__REFERENCES);
+      references = new EObjectContainmentEList<TypePattern>(TypePattern.class, this, DeclarationPackage.ADAPTER__REFERENCES);
     }
     return references;
   }
@@ -160,47 +162,44 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
 	 * <!-- end-user-doc -->
    * @generated
    */
-	public ExtendsTypeArgument getExtend() {
+	public Adapter getExtend() {
+    if (extend != null && extend.eIsProxy())
+    {
+      InternalEObject oldExtend = (InternalEObject)extend;
+      extend = (Adapter)eResolveProxy(oldExtend);
+      if (extend != oldExtend)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeclarationPackage.ADAPTER__EXTEND, oldExtend, extend));
+      }
+    }
     return extend;
   }
 
 	/**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public NotificationChain basicSetExtend(ExtendsTypeArgument newExtend, NotificationChain msgs) {
-    ExtendsTypeArgument oldExtend = extend;
+  public Adapter basicGetExtend()
+  {
+    return extend;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtend(Adapter newExtend)
+  {
+    Adapter oldExtend = extend;
     extend = newExtend;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DeclarationPackage.ADAPTER__EXTEND, oldExtend, newExtend);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, DeclarationPackage.ADAPTER__EXTEND, oldExtend, extend));
   }
 
-	/**
-   * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @generated
-   */
-	public void setExtend(ExtendsTypeArgument newExtend) {
-    if (newExtend != extend)
-    {
-      NotificationChain msgs = null;
-      if (extend != null)
-        msgs = ((InternalEObject)extend).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DeclarationPackage.ADAPTER__EXTEND, null, msgs);
-      if (newExtend != null)
-        msgs = ((InternalEObject)newExtend).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DeclarationPackage.ADAPTER__EXTEND, null, msgs);
-      msgs = basicSetExtend(newExtend, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DeclarationPackage.ADAPTER__EXTEND, newExtend, newExtend));
-  }
-
-	/**
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -213,8 +212,6 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
         return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
       case DeclarationPackage.ADAPTER__ABSTRACT:
         return basicSetAbstract(null, msgs);
-      case DeclarationPackage.ADAPTER__EXTEND:
-        return basicSetExtend(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -233,7 +230,8 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
       case DeclarationPackage.ADAPTER__ABSTRACT:
         return getAbstract();
       case DeclarationPackage.ADAPTER__EXTEND:
-        return getExtend();
+        if (resolve) return getExtend();
+        return basicGetExtend();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -250,13 +248,13 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
     {
       case DeclarationPackage.ADAPTER__REFERENCES:
         getReferences().clear();
-        getReferences().addAll((Collection<? extends Reference>)newValue);
+        getReferences().addAll((Collection<? extends TypePattern>)newValue);
         return;
       case DeclarationPackage.ADAPTER__ABSTRACT:
         setAbstract((Abstract)newValue);
         return;
       case DeclarationPackage.ADAPTER__EXTEND:
-        setExtend((ExtendsTypeArgument)newValue);
+        setExtend((Adapter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -278,7 +276,7 @@ public class AdapterImpl extends NamedElementImpl implements Adapter {
         setAbstract((Abstract)null);
         return;
       case DeclarationPackage.ADAPTER__EXTEND:
-        setExtend((ExtendsTypeArgument)null);
+        setExtend((Adapter)null);
         return;
     }
     super.eUnset(featureID);

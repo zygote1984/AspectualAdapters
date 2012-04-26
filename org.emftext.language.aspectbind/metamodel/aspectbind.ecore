@@ -60,7 +60,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="modifier" upperBound="-1"
           eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//modifiers/Modifier"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="extend" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//generics/ExtendsTypeArgument"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extend" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//types/TypeReference"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implement" upperBound="-1"
           eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//generics/ExtendsTypeArgument"
@@ -100,13 +100,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="Declaration" abstract="true" eSuperTypes="#//commons/AspectMember"/>
     <eClassifiers xsi:type="ecore:EClass" name="Adapter" eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//commons/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="references" lowerBound="1"
-          upperBound="-1" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//references/Reference"
-          containment="true"/>
+          upperBound="-1" eType="#//patterns/TypePattern" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstract" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//modifiers/Abstract"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="extend" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//generics/ExtendsTypeArgument"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extend" eType="#//declaration/Adapter"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Adaptee" eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//literals/Self"/>
   </eSubpackages>
   <eSubpackages name="pcexp" nsURI="http://www.emftext.org/language/bindingAspect/pcexp"
       nsPrefix="pcexp">
@@ -169,12 +168,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//types/TypeReference"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subtypes" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//operators/Addition"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IdPattern" eSuperTypes="#//patterns/TypeOrIdPattern">
       <eStructuralFeatures xsi:type="ecore:EReference" name="id" lowerBound="1" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//references/Reference"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeOrIdPattern" abstract="true" eSuperTypes="#//patterns/Pattern"/>
   </eSubpackages>
-  <eSubpackages name="operators" nsURI="http://www.emftext.org/language/bindingAspect/operators"
-      nsPrefix="operators"/>
 </ecore:EPackage>

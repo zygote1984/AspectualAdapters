@@ -68,6 +68,7 @@ public class DeclarationFactoryImpl extends EFactoryImpl implements DeclarationF
       case DeclarationPackage.PRECEDENCE_DECLARATION: return createPrecedenceDeclaration();
       case DeclarationPackage.INTER_TYPE_DECLARATION: return createInterTypeDeclaration();
       case DeclarationPackage.ADAPTER: return createAdapter();
+      case DeclarationPackage.ADAPTEE: return createAdaptee();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -114,6 +115,17 @@ public class DeclarationFactoryImpl extends EFactoryImpl implements DeclarationF
   }
 
 	/**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Adaptee createAdaptee()
+  {
+    AdapteeImpl adaptee = new AdapteeImpl();
+    return adaptee;
+  }
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated

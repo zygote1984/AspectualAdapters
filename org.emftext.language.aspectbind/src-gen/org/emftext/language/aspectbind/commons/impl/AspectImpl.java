@@ -31,6 +31,7 @@ import org.emftext.language.java.containers.impl.CompilationUnitImpl;
 import org.emftext.language.java.generics.ExtendsTypeArgument;
 
 import org.emftext.language.java.modifiers.Modifier;
+import org.emftext.language.java.types.TypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,7 +111,7 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect {
    * @generated
    * @ordered
    */
-	protected ExtendsTypeArgument extend;
+	protected TypeReference extend;
 
 	/**
    * The cached value of the '{@link #getImplement() <em>Implement</em>}' containment reference list.
@@ -248,17 +249,18 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect {
 	 * <!-- end-user-doc -->
    * @generated
    */
-	public ExtendsTypeArgument getExtend() {
+	public TypeReference getExtend() {
     return extend;
   }
 
 	/**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public NotificationChain basicSetExtend(ExtendsTypeArgument newExtend, NotificationChain msgs) {
-    ExtendsTypeArgument oldExtend = extend;
+  public NotificationChain basicSetExtend(TypeReference newExtend, NotificationChain msgs)
+  {
+    TypeReference oldExtend = extend;
     extend = newExtend;
     if (eNotificationRequired())
     {
@@ -268,12 +270,13 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect {
     return msgs;
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-	public void setExtend(ExtendsTypeArgument newExtend) {
+  public void setExtend(TypeReference newExtend)
+  {
     if (newExtend != extend)
     {
       NotificationChain msgs = null;
@@ -288,7 +291,7 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect {
       eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.ASPECT__EXTEND, newExtend, newExtend));
   }
 
-	/**
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -423,7 +426,7 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect {
         getModifier().addAll((Collection<? extends Modifier>)newValue);
         return;
       case CommonsPackage.ASPECT__EXTEND:
-        setExtend((ExtendsTypeArgument)newValue);
+        setExtend((TypeReference)newValue);
         return;
       case CommonsPackage.ASPECT__IMPLEMENT:
         getImplement().clear();
@@ -458,7 +461,7 @@ public class AspectImpl extends CompilationUnitImpl implements Aspect {
         getModifier().clear();
         return;
       case CommonsPackage.ASPECT__EXTEND:
-        setExtend((ExtendsTypeArgument)null);
+        setExtend((TypeReference)null);
         return;
       case CommonsPackage.ASPECT__IMPLEMENT:
         getImplement().clear();

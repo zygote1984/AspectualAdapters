@@ -8,12 +8,14 @@ package org.emftext.language.aspectbind.declaration;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.emftext.language.aspectbind.patterns.TypePattern;
 import org.emftext.language.java.commons.NamedElement;
 
 import org.emftext.language.java.generics.ExtendsTypeArgument;
 
 import org.emftext.language.java.modifiers.Abstract;
 
+import org.emftext.language.java.types.TypeReference;
 import org.emftext.language.java.references.Reference;
 
 /**
@@ -37,7 +39,7 @@ import org.emftext.language.java.references.Reference;
 public interface Adapter extends NamedElement {
 	/**
    * Returns the value of the '<em><b>References</b></em>' containment reference list.
-   * The list contents are of type {@link org.emftext.language.java.references.Reference}.
+   * The list contents are of type {@link org.emftext.language.aspectbind.patterns.TypePattern}.
    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>References</em>' containment reference list isn't clear,
@@ -49,7 +51,7 @@ public interface Adapter extends NamedElement {
    * @model containment="true" required="true"
    * @generated
    */
-	EList<Reference> getReferences();
+	EList<TypePattern> getReferences();
 
 	/**
    * Returns the value of the '<em><b>Abstract</b></em>' containment reference.
@@ -78,29 +80,29 @@ public interface Adapter extends NamedElement {
 	void setAbstract(Abstract value);
 
 	/**
-   * Returns the value of the '<em><b>Extend</b></em>' containment reference.
+   * Returns the value of the '<em><b>Extend</b></em>' reference.
    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Extend</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-   * @return the value of the '<em>Extend</em>' containment reference.
-   * @see #setExtend(ExtendsTypeArgument)
+   * @return the value of the '<em>Extend</em>' reference.
+   * @see #setExtend(Adapter)
    * @see org.emftext.language.aspectbind.declaration.DeclarationPackage#getAdapter_Extend()
-   * @model containment="true"
+   * @model
    * @generated
    */
-	ExtendsTypeArgument getExtend();
+	Adapter getExtend();
 
 	/**
-   * Sets the value of the '{@link org.emftext.language.aspectbind.declaration.Adapter#getExtend <em>Extend</em>}' containment reference.
+   * Sets the value of the '{@link org.emftext.language.aspectbind.declaration.Adapter#getExtend <em>Extend</em>}' reference.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extend</em>' containment reference.
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extend</em>' reference.
    * @see #getExtend()
    * @generated
    */
-	void setExtend(ExtendsTypeArgument value);
+  void setExtend(Adapter value);
 
 } // Adapter

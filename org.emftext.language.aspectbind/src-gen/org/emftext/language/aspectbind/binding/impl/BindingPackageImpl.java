@@ -35,6 +35,8 @@ import org.emftext.language.aspectbind.pointcuts.PointcutsPackage;
 
 import org.emftext.language.aspectbind.pointcuts.impl.PointcutsPackageImpl;
 
+import org.emftext.language.aspectbind.wildcard.WildcardPackage;
+import org.emftext.language.aspectbind.wildcard.impl.WildcardPackageImpl;
 import org.emftext.language.java.annotations.AnnotationsPackage;
 
 import org.emftext.language.java.arrays.ArraysPackage;

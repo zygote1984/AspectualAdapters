@@ -53,6 +53,8 @@ import org.emftext.language.aspectbind.pointcuts.ThisPointcut;
 import org.emftext.language.aspectbind.pointcuts.WithinCodePointcut;
 import org.emftext.language.aspectbind.pointcuts.WithinPointcut;
 
+import org.emftext.language.aspectbind.wildcard.WildcardPackage;
+import org.emftext.language.aspectbind.wildcard.impl.WildcardPackageImpl;
 import org.emftext.language.java.annotations.AnnotationsPackage;
 
 import org.emftext.language.java.arrays.ArraysPackage;

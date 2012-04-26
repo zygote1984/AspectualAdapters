@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.emftext.language.aspectbind.commons.CommonsPackage;
+import org.emftext.language.java.literals.LiteralsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -291,7 +292,7 @@ public interface DeclarationPackage extends EPackage {
 	int ADAPTER__ABSTRACT = org.emftext.language.java.commons.CommonsPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-   * The feature id for the '<em><b>Extend</b></em>' containment reference.
+   * The feature id for the '<em><b>Extend</b></em>' reference.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -310,6 +311,35 @@ public interface DeclarationPackage extends EPackage {
 
 
 	/**
+   * The meta object id for the '{@link org.emftext.language.aspectbind.declaration.impl.AdapteeImpl <em>Adaptee</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.emftext.language.aspectbind.declaration.impl.AdapteeImpl
+   * @see org.emftext.language.aspectbind.declaration.impl.DeclarationPackageImpl#getAdaptee()
+   * @generated
+   */
+  int ADAPTEE = 5;
+
+  /**
+   * The feature id for the '<em><b>Comments</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADAPTEE__COMMENTS = LiteralsPackage.SELF__COMMENTS;
+
+  /**
+   * The number of structural features of the '<em>Adaptee</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADAPTEE_FEATURE_COUNT = LiteralsPackage.SELF_FEATURE_COUNT + 0;
+
+
+  /**
    * Returns the meta object for class '{@link org.emftext.language.aspectbind.declaration.AdapterDeclaration <em>Adapter Declaration</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,10 +456,10 @@ public interface DeclarationPackage extends EPackage {
 	EReference getAdapter_Abstract();
 
 	/**
-   * Returns the meta object for the containment reference '{@link org.emftext.language.aspectbind.declaration.Adapter#getExtend <em>Extend</em>}'.
+   * Returns the meta object for the reference '{@link org.emftext.language.aspectbind.declaration.Adapter#getExtend <em>Extend</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Extend</em>'.
+   * @return the meta object for the reference '<em>Extend</em>'.
    * @see org.emftext.language.aspectbind.declaration.Adapter#getExtend()
    * @see #getAdapter()
    * @generated
@@ -437,6 +467,16 @@ public interface DeclarationPackage extends EPackage {
 	EReference getAdapter_Extend();
 
 	/**
+   * Returns the meta object for class '{@link org.emftext.language.aspectbind.declaration.Adaptee <em>Adaptee</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Adaptee</em>'.
+   * @see org.emftext.language.aspectbind.declaration.Adaptee
+   * @generated
+   */
+  EClass getAdaptee();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,12 +597,22 @@ public interface DeclarationPackage extends EPackage {
 		EReference ADAPTER__ABSTRACT = eINSTANCE.getAdapter_Abstract();
 
 		/**
-     * The meta object literal for the '<em><b>Extend</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Extend</b></em>' reference feature.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
      * @generated
      */
 		EReference ADAPTER__EXTEND = eINSTANCE.getAdapter_Extend();
+
+    /**
+     * The meta object literal for the '{@link org.emftext.language.aspectbind.declaration.impl.AdapteeImpl <em>Adaptee</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.emftext.language.aspectbind.declaration.impl.AdapteeImpl
+     * @see org.emftext.language.aspectbind.declaration.impl.DeclarationPackageImpl#getAdaptee()
+     * @generated
+     */
+    EClass ADAPTEE = eINSTANCE.getAdaptee();
 
 	}
 

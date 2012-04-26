@@ -62,6 +62,15 @@ public interface DeclarationFactory extends EFactory {
 	Adapter createAdapter();
 
 	/**
+   * Returns a new object of class '<em>Adaptee</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Adaptee</em>'.
+   * @generated
+   */
+  Adaptee createAdaptee();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
