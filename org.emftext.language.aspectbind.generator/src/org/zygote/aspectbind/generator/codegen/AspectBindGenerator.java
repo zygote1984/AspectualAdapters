@@ -12,7 +12,7 @@ public class AspectBindGenerator {
 	JavaIoFileSystemAccess fsa = new JavaIoFileSystemAccess();
 	GeneratorMain main;
 	URI outputPath;
-	String genFolder = "src-gen";
+	String genFolder = "output";
 	boolean oFlag = false;
 
 	public AspectBindGenerator(boolean print) {
@@ -28,10 +28,14 @@ public class AspectBindGenerator {
 
 	}
 
-	public void setOutputPath(URI outputPath) {
+	public void setOutputPath(URI outputPath, boolean segment) {
 		if (!oFlag) {
 			oFlag = true;
-			this.outputPath = outputPath.appendSegment(genFolder);
+			if(segment)
+				this.outputPath = outputPath.appendSegment(genFolder);
+			else
+				this.outputPath = outputPath;
+			
 			System.out.println("[Setting generator path]: " + this.outputPath);
 
 			// File file = new File(outputPath);

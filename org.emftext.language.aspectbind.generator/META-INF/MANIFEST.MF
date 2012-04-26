@@ -14,7 +14,9 @@ Require-Bundle: org.eclipse.xtend2.lib,
  org.apache.log4j;bundle-version="1.2.15",
  org.apache.commons.logging;bundle-version="1.1.1",
  org.emftext.language.aspectbind;bundle-version="1.0.0",
- org.emftext.language.java.resource.java;bundle-version="1.3.0"
+ org.emftext.language.java.resource.java;bundle-version="1.3.0",
+ org.emftext.language.java.resource;bundle-version="1.3.0",
+ org.emftext.language.aspectbind.resource.aspectbind;bundle-version="1.0.0"
 Export-Package:  org.zygote.aspectbind.generator.codegen
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.emftext.language.aspectbind.binding,
