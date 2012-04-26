@@ -6,5 +6,5 @@ package zygote.binding.example.ibmExample;
  */
 public interface SensorRead {
 	String getStatus();
-	void setSensor(Object sensor);
+	//void setSensor(Object sensor);
 }

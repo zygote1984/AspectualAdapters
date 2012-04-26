@@ -2,17 +2,18 @@ package zygote.binding.example.ibmExample.gen;
 
 import java.util.ArrayList;
 
-import zygote.binding.example.ibmExample.RadiatorDetector;
+import zygote.binding.example.ibmExample.RadiationDetector;
 import zygote.binding.example.ibmExample.SensorRead;
+import zygote.binding.lib.Adapter;
 
-public class SensorReader1 implements SensorRead{
+public class SensorReader1 extends Adapter implements SensorRead{
 
-	RadiatorDetector pc_rad1 = null;
+	RadiationDetector pc_rad1 = null;
 	
 	
 	
 
-	public String _getStatus(RadiatorDetector detector)
+	public String _getStatus(RadiationDetector detector)
 	{
 		pc_rad1 =  detector;
 		return this.getStatus();
@@ -21,6 +22,7 @@ public class SensorReader1 implements SensorRead{
 
 	@Override
 	public String getStatus() {
+		System.out.println("Chernobyl");
 		if(pc_rad1.getCurrentRadiationLevel() > 10)
 			return "TWO HEADED FISH";
 		else
@@ -30,7 +32,7 @@ public class SensorReader1 implements SensorRead{
 
 	@Override
 	public void setSensor(Object sensor) {
-		pc_rad1 = (RadiatorDetector)sensor;
+		pc_rad1 = (RadiationDetector)sensor;
 		
 	}
 	

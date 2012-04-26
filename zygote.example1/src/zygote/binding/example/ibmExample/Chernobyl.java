@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Chernobyl {
 	
 	
-	public ArrayList<RadiatorDetector> rd;
+	public ArrayList<RadiationDetector> rd;
+	public TemperatureGauge tg;
 	
 	public Chernobyl() {
-		rd = new ArrayList<RadiatorDetector>();
-		rd.add(new RadiatorDetector(11));
-		rd.add(new RadiatorDetector(8));
+		rd = new ArrayList<RadiationDetector>();
+		rd.add(new RadiationDetector(11));
+		rd.add(new RadiationDetector(8));
+		tg = new TemperatureGauge(130);
 	}
 	
 

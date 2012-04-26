@@ -1,10 +1,11 @@
 package zygote.binding.example.ibmExample.gen;
 
-import zygote.binding.example.ibmExample.RadiatorDetector;
+import zygote.binding.example.ibmExample.RadiationDetector;
 import zygote.binding.example.ibmExample.SensorRead;
 import zygote.binding.example.ibmExample.TemperatureGauge;
+import zygote.binding.lib.Adapter;
 
-public class SensorReader3 implements SensorRead {
+public class SensorReader3 extends Adapter implements SensorRead {
 	
 	TemperatureGauge pc_temp = null;
 	

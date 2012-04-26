@@ -1,15 +1,20 @@
+package zygote.binding.example.ibmExample.binding;
+
+import zygote.binding.example.ibmExample.*;
+
+
 aspect SensorReadBinding{
 
-	instance pointcut pc_rad1(RadiationDetector) = call(public RadiatorDetection.new()) && this(RadiatorDetector) && within(Chernobyl);
-	instance pointcut pc_rad2(RadiationDetector) = call(public RadiatorDetection.new()) && this(RadiatorDetector) && within(FukushimaDaiichi);
-	instance pointcut pc_temp(TemperatureGauge) = call(public TemperatureGauge.new()) && this(TemperatureGauge);
+	instance pointcut pc_rad1<RadiationDetector> = call(public RadiatorDetection->new()) && target(instance) && within(Chernobyl);
+	instance pointcut pc_rad2<RadiationDetector> = call(public RadiatorDetection->new()) && target(instance) && within(FukushimaDaiichi);
+	instance pointcut pc_temp<TemperatureGauge> = call(public TemperatureGauge->new()) && target(instance);
 	
 	
-	declare adapter: SensorReader1[SensorRead] adapts pc_rad1
+	declare adapter: SensorReader1{SensorRead} adapts pc_rad1
 	{
-		String getStatus()
+		public String getStatus()
 		{
-			if(pc_rad1.getCurrentRadiationLevel() > 10)
+			if(adaptee.getCurrentRadiationLevel() > 10)
 				return "TWO HEADED FISH";
 			else
 				return "OK";
@@ -20,11 +25,11 @@ aspect SensorReadBinding{
 	}
 	
 	
-	declare adapter: SensorReader2[AdvancedSensorRead] adapts pc_rad2
+	declare adapter: SensorReader2{AdvancedSensorRead} adapts pc_rad2
 	{
-		String getStatus()
+		public String getStatus()
 		{
-			if(pc_rad2.getCurrentRadiationLevel() > 20)
+			if(adaptee.getCurrentRadiationLevel() > 20)
 				return "X-MEN";
 			else
 				return "OK";
@@ -34,11 +39,11 @@ aspect SensorReadBinding{
 	}
 	
 	
-	declare adapter: SensorReader3[AdvancedSensorRead] adapts pc_temp
+	declare adapter: SensorReader3{AdvancedSensorRead} adapts pc_temp
 	{
-		String getStatus()
+		public String getStatus()
 		{
-			if(pc_temp.readTemperature() > 100)
+			if(adaptee.readTemperature() > 100)
 				return "HOT";
 			else
 				return "OK";

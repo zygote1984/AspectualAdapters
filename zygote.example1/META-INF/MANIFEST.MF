@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example1
+Bundle-SymbolicName: zygote.example1
+Bundle-Version: 1.0.0.qualifier
+Export-Package: .,
+ zygote.binding.example.ibmExample,
+ zygote.binding.example.ibmExample.binding,
+ zygote.binding.example.ibmExample.gen
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.7.0",
+ org.emftext.language.aspectbind.resource.aspectbind;bundle-version="1.0.0",
+ org.eclipse.jdt.junit;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.core.runtime;bundle-version="3.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
