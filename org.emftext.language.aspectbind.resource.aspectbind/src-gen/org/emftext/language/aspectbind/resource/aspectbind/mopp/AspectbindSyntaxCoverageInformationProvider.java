@@ -29,6 +29,7 @@ public class AspectbindSyntaxCoverageInformationProvider {
 			org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdapter(),
 			org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getPrecedenceDeclaration(),
 			org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getInterTypeDeclaration(),
+			org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdaptee(),
 			org.emftext.language.aspectbind.pcexp.PcexpPackage.eINSTANCE.getPointcutExpression(),
 			org.emftext.language.aspectbind.pcexp.PcexpPackage.eINSTANCE.getPointcutOrExpression(),
 			org.emftext.language.aspectbind.pcexp.PcexpPackage.eINSTANCE.getPointcutAndExpression(),

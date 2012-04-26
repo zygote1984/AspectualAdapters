@@ -185,20 +185,24 @@ public class AspectbindPrinter2 implements org.emftext.language.aspectbind.resou
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_18, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutExpression) {
+		if (element instanceof org.emftext.language.aspectbind.declaration.Adaptee) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_19, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutOrExpression) {
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutExpression) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_20, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutAndExpression) {
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutOrExpression) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_21, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) {
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PointcutAndExpression) {
 			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_22, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.aspectbind.pcexp.PcAssignmentOperator) {
+			printInternal(element, org.emftext.language.aspectbind.resource.aspectbind.grammar.AspectbindGrammarInformationProvider.ASPECTBIND_23, foundFormattingElements);
 			return;
 		}
 		if (element instanceof org.emftext.language.java.containers.EmptyModel) {

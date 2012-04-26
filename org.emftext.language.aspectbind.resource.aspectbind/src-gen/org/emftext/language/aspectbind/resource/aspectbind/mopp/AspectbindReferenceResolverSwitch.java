@@ -11,6 +11,7 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.PerClausePointcutReferenceResolver perClausePointcutReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.PerClausePointcutReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.IdPatternIdReferenceResolver idPatternIdReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.IdPatternIdReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterDeclarationAdapteeReferenceResolver adapterDeclarationAdapteeReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterDeclarationAdapteeReferenceResolver();
+	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterExtendReferenceResolver adapterExtendReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterExtendReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.ClassifierImportClassifierReferenceResolver classifierImportClassifierReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.ClassifierImportClassifierReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.StaticMemberImportStaticMembersReferenceResolver staticMemberImportStaticMembersReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.StaticMemberImportStaticMembersReferenceResolver();
 	protected org.emftext.language.aspectbind.resource.aspectbind.analysis.AnnotationInstanceAnnotationReferenceResolver annotationInstanceAnnotationReferenceResolver = new org.emftext.language.aspectbind.resource.aspectbind.analysis.AnnotationInstanceAnnotationReferenceResolver();
@@ -29,6 +30,10 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 	
 	public org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterDeclarationAdapteeReferenceResolver getAdapterDeclarationAdapteeReferenceResolver() {
 		return adapterDeclarationAdapteeReferenceResolver;
+	}
+	
+	public org.emftext.language.aspectbind.resource.aspectbind.analysis.AdapterExtendReferenceResolver getAdapterExtendReferenceResolver() {
+		return adapterExtendReferenceResolver;
 	}
 	
 	public org.emftext.language.aspectbind.resource.aspectbind.analysis.ClassifierImportClassifierReferenceResolver getClassifierImportClassifierReferenceResolver() {
@@ -63,6 +68,7 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 		perClausePointcutReferenceResolver.setOptions(options);
 		idPatternIdReferenceResolver.setOptions(options);
 		adapterDeclarationAdapteeReferenceResolver.setOptions(options);
+		adapterExtendReferenceResolver.setOptions(options);
 		classifierImportClassifierReferenceResolver.setOptions(options);
 		staticMemberImportStaticMembersReferenceResolver.setOptions(options);
 		annotationInstanceAnnotationReferenceResolver.setOptions(options);
@@ -98,6 +104,14 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
 			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("adaptee")) {
 				adapterDeclarationAdapteeReferenceResolver.resolve(identifier, (org.emftext.language.aspectbind.declaration.AdapterDeclaration) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
+			}
+		}
+		if (org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdapter().isInstance(container)) {
+			AspectbindFuzzyResolveResult<org.emftext.language.aspectbind.declaration.Adapter> frr = new AspectbindFuzzyResolveResult<org.emftext.language.aspectbind.declaration.Adapter>(result);
+			String referenceName = reference.getName();
+			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
+			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("extend")) {
+				adapterExtendReferenceResolver.resolve(identifier, (org.emftext.language.aspectbind.declaration.Adapter) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
 			}
 		}
 		if (org.emftext.language.java.imports.ImportsPackage.eINSTANCE.getClassifierImport().isInstance(container)) {
@@ -167,6 +181,9 @@ public class AspectbindReferenceResolverSwitch implements org.emftext.language.a
 		}
 		if (reference == org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdapterDeclaration_Adaptee()) {
 			return adapterDeclarationAdapteeReferenceResolver;
+		}
+		if (reference == org.emftext.language.aspectbind.declaration.DeclarationPackage.eINSTANCE.getAdapter_Extend()) {
+			return adapterExtendReferenceResolver;
 		}
 		if (reference == org.emftext.language.java.imports.ImportsPackage.eINSTANCE.getClassifierImport_Classifier()) {
 			return classifierImportClassifierReferenceResolver;

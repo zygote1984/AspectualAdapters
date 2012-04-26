@@ -58,8 +58,140 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 	
 	public ResultType interprete(org.eclipse.emf.ecore.EObject object, ContextType context) {
 		ResultType result = null;
+		if (object instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_TypePattern((org.emftext.language.aspectbind.patterns.TypePattern) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.emftext.language.aspectbind.patterns.IdPattern) {
 			result = interprete_org_emftext_language_aspectbind_patterns_IdPattern((org.emftext.language.aspectbind.patterns.IdPattern) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.patterns.TypeOrIdPattern) {
+			result = interprete_org_emftext_language_aspectbind_patterns_TypeOrIdPattern((org.emftext.language.aspectbind.patterns.TypeOrIdPattern) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.CallPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_CallPointcut((org.emftext.language.aspectbind.pointcuts.CallPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_ExecutionPointcut((org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.GetPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_GetPointcut((org.emftext.language.aspectbind.pointcuts.GetPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.SetPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_SetPointcut((org.emftext.language.aspectbind.pointcuts.SetPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.HandlerPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_HandlerPointcut((org.emftext.language.aspectbind.pointcuts.HandlerPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.AdviceExecutionPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_AdviceExecutionPointcut((org.emftext.language.aspectbind.pointcuts.AdviceExecutionPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.StaticInitPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_StaticInitPointcut((org.emftext.language.aspectbind.pointcuts.StaticInitPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.InitPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_InitPointcut((org.emftext.language.aspectbind.pointcuts.InitPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.PreInitPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_PreInitPointcut((org.emftext.language.aspectbind.pointcuts.PreInitPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.WithinPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_WithinPointcut((org.emftext.language.aspectbind.pointcuts.WithinPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.WithinCodePointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_WithinCodePointcut((org.emftext.language.aspectbind.pointcuts.WithinCodePointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.ThisPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_ThisPointcut((org.emftext.language.aspectbind.pointcuts.ThisPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.TargetPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_TargetPointcut((org.emftext.language.aspectbind.pointcuts.TargetPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.ArgsPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_ArgsPointcut((org.emftext.language.aspectbind.pointcuts.ArgsPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.CFlowPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_CFlowPointcut((org.emftext.language.aspectbind.pointcuts.CFlowPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.CFlowBelowPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_CFlowBelowPointcut((org.emftext.language.aspectbind.pointcuts.CFlowBelowPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.IfPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_IfPointcut((org.emftext.language.aspectbind.pointcuts.IfPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_PrimitivePointcut((org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.AspectJPointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_AspectJPointcut((org.emftext.language.aspectbind.pointcuts.AspectJPointcut) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.emftext.language.aspectbind.pointcuts.Pointcut) {
+			result = interprete_org_emftext_language_aspectbind_pointcuts_Pointcut((org.emftext.language.aspectbind.pointcuts.Pointcut) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -124,6 +256,12 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.emftext.language.aspectbind.declaration.Adaptee) {
+			result = interprete_org_emftext_language_aspectbind_declaration_Adaptee((org.emftext.language.aspectbind.declaration.Adaptee) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.emftext.language.aspectbind.pcexp.PointcutExpressionChild) {
 			result = interprete_org_emftext_language_aspectbind_pcexp_PointcutExpressionChild((org.emftext.language.aspectbind.pcexp.PointcutExpressionChild) object, context);
 		}
@@ -184,140 +322,8 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.emftext.language.aspectbind.patterns.TypeOrIdPattern) {
-			result = interprete_org_emftext_language_aspectbind_patterns_TypeOrIdPattern((org.emftext.language.aspectbind.patterns.TypeOrIdPattern) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.CallPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_CallPointcut((org.emftext.language.aspectbind.pointcuts.CallPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_ExecutionPointcut((org.emftext.language.aspectbind.pointcuts.ExecutionPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.GetPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_GetPointcut((org.emftext.language.aspectbind.pointcuts.GetPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.emftext.language.aspectbind.patterns.MethodPattern) {
 			result = interprete_org_emftext_language_aspectbind_patterns_MethodPattern((org.emftext.language.aspectbind.patterns.MethodPattern) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.SetPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_SetPointcut((org.emftext.language.aspectbind.pointcuts.SetPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.HandlerPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_HandlerPointcut((org.emftext.language.aspectbind.pointcuts.HandlerPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.AdviceExecutionPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_AdviceExecutionPointcut((org.emftext.language.aspectbind.pointcuts.AdviceExecutionPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.StaticInitPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_StaticInitPointcut((org.emftext.language.aspectbind.pointcuts.StaticInitPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.InitPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_InitPointcut((org.emftext.language.aspectbind.pointcuts.InitPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.PreInitPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_PreInitPointcut((org.emftext.language.aspectbind.pointcuts.PreInitPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.WithinPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_WithinPointcut((org.emftext.language.aspectbind.pointcuts.WithinPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.WithinCodePointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_WithinCodePointcut((org.emftext.language.aspectbind.pointcuts.WithinCodePointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.ThisPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_ThisPointcut((org.emftext.language.aspectbind.pointcuts.ThisPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.patterns.TypePattern) {
-			result = interprete_org_emftext_language_aspectbind_patterns_TypePattern((org.emftext.language.aspectbind.patterns.TypePattern) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.TargetPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_TargetPointcut((org.emftext.language.aspectbind.pointcuts.TargetPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.ArgsPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_ArgsPointcut((org.emftext.language.aspectbind.pointcuts.ArgsPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.CFlowPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_CFlowPointcut((org.emftext.language.aspectbind.pointcuts.CFlowPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.CFlowBelowPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_CFlowBelowPointcut((org.emftext.language.aspectbind.pointcuts.CFlowBelowPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.IfPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_IfPointcut((org.emftext.language.aspectbind.pointcuts.IfPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_PrimitivePointcut((org.emftext.language.aspectbind.pointcuts.PrimitivePointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.AspectJPointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_AspectJPointcut((org.emftext.language.aspectbind.pointcuts.AspectJPointcut) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.emftext.language.aspectbind.pointcuts.Pointcut) {
-			result = interprete_org_emftext_language_aspectbind_pointcuts_Pointcut((org.emftext.language.aspectbind.pointcuts.Pointcut) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -368,6 +374,10 @@ public class AbstractAspectbindInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_org_emftext_language_aspectbind_declaration_Adapter(org.emftext.language.aspectbind.declaration.Adapter object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_aspectbind_declaration_Adaptee(org.emftext.language.aspectbind.declaration.Adaptee object, ContextType context) {
 		return null;
 	}
 	

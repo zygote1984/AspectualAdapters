@@ -206,6 +206,7 @@ public class AspectbindResource extends org.eclipse.emf.ecore.resource.impl.Reso
 			isLoaded = false;
 			java.util.Map<Object, Object> loadOptions = addDefaultLoadOptions(options);
 			doLoad(inputStream, loadOptions);
+			org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(this.getResourceSet());
 		} catch (org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindTerminateParsingException tpe) {
 			// do nothing - the resource is left unchanged if this exception is thrown
 		}
@@ -445,6 +446,7 @@ public class AspectbindResource extends org.eclipse.emf.ecore.resource.impl.Reso
 	public void load(java.util.Map<?, ?> options) throws java.io.IOException {
 		java.util.Map<Object, Object> loadOptions = addDefaultLoadOptions(options);
 		super.load(loadOptions);
+		org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(this.getResourceSet());
 	}
 	
 	public void setURI(org.eclipse.emf.common.util.URI uri) {

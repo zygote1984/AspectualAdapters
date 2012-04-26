@@ -9,7 +9,6 @@ package org.emftext.language.aspectbind.resource.aspectbind.mopp;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.URI;
-import org.zygote.aspectbind.generator.codegen.AspectBindGenerator;
 
 
 public class AspectbindBuilder implements org.emftext.language.aspectbind.resource.aspectbind.IAspectbindBuilder {
@@ -21,21 +20,23 @@ public class AspectbindBuilder implements org.emftext.language.aspectbind.resour
 	
 	public org.eclipse.core.runtime.IStatus build(org.emftext.language.aspectbind.resource.aspectbind.mopp.AspectbindResource resource, org.eclipse.core.runtime.IProgressMonitor monitor) {
 		// set option overrideBuilder to 'false' and then perform build here
-		URI rURI = URI.createURI((CommonPlugin.resolve(resource.getURI()).devicePath()));
-		System.out.println(rURI.devicePath());
-		AspectBindGenerator main = new AspectBindGenerator();
-		
-		if(rURI.fileExtension().equals("aspectbind"))
-		{
-			main.setOutputPath(rURI.trimSegments(2));
-		}
-		else
-		{
-			System.out.println(rURI.fileExtension());
-			throw new RuntimeException();
-		}
-		main.generate(resource);
+//		URI rURI = URI.createURI((CommonPlugin.resolve(resource.getURI()).devicePath()));
+//		System.out.println(rURI.devicePath());
+//		AspectBindGenerator main = new AspectBindGenerator();
+//		
+//		if(rURI.fileExtension().equals("aspectbind"))
+//		{
+//			main.setOutputPath(rURI.trimSegments(2));
+//		}
+//		else
+//		{
+//			System.out.println(rURI.fileExtension());
+//			throw new RuntimeException();
+//		}
+//		main.generate(resource);
 		return org.eclipse.core.runtime.Status.OK_STATUS;
 	}
 	
 }
+
+
