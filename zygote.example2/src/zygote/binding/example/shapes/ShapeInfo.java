@@ -1,9 +1,6 @@
 package zygote.binding.example.shapes;
 
-import java.util.ArrayList;
-
-import zygote.binding.example.shapes.gen.CircleAdapter;
-import zygote.binding.example.shapes.gen.Shapes;
+import zygote.binding.example.shapes.binding.*;
 import zygote.binding.lib.Adapter;
 import zygote.binding.lib.AdapterSelector;
 
@@ -15,8 +12,8 @@ public class ShapeInfo {
 	public static void main(String[] args) {
 		
 		ShapeCreator.createSomeShapes();
-			
-		for(Adapter s: AdapterSelector.getAdaptors(Shapes.aspectOf().getMap()))
+		System.out.println(ShapesBinding.aspectOf().Circle_CircleAdapter_map.values());
+		for(CircleAdapter s: ShapesBinding.aspectOf().Circle_CircleAdapter_map.values())
 		{
 			System.out.println(((ShapeArea)s).getArea());
 			System.out.println(((ShapeCircum)s).getCircum());

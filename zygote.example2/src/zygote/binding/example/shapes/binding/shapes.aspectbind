@@ -1,19 +1,24 @@
-aspect Shapes{
+package zygote.binding.example.shapes.binding;
 
-	instance pointcut shapes<Shape> = call(public Shape+.new()) && target(instance); 
+import zygote.binding.example.shapes.*;
+
+
+aspect ShapesBinding{
+
+	instance pointcut shapes<Shape>: call(public Shape+->new()) && target(instance); 
 	
 	
 	
 	declare adapter: CircleAdapter{ShapeArea, ShapeCircum} adapts shapes<Circle>{
 	
-		public int getArea()
+		public String  getArea()
 		{
-			return 3*shapes.getR()*shapes.getR();
+			return "" + 3*adaptee.getR()*adaptee.getR();
 		}
 	
-		public int getCircum(){
+		public String  getCircum(){
 		
-			return 2*3*shapes.getR();
+			return "" + 2*3*adaptee.getR();
 		}
 	}
 
@@ -21,58 +26,14 @@ aspect Shapes{
 	
 		public String getArea()
 		{
-			return "Rectangle Area: " + shapes.getA()*shapes.getB();
+			return "Rectangle Area: " + adaptee.getA()*adaptee.getB();
 		}
 	
 	
-		public int getCircum(){
+		public String getCircum(){
 		
-			return "Rectangle Circumference: " + 2*(shapes.getA() + shapes.getB());
+			return "Rectangle Circumference: " + 2*(adaptee.getA() + adaptee.getB());
 		}
 	}
-	
-	
-	/* IGNORE THE REST */
-	declare adapter: ShapeAdapter[ShapeArea, ShapeCircum] adapts shapes {
-	
-		public int ShapeArea.getArea()
-		{
-			return "Circle Area: " + shapes[Rectangle].getA()*shapes[Rectangle].getB();
-		}
-	
-	
-		public int ShapeCircum.getCircum(){
-		
-			return "Circle Circumference: "+  2*(shapes[Rectangle].getA() + shapes[Rectangle].getB());
-		}
-
-	
-	}
-	
-	instance pointcut <? extends Shape> shapes = call(public Shape+.new()) && this(Shape); 
-
-	declare adapter ShapeAdapter : ShapeArea, ShapeCircum adapts shapes{
-		
-		public int ShapeArea.getArea()
-		{
-			return "Rectangle Area: " + shapes.getA()*shapes.getB();
-		}
-
-		public int ShapeArea.getArea() : shapes@Circle
-		{
-			return "Circle Area: " + shapes.getA()*shapes.getB();
-		}
-	
-	
-		public int ShapeCircum.getCircum(){
-		
-			return "Circle Circumference: "+  2*(shapes[Rectangle].getA() + shapes[Rectangle].getB());
-		}
-
-	
-	}
-	
-	
-
 
 }
