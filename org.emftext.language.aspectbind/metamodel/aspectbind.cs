@@ -63,8 +63,9 @@ RULES {
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
 	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new"#0"("parameters? (","parameters)*")";
 	 patterns.MethodPattern ::= modifiers* returnType declaringType #0 "->" #0 name[] #0 "("parameters? (","parameters)* ")";
-	 patterns.TypePattern ::=  type#0subtypes?;
+	 patterns.TypePattern ::=  type(#0subtypes)?;
 	 patterns.IdPattern ::= id[];
+	 patterns.ParameterWildcard ::= "..";
 
 	 
 	 declaration.AdapterDeclaration ::= "declare adapter:" adapter "adapts" adaptee[] ("<"adapteeSub">")? !1 "{" members* "}";

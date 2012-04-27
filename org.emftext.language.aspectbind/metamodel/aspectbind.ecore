@@ -149,7 +149,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaringType" lowerBound="1"
           eType="#//patterns/TypePattern" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-          eType="#//patterns/TypePattern" containment="true"/>
+          eType="#//patterns/WildcardOrTypePattern" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MethodPattern" eSuperTypes="#//patterns/AbstractMethodPattern">
       <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
@@ -162,9 +162,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaringType" lowerBound="1"
           eType="#//patterns/TypePattern" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-          eType="#//patterns/TypePattern" containment="true"/>
+          eType="#//patterns/WildcardOrTypePattern" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TypePattern" eSuperTypes="#//patterns/TypeOrIdPattern">
+    <eClassifiers xsi:type="ecore:EClass" name="TypePattern" eSuperTypes="#//patterns/TypeOrIdPattern #//patterns/WildcardOrTypePattern">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//types/TypeReference"
           containment="true"/>
@@ -175,5 +175,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="id" lowerBound="1" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//references/Reference"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeOrIdPattern" abstract="true" eSuperTypes="#//patterns/Pattern"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterWildcard" eSuperTypes="#//patterns/WildcardPattern"/>
+    <eClassifiers xsi:type="ecore:EClass" name="WildcardPattern" abstract="true" eSuperTypes="#//patterns/WildcardOrTypePattern"/>
+    <eClassifiers xsi:type="ecore:EClass" name="WildcardOrTypePattern" abstract="true"
+        eSuperTypes="#//patterns/Pattern"/>
   </eSubpackages>
 </ecore:EPackage>

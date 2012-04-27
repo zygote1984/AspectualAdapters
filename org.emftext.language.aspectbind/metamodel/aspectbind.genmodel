@@ -138,6 +138,9 @@
             ecoreFeature="ecore:EReference aspectbind.ecore#//patterns/IdPattern/id"/>
       </genClasses>
       <genClasses image="false" ecoreClass="aspectbind.ecore#//patterns/TypeOrIdPattern"/>
+      <genClasses ecoreClass="aspectbind.ecore#//patterns/ParameterWildcard"/>
+      <genClasses image="false" ecoreClass="aspectbind.ecore#//patterns/WildcardPattern"/>
+      <genClasses image="false" ecoreClass="aspectbind.ecore#//patterns/WildcardOrTypePattern"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
