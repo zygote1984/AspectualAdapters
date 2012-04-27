@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Example
-Bundle-SymbolicName: zygote.binding.example
-Bundle-Version: 1.0.0.qualifier
-Export-Package: zygote.binding.example.ibmExample,
- zygote.binding.example.ibmExample.binding,
- zygote.binding.example.ibmExample.gen
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6

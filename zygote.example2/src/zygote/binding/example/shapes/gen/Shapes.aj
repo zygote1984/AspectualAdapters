@@ -1,9 +1,13 @@
 package zygote.binding.example.shapes.gen;
 
+
 import java.util.WeakHashMap;
+import java.util.ArrayList;
 import zygote.binding.example.shapes.*;
 import zygote.binding.lib.Adapter;
+import zygote.binding.lib.AdapterAspect;
 
+@AdapterAspect
 public aspect Shapes {
 	
 	
@@ -17,7 +21,6 @@ public aspect Shapes {
 			map.put(s, new RectangleAdapter((Rectangle)s));
 	}
 	
-
 	public WeakHashMap<Shape, Adapter> getMap()
 	{
 		return map;
