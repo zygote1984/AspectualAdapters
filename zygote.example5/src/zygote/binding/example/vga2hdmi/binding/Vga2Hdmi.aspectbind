@@ -1,0 +1,29 @@
+aspect Vga2Hdmi{
+
+
+	instance pointcut vga(Vga) = call(Vga.new(..)) && target(Vga);
+
+
+	declare adapter: Vga2Dvi[IDvi] adapts vga
+	{
+		public String dvi(){
+		
+			return "vga -> dvi";
+		
+		}
+	
+	}
+
+	declare adapter: Vga2Hdmi[IHdmi] adapts adapters<Vga2Dvi>
+	{
+		public String hdmi(){
+		
+			return adapters.dvi() + "->hdmi";
+		}
+	}
+	
+	//I'm not sure..............................
+	main() {
+	Vga2Hdmi adpat = convert(Vga , Vga2Hdmi)
+	}
+}

@@ -1,0 +1,72 @@
+<class-diagram version="1.0.7" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <interface id="1" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.ShapeArea" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/ShapeArea.java" binary="false">    
+    <position height="-1" width="-1" x="529" y="297"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="2" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.ShapeColor" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/ShapeColor.java" binary="false">    
+    <position height="-1" width="-1" x="526" y="184"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.Circle" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/Circle.java" binary="false">    
+    <position height="-1" width="-1" x="93" y="354"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.ShapeInfo" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/ShapeInfo.java" binary="false">    
+    <position height="-1" width="-1" x="758" y="296"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.Shape" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/Shape.java" binary="false">    
+    <position height="-1" width="-1" x="192" y="167"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.ShapeCircum" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/ShapeCircum.java" binary="false">    
+    <position height="-1" width="-1" x="527" y="403"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="zygote.binding.example.shapes2.Rectangle" 
+    project="zygote.example4" file="/zygote.example4/src/zygote/binding/example/shapes2/Rectangle.java" binary="false">    
+    <position height="-1" width="-1" x="293" y="357"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <generalization id="8">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <classifier-display autosize="true" package="true" initial-value="false" signature="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
