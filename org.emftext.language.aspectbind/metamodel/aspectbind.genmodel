@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.emftext.language.aspectbind/src-gen"
     modelPluginID="org.emftext.language.aspectbind" modelName="aspectbind" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.emftext.language.java/metamodel/java.genmodel#//java">
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.emftext.language.java/metamodel/java.genmodel#//java platform:/plugin/org.eclipse.papyrus.resource/model/resource.genmodel#//resource">
   <foreignModel>aspectbind.ecore</foreignModel>
   <genPackages prefix="Aspectbind" basePackage="org.emftext.language" disposableProviderFactory="true"
       ecorePackage="aspectbind.ecore#/">
@@ -69,8 +69,13 @@
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//binding">
       <genClasses ecoreClass="aspectbind.ecore#//binding/InstancePointcut">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//binding/InstancePointcut/instanceType"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aspectbind.ecore#//binding/InstancePointcut/removeExp"/>
       </genClasses>
       <genClasses ecoreClass="aspectbind.ecore#//binding/Instance"/>
+      <genClasses ecoreClass="aspectbind.ecore#//binding/IpReturning">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//binding/IpReturning/instance"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Declaration" basePackage="org.emftext.language.aspectbind"
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//declaration">
@@ -92,6 +97,8 @@
             ecoreFeature="ecore:EReference aspectbind.ecore#//declaration/Adapter/extend"/>
       </genClasses>
       <genClasses ecoreClass="aspectbind.ecore#//declaration/Adaptee"/>
+      <genClasses ecoreClass="aspectbind.ecore#//declaration/Advice"/>
+      <genClasses image="false" ecoreClass="aspectbind.ecore#//declaration/Returning"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pcexp" basePackage="org.emftext.language.aspectbind"
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//pcexp">

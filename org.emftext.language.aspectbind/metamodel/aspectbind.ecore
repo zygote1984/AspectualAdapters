@@ -79,8 +79,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="InstancePointcut" eSuperTypes="#//pointcuts/Pointcut">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instanceType" lowerBound="1"
           eType="#//patterns/TypePattern" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="removeExp" eType="ecore:EClass platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//expressions/ConditionalExpression"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Instance" eSuperTypes="#//patterns/TypePattern"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IpReturning" eSuperTypes="#//pointcuts/PrimitivePointcut #//declaration/Returning">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" lowerBound="1"
+          eType="#//binding/Instance" containment="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="declaration" nsURI="http://www.emftext.org/language/bindingAspect/declaration"
       nsPrefix="declaration">
@@ -106,6 +112,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="extend" eType="#//declaration/Adapter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Adaptee" eSuperTypes="platform:/plugin/org.emftext.language.java/metamodel/java.ecore#//literals/Self"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Advice" eSuperTypes="#//commons/AspectMember"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Returning" abstract="true"/>
   </eSubpackages>
   <eSubpackages name="pcexp" nsURI="http://www.emftext.org/language/bindingAspect/pcexp"
       nsPrefix="pcexp">

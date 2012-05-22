@@ -31,6 +31,7 @@ TOKENSTYLES {
 	"instance pointcut" COLOR #FF00AA, BOLD;
 	"call" COLOR #FF0011, BOLD;
 	"this" COLOR #FF0011, BOLD;
+	"returning" COLOR #FF0011, BOLD;
 	"args" COLOR #FF0011, BOLD;
 	"target" COLOR #FF0011, BOLD;
 	"within" COLOR #FF0011, BOLD;
@@ -57,8 +58,9 @@ RULES {
 	 
 	 commons.PerClause ::= clause[] "("pointcut[]")";
 	 
-	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"<" #0 instanceType #0">" (assign exp:pcexp.PointcutExpression)?";";
+	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"<" #0 instanceType #0">" (assign exp:pcexp.PointcutExpression)? ("UNTIL" removeExp:pcexp.PointcutExpression)?";";
 	 binding.Instance ::= "instance";
+	 binding.IpReturning ::= "returning" "("instance")";
 	
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
 	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new"#0"("parameters? (","parameters)*")";
