@@ -155,6 +155,12 @@ public class ALIA4JSpecializationModule {
 		return new Pair<Set<Specialization>, Set<Specialization>>(newBefore, newAfter);
 	}
 	
+	public static Pair<Set<Specialization>, Set<Specialization>> orIPRef(Set<Specialization> before1, Set<Specialization> after1, Set<Specialization> before2, Set<Specialization> after2) {
+		Set<Specialization> newBefore = orSpecializations(before1, before2);
+		Set<Specialization> newAfter = orSpecializations(before1, before2);
+		return new Pair<Set<Specialization>, Set<Specialization>>(newBefore, newAfter);
+	}
+	
 	private static Set<Specialization> andSpecializations(
 			Set<Specialization> specs1, Set<Specialization> specs2) {
 		Set<Specialization> result = new HashSet<Specialization>();
@@ -169,6 +175,14 @@ public class ALIA4JSpecializationModule {
 	}
 
 
+	private static Set<Specialization> orSpecializations(Set<Specialization> specs1, Set<Specialization> specs2)
+	{
+		Set<Specialization> result = new HashSet<Specialization>();
+		result.addAll(specs1);
+		result.addAll(specs2);
+		return result;
+	}
+	
 	private static Specialization andSpecialization(
 			Specialization specialization1, Specialization specialization2) {
 		assert Arrays.equals(
@@ -192,16 +206,35 @@ public class ALIA4JSpecializationModule {
 					mpattern1.getExceptionsPattern().and(mpattern2.getExceptionsPattern()));
 		}
 		else if (specialization1.getPattern() instanceof FieldReadPattern) {
-			newPattern = null;
+			FieldReadPattern mpattern1 = (FieldReadPattern) specialization1.getPattern();
+			FieldReadPattern mpattern2 = (FieldReadPattern) specialization1.getPattern();
+			newPattern = new FieldReadPattern(mpattern1.getModifiersPattern().and(mpattern2.getModifiersPattern()),
+							mpattern1.getTypePattern().and(mpattern2.getTypePattern()),
+							mpattern1.getDeclaringClassPattern().and(mpattern2.getDeclaringClassPattern()),
+							mpattern1.getNamePattern().and(mpattern2.getNamePattern()));
 		}
 		else if (specialization1.getPattern() instanceof FieldWritePattern) {
-			newPattern = null;
+			FieldWritePattern mpattern1 = (FieldWritePattern) specialization1.getPattern();
+			FieldWritePattern mpattern2 = (FieldWritePattern) specialization1.getPattern();
+			newPattern = new FieldWritePattern(mpattern1.getModifiersPattern().and(mpattern2.getModifiersPattern()),
+					mpattern1.getTypePattern().and(mpattern2.getTypePattern()),
+					mpattern1.getDeclaringClassPattern().and(mpattern2.getDeclaringClassPattern()),
+					mpattern1.getNamePattern().and(mpattern2.getNamePattern()));
 		}
 		else if (specialization1.getPattern() instanceof ConstructorPattern) {
-			newPattern = null;
+			ConstructorPattern mpattern1 = (ConstructorPattern) specialization1.getPattern();
+			ConstructorPattern mpattern2 = (ConstructorPattern) specialization1.getPattern();
+			newPattern = new ConstructorPattern(
+					mpattern1.getModifiersPattern().and(mpattern2.getModifiersPattern()),
+					mpattern1.getDeclaringClassPattern().and(mpattern2.getDeclaringClassPattern()),
+					mpattern1.getParametersPattern().and(mpattern2.getParametersPattern()),
+					mpattern1.getExceptionsPattern().and(mpattern2.getExceptionsPattern()));
 		}
 		else if (specialization1.getPattern() instanceof StaticInitializerPattern) {
-			newPattern = null;
+			StaticInitializerPattern mpattern1 = (StaticInitializerPattern) specialization1.getPattern();
+			StaticInitializerPattern mpattern2 = (StaticInitializerPattern) specialization1.getPattern();
+			newPattern = new StaticInitializerPattern(
+					mpattern1.getDeclaringClassPattern().and(mpattern2.getDeclaringClassPattern()));
 		}
 		else {
 			throw new UnsupportedOperationException("should not be reached");
@@ -213,9 +246,7 @@ public class ALIA4JSpecializationModule {
 	}
 
 
-	public static Pair<Set<Specialization>, Set<Specialization>> orIPRef(Set<Specialization> before1, Set<Specialization> after1, Set<Specialization> before2, Set<Specialization> after2) {
-		return null;
-	}
+	
 	
 
 }
