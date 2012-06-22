@@ -5,11 +5,14 @@ START commons.Aspect
 IMPORTS{
 	 java : <http://www.emftext.org/java> WITH SYNTAX java </org.emftext.language.java/metamodel/java.cs>
 	 commons:<http://www.emftext.org/language/bindingAspect/commons>
-	 binding:<http://www.emftext.org/language/bindingAspect/binding>
+	 instancepointcut:<http://www.emftext.org/language/bindingAspect/instancepointcut>
+	 ipcomposition:<http://www.emftext.org/language/bindingAspect/instancepointcut/composition>
+	 iprelationship:<http://www.emftext.org/language/bindingAspect/instancepointcut/relationship>
 	 declaration:<http://www.emftext.org/language/bindingAspect/declaration>
 	 pcexp:<http://www.emftext.org/language/bindingAspect/pcexp>
 	 patterns:<http://www.emftext.org/language/bindingAspect/patterns>
 	 pointcuts:<http://www.emftext.org/language/bindingAspect/pointcuts>
+	 reference:<http://www.emftext.org/language/bindingAspect/reference>
 }
 
 
@@ -54,18 +57,25 @@ RULES {
 	 pointcuts.ArgsPointcut ::= "args"#0"(" pattern:patterns.TypeOrIdPattern")";
 	 pointcuts.WithinPointcut ::= "within"#0"("pattern:patterns.IdPattern")";
 	 pointcuts.TargetPointcut ::= "target"#0 "("pattern:patterns.TypeOrIdPattern ")";
+	 pointcuts.IfPointcut ::= "if"#0"("exp")";
 	 pointcuts.AspectJPointcut ::= abstract? "pointcut" name[]#0"(" #0 (parameters ("," parameters)* )? #0 ")" (assign:pcexp.PcAssignmentOperator exp:pcexp.PointcutExpression)? ";";
 	 
 	 commons.PerClause ::= clause[] "("pointcut[]")";
 	 
-	 binding.InstancePointcut ::= abstract? "instance pointcut" name[]#0"<" #0 instanceType #0">" (assign exp:pcexp.PointcutExpression)? ("UNTIL" removeExp:pcexp.PointcutExpression)?";";
-	 binding.Instance ::= "instance";
-	 binding.IpReturning ::= "returning" "("instance")";
+	 instancepointcut.InstancePointcut ::= "instance pointcut" name[]#0"<" #0 instanceType #0">" assign addExp ("UNTIL" removeExp)?";";
+	 instancepointcut.IpExpressionAll ::=  before "||" after | after "||" before ;
+	 instancepointcut.BeforeElement ::= "before""(" pcexp: pcexp.PointcutExpression")";
+	 instancepointcut.AfterElement ::= "after""(" pcexp: pcexp.PointcutExpression")";
+	 instancepointcut.Instance ::= "instance";
+	 instancepointcut.IpReturning ::= "returning" "("instance")";
+	
+	 reference.InstancePointcutReference ::= ipc[]("<"refinement">");
+	 
 	
 	 patterns.FieldPattern ::= modifiers* fieldType declaringType"."name[];
 	 patterns.ConstructorPattern ::= modifiers* declaringType#0"->"#0"new"#0"("parameters? (","parameters)*")";
 	 patterns.MethodPattern ::= modifiers* returnType declaringType #0 "->" #0 name[] #0 "("parameters? (","parameters)* ")";
-	 patterns.TypePattern ::=  type(#0subtypes)?;
+	 patterns.TypePattern ::=  type#0subtypes?;
 	 patterns.IdPattern ::= id[];
 	 patterns.ParameterWildcard ::= "..";
 

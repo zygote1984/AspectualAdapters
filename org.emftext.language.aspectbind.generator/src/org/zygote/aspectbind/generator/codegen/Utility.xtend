@@ -24,7 +24,7 @@ class Utility {
 	def static generateImports(List<Import> imports)
 	{
 
-		var impstr =  "import java.util.WeakHashMap;\n"
+		var impstr =  "import java.util.WeakHashMap;\n import org.alia4j.*;\n"
 		for(i:imports)
 		{	
 			printer.print(i)

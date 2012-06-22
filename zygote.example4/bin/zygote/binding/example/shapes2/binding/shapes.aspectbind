@@ -1,0 +1,48 @@
+package zygote.binding.example.shapes2.binding;
+
+import zygote.binding.example.shapes2.*;
+
+aspect Shapes{
+
+	instance pointcut shapes<Shape> = call(public Shape+->new(..)) && target(Shape); 
+	
+	
+	declare adapter: abstract ShapeAdapter{AreaInterface, ShapeCircum, ShapeColor} adapts shapes {
+		
+		public String getColor(){
+			if (this.getArea() > 40)
+				return "RED";
+			else
+				return "BLUE";
+		}
+	}
+	
+	declare adapter: CircleAdapter extends ShapeAdapter adapts shapes<Circle>{
+	
+		public String getArea()
+		{
+			return "" + 3*shapes.getR()*shapes.getR();
+		}
+	
+		public String getCircum(){
+			return "" +  2*3*shapes.getR();
+		}		
+	}
+
+	declare adapter: RectangleAdapter extends ShapeAdapter adapts shapes<Rectangle>{
+	
+		public String getArea()
+		{
+			return "Rectangle Area: " + shapes.getA()*shapes.getB();
+		}
+	
+	
+		public String getCircum(){
+		
+			return "Rectangle Circumference: " + 2*(shapes.getA() + shapes.getB());
+		}
+	}
+	
+
+	
+}

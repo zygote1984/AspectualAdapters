@@ -16,25 +16,8 @@ Require-Bundle: org.eclipse.xtend2.lib,
  org.emftext.language.aspectbind;bundle-version="1.0.0",
  org.emftext.language.java.resource.java;bundle-version="1.3.0",
  org.emftext.language.java.resource;bundle-version="1.3.0",
- org.emftext.language.aspectbind.resource.aspectbind;bundle-version="1.0.0"
+ org.emftext.language.aspectbind.resource.aspectbind;bundle-version="1.0.0",
+ com.google.inject.tools.ideplugin.eclipse.guiceplugin;bundle-version="0.3.9"
 Export-Package:  org.zygote.aspectbind.generator.codegen
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.emftext.language.aspectbind.binding,
- org.emftext.language.aspectbind.binding.impl,
- org.emftext.language.aspectbind.binding.util,
- org.emftext.language.aspectbind.commons,
- org.emftext.language.aspectbind.commons.impl,
- org.emftext.language.aspectbind.commons.util,
- org.emftext.language.aspectbind.declaration,
- org.emftext.language.aspectbind.declaration.impl,
- org.emftext.language.aspectbind.declaration.util,
- org.emftext.language.aspectbind.patterns,
- org.emftext.language.aspectbind.patterns.impl,
- org.emftext.language.aspectbind.patterns.util,
- org.emftext.language.aspectbind.pcexp,
- org.emftext.language.aspectbind.pcexp.impl,
- org.emftext.language.aspectbind.pcexp.util,
- org.emftext.language.aspectbind.pointcuts,
- org.emftext.language.aspectbind.pointcuts.impl,
- org.emftext.language.aspectbind.pointcuts.util
 

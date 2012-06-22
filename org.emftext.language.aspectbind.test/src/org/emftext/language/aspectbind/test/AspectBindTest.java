@@ -42,14 +42,13 @@ public class AspectBindTest {
 		assertEquals("The resource should have one content element.", 1,
 				resource.getContents().size());
 		EList<EObject> clist = resource.getContents();
-		for(EObject o:clist)
-			System.out.println("[TEST] : Resource Contents " + o.toString());
+
 		Aspect content = (Aspect) resource.getContents().get(0);
 		generator.setOutputPath(URI.createURI("D:/Profiles/hatunk/Desktop/EMFTextWS/AspectBind/org.emftext.language.aspectbind.test"), true);
-		System.out.println("[TEST]" + content.toString());
-		System.out.println("[TEST]" + ((AspectImpl)content).getPackage());
-		System.out.println("[TEST]" + ((AspectImpl)content).getMembers() );
-		System.out.println("[TEST]" + content.getNamespaces());
+//		System.out.println("[TEST]" + content.toString());
+//		System.out.println("[TEST]" + ((AspectImpl)content).getPackage());
+//		System.out.println("[TEST]" + ((AspectImpl)content).getMembers() );
+//		System.out.println("[TEST]" + content.getNamespaces());
 		EcoreUtil.resolveAll(resource);
 		generator.generate(resource);
 	

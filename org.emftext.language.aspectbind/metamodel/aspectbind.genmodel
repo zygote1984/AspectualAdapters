@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.emftext.language.aspectbind/src-gen"
     modelPluginID="org.emftext.language.aspectbind" modelName="aspectbind" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.emftext.language.java/metamodel/java.genmodel#//java platform:/plugin/org.eclipse.papyrus.resource/model/resource.genmodel#//resource">
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.emftext.language.java/metamodel/java.genmodel#//java">
   <foreignModel>aspectbind.ecore</foreignModel>
   <genPackages prefix="Aspectbind" basePackage="org.emftext.language" disposableProviderFactory="true"
       ecorePackage="aspectbind.ecore#/">
@@ -39,13 +39,13 @@
             ecoreFeature="ecore:EReference aspectbind.ecore#//pointcuts/IfPointcut/exp"/>
       </genClasses>
       <genClasses image="false" ecoreClass="aspectbind.ecore#//pointcuts/Pointcut">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference aspectbind.ecore#//pointcuts/Pointcut/abstract"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//pointcuts/Pointcut/assign"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference aspectbind.ecore#//pointcuts/Pointcut/exp"/>
       </genClasses>
-      <genClasses ecoreClass="aspectbind.ecore#//pointcuts/AspectJPointcut"/>
+      <genClasses ecoreClass="aspectbind.ecore#//pointcuts/AspectJPointcut">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//pointcuts/AspectJPointcut/exp"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//pointcuts/AspectJPointcut/abstract"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="aspectbind.ecore#//pointcuts/ContextExposurePc"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Commons" basePackage="org.emftext.language.aspectbind"
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//commons">
@@ -65,17 +65,37 @@
             ecoreFeature="ecore:EReference aspectbind.ecore#//commons/PerClause/pointcut"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Binding" basePackage="org.emftext.language.aspectbind"
-        disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//binding">
-      <genClasses ecoreClass="aspectbind.ecore#//binding/InstancePointcut">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//binding/InstancePointcut/instanceType"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference aspectbind.ecore#//binding/InstancePointcut/removeExp"/>
+    <nestedGenPackages prefix="Instancepointcut" basePackage="org.emftext.language.aspectbind"
+        disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//instancepointcut">
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/InstancePointcut">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/InstancePointcut/instanceType"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/InstancePointcut/removeExp"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/InstancePointcut/addExp"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/InstancePointcut/composition"/>
       </genClasses>
-      <genClasses ecoreClass="aspectbind.ecore#//binding/Instance"/>
-      <genClasses ecoreClass="aspectbind.ecore#//binding/IpReturning">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//binding/IpReturning/instance"/>
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/Instance"/>
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/IpReturning">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/IpReturning/instance"/>
       </genClasses>
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/IpExpression"/>
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/IpExpressionAll">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/IpExpressionAll/before"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/IpExpressionAll/after"/>
+      </genClasses>
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/BeforeElement"/>
+      <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/AfterElement"/>
+      <genClasses image="false" ecoreClass="aspectbind.ecore#//instancepointcut/ExpressionElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/ExpressionElement/pcexp"/>
+      </genClasses>
+      <nestedGenPackages prefix="Composition" basePackage="org.emftext.language.aspectbind.instancepointcut"
+          disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//instancepointcut/composition">
+        <genClasses ecoreClass="aspectbind.ecore#//instancepointcut/composition/IpComposition">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/composition/IpComposition/pc1"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//instancepointcut/composition/IpComposition/pc2"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Relationship" basePackage="org.emftext.language.aspectbind.instancepointcut"
+          disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//instancepointcut/relationship"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Declaration" basePackage="org.emftext.language.aspectbind"
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//declaration">
@@ -98,7 +118,6 @@
       </genClasses>
       <genClasses ecoreClass="aspectbind.ecore#//declaration/Adaptee"/>
       <genClasses ecoreClass="aspectbind.ecore#//declaration/Advice"/>
-      <genClasses image="false" ecoreClass="aspectbind.ecore#//declaration/Returning"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pcexp" basePackage="org.emftext.language.aspectbind"
         disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//pcexp">
@@ -148,6 +167,15 @@
       <genClasses ecoreClass="aspectbind.ecore#//patterns/ParameterWildcard"/>
       <genClasses image="false" ecoreClass="aspectbind.ecore#//patterns/WildcardPattern"/>
       <genClasses image="false" ecoreClass="aspectbind.ecore#//patterns/WildcardOrTypePattern"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Reference" basePackage="org.emftext.language.aspectbind"
+        disposableProviderFactory="true" ecorePackage="aspectbind.ecore#//reference">
+      <genClasses ecoreClass="aspectbind.ecore#//reference/PointcutReference"/>
+      <genClasses ecoreClass="aspectbind.ecore#//reference/InstancePointcutReference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aspectbind.ecore#//reference/InstancePointcutReference/ipc"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectbind.ecore#//reference/InstancePointcutReference/refinement"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

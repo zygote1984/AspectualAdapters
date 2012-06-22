@@ -1,31 +1,33 @@
 package kardidon;
 
-import java.util.*;
-import java.lang.*;
 
 public aspect Kardo{
-
-	pointcut pc1(ArrayList o, Object j);
-	instance pointcut pc2<Object> : call(public void ArrayList->add(Object)) && this(instance);
-	instance pointcut pc3<String> : call(public String->new()) && target(instance);
-	
-	
-	declare adapter: Something{Runnable} adapts pc2
-	{
-	
-		public void run()
-		{
-			adaptee.add("Something");
-			System.out.println("RUN");
+ /*
+	instance pointcut p1<int> : call(MyType.m()) && args(int,..,instance);
+	pointcut p1() : call(...);
+	after() : p1() {
+		Object instance = find("int,..,instance", thisJoinPoint.getArgs());
+		if(instance instanceof Object) {
 		}
-		
-	}
+	} 
+
+	instance pointcut p1<Object> : call(...) && target(instance);
+	pointcut p1() : call(...);
+	after() : p1() {
+		Object instance = thisJoinPoint.getTarget();
+		if(instance instanceof Object) {
+		}
+	} 
 	
-	declare adapter: OtherThing{Comparable} extends Something adapts pc3
-	{
+	instance pointcut p2<String> : p1<String>;
+	pointcut p2(String instance) : p1(instance);
+
+*/
+
+	instance pointcut pc2<Object> : before(call(java.lang.Object+->new(..)) && returning(instance)) UNTIL after(call(public void java.lang.Object->notify(..)) && target(instance));
+//	instance pointcut pc3<String> : pc2<String> && within(SomeClass) UNTIL pc2<String> & ...
 	
-	
-	}
+
 	
 	
 

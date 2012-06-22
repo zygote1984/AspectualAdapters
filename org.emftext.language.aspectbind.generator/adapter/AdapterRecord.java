@@ -56,4 +56,14 @@ public class AdapterRecord {
 		this.subtype = subtype;
 	}
 
+
+	@Override
+	public String toString() {
+		return "AdapterRecord [adapterName=" + adapterName + ", instanceType="
+				+ instanceType + ", subtype=" + subtype + ", parent=" + parent
+				+ "]";
+	}
+	
+	
+
 }

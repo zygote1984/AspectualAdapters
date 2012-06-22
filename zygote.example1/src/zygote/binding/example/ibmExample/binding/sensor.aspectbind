@@ -5,7 +5,7 @@ import zygote.binding.example.ibmExample.*;
 
 aspect SensorReadBinding{
 
-	instance pointcut pc_rad1<RadiationDetector> = call(public RadiatorDetection->new()) && target(instance) && within(Chernobyl);
+	instance pointcut pc_rad1<RadiationDetector> = add: call(public RadiatorDetection->new()) && target(instance) && within(Chernobyl) remove:...;
 	instance pointcut pc_rad2<RadiationDetector> = call(public RadiatorDetection->new()) && target(instance) && within(FukushimaDaiichi);
 	instance pointcut pc_temp<TemperatureGauge> = call(public TemperatureGauge->new()) && target(instance);
 	

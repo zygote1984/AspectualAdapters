@@ -5,8 +5,7 @@ import zygote.binding.example.shapes.*;
 
 aspect ShapesBinding{
 
-	instance pointcut shapes<Shape>: call(public Shape+->new()) && target(instance); 
-	
+	instance pointcut shapes<Shape>: call(public Shape+->new(..)) && target(instance); 
 	
 	
 	declare adapter: CircleAdapter{ShapeArea, ShapeCircum} adapts shapes<Circle>{

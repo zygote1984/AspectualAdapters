@@ -16,13 +16,14 @@ import org.emftext.language.java.imports.ImportingElement
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.ecore.EObject
 import java.util.HashMap
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess
 
 
-class GeneratorMain implements IGenerator{
+class GeneratorMain{
 
 	
 	AspectGenerator ajgen
-	AdapterGenerator adgen
+//	AdapterGenerator adgen
 	
 		
 	boolean print
@@ -33,13 +34,13 @@ class GeneratorMain implements IGenerator{
 	public static Resource resourceMain = null
 	
 	
-	override void doGenerate(Resource resource, IFileSystemAccess fsa)
+	def doGenerate(Resource resource, JavaIoFileSystemAccess fsa)
 	{
 		resourceMain = resource
-		AdapterRegistry::registerAdapters(resource)
+//		AdapterRegistry::registerAdapters(resource)
 		EcoreUtil::resolveAll(resource)
 		ajgen = new AspectGenerator(resource)
-		adgen = new AdapterGenerator(resource)
+//		adgen = new AdapterGenerator(resource)
 		var aspect = resource.allContents.filter(typeof(AspectImpl)).toList
 		
 	//	var pc = aspect.get(0).eAllContents.filter(typeof(InstancePointcut)).toList
@@ -53,18 +54,17 @@ class GeneratorMain implements IGenerator{
 			
 		}
 				
-		//var packageName = resource.allContents.filter(typeof(PackageImpl)).toList.head
-
-				
 		for(k:aspect)
 		{
 			ajgen.setAspect(k)
+			var packageName = k.getPackage.name 
+			fsa.setOutputPath(AspectBindGenerator::getOutputPath.appendSegment(packageName).toString);
 			fsa.generateFile(k.name+".aj", ajgen.generateAspect())
-			var adapters = k.eContents.filter(typeof(AdapterDeclarationImpl)).toList
-			for(h:adapters)
-			{
-				fsa.generateFile( h.adapter.name+".java",adgen.generateAdapter(h, ajgen.packagePrinter(k.getPackage), k.getPackage))
-			}
+//			var adapters = k.eContents.filter(typeof(AdapterDeclarationImpl)).toList
+//			for(h:adapters)
+//			{
+//				fsa.generateFile(packageName + "/" + h.adapter.name+".java",adgen.generateAdapter(h, ajgen.packagePrinter(k.getPackage), k.getPackage))
+//			}
 		}
 		
 	}

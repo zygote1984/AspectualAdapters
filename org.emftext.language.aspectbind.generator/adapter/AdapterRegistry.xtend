@@ -40,16 +40,20 @@ class AdapterRegistry {
 				{
 					var ip = Utility::resolveReference(h.adaptee as InternalEObject, resource) as InstancePointcut
 					var superType = Utility::resolveReference(ip.instanceType)
+					System::out.println("[ADAPTER REGISTRY]: SuperType ->" + superType)
 					instanceType =  Utility::resolveReference(h.adapteeSub)
+					System::out.println("[ADAPTER REGISTRY]: Instance Type ->" + instanceType)
 					if(ipadapter.containsKey(ip))
 						ipadapter.get(ip).add(new AdapterRecord(h.adapter.name, instanceType, true, superType))
 					else
+					{
 						list.add(new AdapterRecord(h.adapter.name, instanceType, true, superType))
-					ipadapter.put(ip, list)
+						ipadapter.put(ip, list)
+					}
 				}	
 				
 			}
-			//System::out.println(ipadapter.toString)
+			
 			map.put(k.name, ipadapter)
 		}
 		

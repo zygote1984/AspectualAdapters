@@ -6,15 +6,20 @@ import java.io.FileNotFoundException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
+import org.zygote.aspectbind.generator.di.IPGeneratorModule;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class AspectBindGenerator {
 
-	JavaIoFileSystemAccess fsa = new JavaIoFileSystemAccess();
+	static JavaIoFileSystemAccess fsa = new JavaIoFileSystemAccess();
 	GeneratorMain main;
-	URI outputPath;
+	static URI outputPath;
 	String genFolder = "output";
 	boolean oFlag = false;
-
+	public static Injector injector = Guice.createInjector(new IPGeneratorModule());
+	
 	public AspectBindGenerator(boolean print) {
 		super();
 		main = new GeneratorMain(print);
@@ -26,15 +31,24 @@ public class AspectBindGenerator {
 		super();
 		main = new GeneratorMain(false);
 
+
+	}
+	
+	public static JavaIoFileSystemAccess getFSA()
+	{
+		return fsa;
 	}
 
 	public void setOutputPath(URI outputPath, boolean segment) {
+		
 		if (!oFlag) {
 			oFlag = true;
 			if(segment)
 				this.outputPath = outputPath.appendSegment(genFolder);
 			else
 				this.outputPath = outputPath;
+			
+			
 			
 			System.out.println("[Setting generator path]: " + this.outputPath);
 
@@ -48,11 +62,11 @@ public class AspectBindGenerator {
 			// e.printStackTrace();
 			// }
 
-			fsa.setOutputPath(this.outputPath.toString());
+			
 		}
 	}
-	public URI getOutputPath() {
-		return outputPath;
+	public static URI getOutputPath() {
+		return AspectBindGenerator.outputPath;
 	}
 
 	public void generate(Resource resource) {

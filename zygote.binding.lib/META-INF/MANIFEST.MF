@@ -7,3 +7,4 @@ Require-Bundle: org.eclipse.jdt.apt.core;bundle-version="3.3.500",
  org.eclipse.jdt.apt.pluggable.core;bundle-version="1.0.400",
  org.eclipse.jdt.compiler.apt.source;bundle-version="1.0.400",
  org.aspectj.runtime
+Export-Package: zygote.instancepc.lib.alia4j
