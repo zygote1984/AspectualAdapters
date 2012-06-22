@@ -1,0 +1,1172 @@
+//TODO give correct credits
+/*
+ * Copyright © 2002 Sun Microsystems, Inc., 4150 Network Circle, Santa Clara,
+ * California 95054, U.S.A. All rights reserved.  Sun Microsystems, Inc. has
+ * intellectual property rights relating to technology embodied in the product
+ * that is described in this document. In particular, and without limitation,
+ * these intellectual property rights may include one or more of the U.S.
+ * patents listed at http://www.sun.com/patents and one or more additional
+ * patents or pending patent applications in the U.S. and in other countries.
+ * U.S. Government Rights - Commercial software. Government users are subject
+ * to the Sun Microsystems, Inc. standard license agreement and applicable
+ * provisions of the FAR and its supplements.  Use is subject to license terms.
+ * Sun,  Sun Microsystems,  the Sun logo and  Java are trademarks or registered
+ * trademarks of Sun Microsystems, Inc. in the U.S. and other countries.  This
+ * product is covered and controlled by U.S. Export Control laws and may be
+ * subject to the export or import laws in other countries.  Nuclear, missile,
+ * chemical biological weapons or nuclear maritime end uses or end users,
+ * whether direct or indirect, are strictly prohibited.  Export or reexport
+ * to countries subject to U.S. embargo or to entities identified on U.S.
+ * export exclusion lists, including, but not limited to, the denied persons
+ * and specially designated nationals lists is strictly prohibited.
+ */
+
+options {
+  JAVA_UNICODE_ESCAPE = true;
+  ERROR_REPORTING = true;
+  STATIC = false;
+  JDK_VERSION = "1.5";
+  NODE_SCOPE_HOOK = true;
+  MULTI = true;
+  NODE_DEFAULT_VOID = true;
+  VISITOR = true;
+}
+
+PARSER_BEGIN(AJPointcutParser)
+package org.alia4j.aspectj.parser.ast;
+
+
+/**
+ * Grammar to parse AspectJ pointcuts. Based on the JavaCC grammar for Java 1.5
+ * and the AspectJ grammar as published by the abc-group.
+ * @author Sreenivasa Viswanadha	- Simplified and enhanced for 1.5
+ * @author Stefan Kropp				- Added support for AspectJ
+ */
+@SuppressWarnings("all")
+public class AJPointcutParser
+{
+  void jjtreeOpenNodeScope( Node node )
+ {
+ }
+
+ void jjtreeCloseNodeScope( Node node )
+ {
+ }
+
+ public SimpleNode getTreeRoot() {
+ 	return (SimpleNode) jjtree.rootNode();
+ }
+}
+PARSER_END(AJPointcutParser)
+
+/* WHITE SPACE */
+
+SPECIAL_TOKEN :
+{
+ " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+/* COMMENTS */
+
+MORE :
+{
+  "//" : IN_SINGLE_LINE_COMMENT
+|
+  <"/**" ~["/"]> { input_stream.backup(1); } : IN_FORMAL_COMMENT
+|
+  "/*" : IN_MULTI_LINE_COMMENT
+}
+
+<IN_SINGLE_LINE_COMMENT>
+SPECIAL_TOKEN :
+{
+  <SINGLE_LINE_COMMENT: "\n" | "\r" | "\r\n" > : DEFAULT
+}
+
+<IN_FORMAL_COMMENT>
+SPECIAL_TOKEN :
+{
+  <FORMAL_COMMENT: "*/" > : DEFAULT
+}
+
+<IN_MULTI_LINE_COMMENT>
+SPECIAL_TOKEN :
+{
+  <MULTI_LINE_COMMENT: "*/" > : DEFAULT
+}
+
+<IN_SINGLE_LINE_COMMENT,IN_FORMAL_COMMENT,IN_MULTI_LINE_COMMENT>
+MORE :
+{
+  < ~[] >
+}
+
+/* RESERVED WORDS AND LITERALS */
+
+TOKEN :
+{
+  < ABSTRACT: "abstract" >
+| < ASSERT: "assert" >
+| < BOOLEAN: "boolean" >
+| < BREAK: "break" >
+| < BYTE: "byte" >
+| < CASE: "case" >
+| < CATCH: "catch" >
+| < CHAR: "char" >
+| < CLASS: "class" >
+| < CONST: "const" >
+| < CONTINUE: "continue" >
+| < _DEFAULT: "default" >
+| < DO: "do" >
+| < DOUBLE: "double" >
+| < ELSE: "else" >
+| < ENUM: "enum" >
+| < EXTENDS: "extends" >
+| < FALSE: "false" >
+| < FINAL: "final" >
+| < FINALLY: "finally" >
+| < FLOAT: "float" >
+| < FOR: "for" >
+| < GOTO: "goto" >
+| < IF: "if" >
+| < IMPLEMENTS: "implements" >
+| < IMPORT: "import" >
+| < INSTANCEOF: "instanceof" >
+| < INT: "int" >
+| < INTERFACE: "interface" >
+| < LONG: "long" >
+| < NATIVE: "native" >
+| < NEW: "new" >
+| < NULL: "null" >
+| < PACKAGE: "package" >
+| < PRIVATE: "private" >
+| < PROTECTED: "protected" >
+| < PUBLIC: "public" >
+| < RETURN: "return" >
+| < SHORT: "short" >
+| < STATIC: "static" >
+| < STRICTFP: "strictfp" >
+| < SUPER: "super" >
+| < SWITCH: "switch" >
+| < SYNCHRONIZED: "synchronized" >
+| < THIS: "this" >
+| < THROW: "throw" >
+| < THROWS: "throws" >
+| < TRANSIENT: "transient" >
+| < TRUE: "true" >
+| < TRY: "try" >
+| < VOID: "void" >
+| < VOLATILE: "volatile" >
+| < WHILE: "while" >
+
+// "<clinit>()" is due to a bug in
+// the ajc. ajc generates an annotation like "staticinitialization(Type.<clinit>())"
+// where it should only generate "staticinitialization(Type)"
+// also see rule for SimpleNamePattern and the corresponding visit method
+// in AJPointcutToExecutionModelVisitor
+| < CLINIT: "<clinit>()" >
+}
+
+/* LITERALS */
+
+TOKEN :
+{
+  < INTEGER_LITERAL:
+        <DECIMAL_LITERAL> (["l","L"])?
+      | <HEX_LITERAL> (["l","L"])?
+      | <OCTAL_LITERAL> (["l","L"])?
+  >
+|
+  < #DECIMAL_LITERAL: ["1"-"9"] (["0"-"9"])* >
+|
+  < #HEX_LITERAL: "0" ["x","X"] (["0"-"9","a"-"f","A"-"F"])+ >
+|
+  < #OCTAL_LITERAL: "0" (["0"-"7"])* >
+|
+  < FLOATING_POINT_LITERAL:
+        (["0"-"9"])+ "." (["0"-"9"])* (<EXPONENT>)? (["f","F","d","D"])?
+      | "." (["0"-"9"])+ (<EXPONENT>)? (["f","F","d","D"])?
+      | (["0"-"9"])+ <EXPONENT> (["f","F","d","D"])?
+      | (["0"-"9"])+ (<EXPONENT>)? ["f","F","d","D"]
+  >
+|
+  < #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ >
+|
+  < CHARACTER_LITERAL:
+      "'"
+      (   (~["'","\\","\n","\r"])
+        | ("\\"
+            ( ["n","t","b","r","f","\\","'","\""]
+            | ["0"-"7"] ( ["0"-"7"] )?
+            | ["0"-"3"] ["0"-"7"] ["0"-"7"]
+            )
+          )
+      )
+      "'"
+  >
+|
+  < STRING_LITERAL:
+      "\""
+      (   (~["\"","\\","\n","\r"])
+        | ("\\"
+            ( ["n","t","b","r","f","\\","'","\""]
+            | ["0"-"7"] ( ["0"-"7"] )?
+            | ["0"-"3"] ["0"-"7"] ["0"-"7"]
+            )
+          )
+      )*
+      "\""
+  >
+}
+
+/* IDENTIFIERS */
+
+TOKEN :
+{
+  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+|
+  < #LETTER:
+      [
+       "\u0024",
+       "\u0041"-"\u005a",
+       "\u005f",
+       "\u0061"-"\u007a",
+       "\u00c0"-"\u00d6",
+       "\u00d8"-"\u00f6",
+       "\u00f8"-"\u00ff",
+       "\u0100"-"\u1fff",
+       "\u3040"-"\u318f",
+       "\u3300"-"\u337f",
+       "\u3400"-"\u3d2d",
+       "\u4e00"-"\u9fff",
+       "\uf900"-"\ufaff"
+      ]
+  >
+|
+  < #DIGIT:
+      [
+       "\u0030"-"\u0039",
+       "\u0660"-"\u0669",
+       "\u06f0"-"\u06f9",
+       "\u0966"-"\u096f",
+       "\u09e6"-"\u09ef",
+       "\u0a66"-"\u0a6f",
+       "\u0ae6"-"\u0aef",
+       "\u0b66"-"\u0b6f",
+       "\u0be7"-"\u0bef",
+       "\u0c66"-"\u0c6f",
+       "\u0ce6"-"\u0cef",
+       "\u0d66"-"\u0d6f",
+       "\u0e50"-"\u0e59",
+       "\u0ed0"-"\u0ed9",
+       "\u1040"-"\u1049"
+      ]
+  >
+}
+
+/* SEPARATORS */
+
+TOKEN :
+{
+  < LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRACE: "{" >
+| < RBRACE: "}" >
+| < LBRACKET: "[" >
+| < RBRACKET: "]" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+| < AT: "@" >
+}
+
+/* OPERATORS */
+
+TOKEN :
+{
+  < ASSIGN: "=" >
+| < LT: "<" >
+| < BANG: "!" >
+| < TILDE: "~" >
+| < HOOK: "?" >
+| < COLON: ":" >
+| < EQ: "==" >
+| < LE: "<=" >
+| < GE: ">=" >
+| < NE: "!=" >
+| < SC_OR: "||" >
+| < SC_AND: "&&" >
+| < INCR: "++" >
+| < DECR: "--" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < STAR: "*" >
+| < SLASH: "/" >
+| < BIT_AND: "&" >
+| < BIT_OR: "|" >
+| < XOR: "^" >
+| < REM: "%" >
+| < LSHIFT: "<<" >
+| < PLUSASSIGN: "+=" >
+| < MINUSASSIGN: "-=" >
+| < STARASSIGN: "*=" >
+| < SLASHASSIGN: "/=" >
+| < ANDASSIGN: "&=" >
+| < ORASSIGN: "|=" >
+| < XORASSIGN: "^=" >
+| < REMASSIGN: "%=" >
+| < LSHIFTASSIGN: "<<=" >
+| < RSIGNEDSHIFTASSIGN: ">>=" >
+| < RUNSIGNEDSHIFTASSIGN: ">>>=" >
+//| < ELLIPSIS: "..." >
+}
+
+/* >'s need special attention due to generics syntax. */
+TOKEN :
+{
+  < RUNSIGNEDSHIFT: ">>>" >
+  {
+     matchedToken.kind = GT;
+     ((Token.GTToken)matchedToken).realKind = RUNSIGNEDSHIFT;
+     input_stream.backup(2);
+  }
+| < RSIGNEDSHIFT: ">>" >
+  {
+     matchedToken.kind = GT;
+     ((Token.GTToken)matchedToken).realKind = RSIGNEDSHIFT;
+     input_stream.backup(1);
+  }
+| < GT: ">" >
+}
+
+
+/*****************************************
+ * THE JAVA LANGUAGE GRAMMAR STARTS HERE *
+ *****************************************/
+
+/*
+ * Program structuring syntax follows.
+ */
+
+/*
+ * Type, name and expression syntax follows.
+ */
+
+void Type():
+{}
+{
+   LOOKAHEAD(2) ReferenceType()
+ |
+   PrimitiveType()
+}
+
+void ReferenceType():
+{
+	int dimension = 0;
+}
+{
+   ( PrimitiveType() ( LOOKAHEAD(2) "[" "]" { dimension++; } )+ {jjtThis.dimension = dimension;} ) #PrimitiveArrayType
+  |
+    (ClassOrInterfaceType() ( LOOKAHEAD(2) "[" "]" { dimension++; })* {jjtThis.dimension = dimension;} ) #ClassOrInterfaceArrayType(dimension>0)
+}
+
+void ClassOrInterfaceType() #ClassOrInterfaceType :
+{}
+{
+  ( <IDENTIFIER> { jjtThis.identifier = token.image; } ) #Identifier
+   [ LOOKAHEAD(2) TypeArguments() ]
+  ( LOOKAHEAD(2)
+    "."
+    ( <IDENTIFIER> { jjtThis.identifier = token.image; } ) #Identifier
+    [ LOOKAHEAD(2) TypeArguments()]
+  )*
+}
+
+void TypeArguments() #TypeArgumentList :
+{}
+{
+   "<" TypeArgument() ( "," TypeArgument() )* ">"
+}
+
+void TypeArgument():
+{}
+{
+   ReferenceType()
+ |
+   "?" #UnknownTypeArgument [ WildcardBounds() ] #UnknownBoundedTypeArgument(>1)
+}
+
+void WildcardBounds():
+{}
+{
+   ( "extends" ReferenceType() ) #WildcardBoundsExtends
+ |
+   ( "super" ReferenceType() ) #WildcardBoundsSuper
+}
+
+
+void PrimitiveType():
+{}
+{
+  "boolean" #Boolean
+|
+  "char" #Char
+|
+  "byte" #Byte
+|
+  "short" #Short
+|
+  "int" #Int
+|
+  "long" #Long
+|
+  "float" #Float
+|
+  "double" #Double
+}
+
+void ResultType():
+{}
+{
+  "void" #Void
+|
+  Type()
+}
+
+void Name() #Name:
+{}
+{
+  (<IDENTIFIER> {jjtThis.identifier = token.image; } ) #Identifier(true)
+  (
+  "."
+   ( <IDENTIFIER> {jjtThis.identifier = token.image; } ) #Identifier
+  )*
+}
+
+/********************************************
+ * THE ASPECTJ LANGUAGE GRAMMAR STARTS HERE *
+ ********************************************/
+
+void PointcutExpression() #PointcutExpression:
+{}
+{
+	OrPointcutExpression()
+}
+
+void OrPointcutExpression():
+{}
+{
+	AndPointcutExpression()
+	("||" AndPointcutExpression() #OrPointcutExpression(2))*
+
+}
+
+void AndPointcutExpression():
+{}
+{
+	UnaryPointcutExpression()
+	("&&" UnaryPointcutExpression() #AndPointcutExpression(2))*
+}
+
+void UnaryPointcutExpression() #void:
+{
+	boolean negated = false;
+}
+{
+	( "!" {negated = !negated; })*
+	BasicPointcutExpression() #NegatedPointcutExpression(negated)
+}
+
+void BasicPointcutExpression() :
+{}
+{
+	(
+	 "(" OrPointcutExpression() ")"
+	|
+	 Call()
+	 "(" MethodConstructorPattern() #CallPointcut ")"
+	|
+	 Execution()
+	 "(" MethodConstructorPattern() #ExecutionPointcut ")"
+	|
+	 Initialization()
+	 "(" ConstructorPattern() #InitializationPointcut ")"
+	|
+	 Preinitialization()
+	 "(" ConstructorPattern() #PreinitializationPointcut ")"
+	|
+	 Staticinitialization()
+	 "(" ClassnamePatternExpression() #StaticinitializationPointcut ")"
+	|
+	 Get()
+	 "(" FieldPattern() #GetPointcut ")"
+	|
+	 Set()
+	 "(" FieldPattern() #SetPointcut ")"
+	|
+	 Handler()
+	 "(" ClassnamePatternExpression() #HandlerPointcut ")"
+	|
+	 Adviceexecution()
+	 "(" "*" "*" ")" #AdviceExecutionPointcut(0)
+	|
+	 Within()
+	 "(" ClassnamePatternExpression() #WithinPointcut ")"
+	|
+	 Withincode()
+	 "(" MethodConstructorPattern() #WithincodePointcut ")"
+	|
+	 Cflow()
+	 "(" PointcutExpression() #CflowPointcut ")"
+	|
+	 Cflowbelow()
+	 "(" PointcutExpression() #CflowbelowPointcut ")"
+	|
+	 "if"
+	 "(" MethodCall() #IfPointcut ")"
+	|
+	 "this"
+	 "(" TypeIdStar() #ThisPointcut ")"
+	|
+	 Target()
+	 "(" TypeIdStar() #TargetPointcut ")"
+	|
+	 Args()
+	 "(" TypeIdStarListOpt() #ArgsPointcut ")"
+	|
+	 Returning()
+	 "(" TypeIdStar() #ReturningPointcut ")"
+	|
+	 Name()
+	 "(" TypeIdStarListOpt() #NamedPointcut ")"
+	)
+}
+
+void MethodCall() # MethodCall:
+{}
+{
+  Name() "(" IdListOpt() ")"
+}
+
+void IdListOpt() #IdList:
+{}
+{
+  [
+    (
+      (<IDENTIFIER> {jjtThis.identifier = token.image; } ) #Identifier(true)
+    )
+    (
+      "," (<IDENTIFIER> {jjtThis.identifier = token.image; } ) #Identifier(true)
+    )*
+  ]
+}
+
+// void MethodSignature() #MethodSignature:
+// {}
+// {
+// ResultType()
+// 	Name()
+// 	"("
+// 	[ Name()
+// 	  ( "," Name() )*
+// 	]
+// 	")"
+// }
+
+void NamePattern() #NamePattern :
+{}
+{
+	 SimpleNamePattern()
+
+     (LOOKAHEAD (2) ("."|".." #PackageRest )
+      SimpleNamePattern()
+      )*
+}
+
+void SimpleNamePattern() #SimpleNamePattern :
+{}
+{
+ 	( <CLINIT> ) #ClinitIdentifier
+	|
+	(
+		(
+		 <STAR> #NameWildcard
+		|
+		 ( <IDENTIFIER> {jjtThis.identifier = token.image; } ) #Identifier
+		)
+
+		( LOOKAHEAD({getToken(1).specialToken == null && (getToken(1).kind == STAR || getToken(1).kind == IDENTIFIER)})
+		 (
+		 <STAR> #NameWildcard
+		|
+		 ( <IDENTIFIER>  {jjtThis.identifier = token.image; } ) #Identifier
+		 // TODO: does not allow identifier patterns like "x*1.*" because "1." is tokenized as floating point literal
+		 )
+		)*
+	)
+}
+
+void ClasstypeDotId() #ClasstypeDotId :
+{}
+{
+	(
+	 NamePattern()
+	 [ "+"  #SubTypeOperator "." SimpleNamePattern() ]
+	)
+	|
+	 "(" TypePatternExpression() ")" "." SimpleNamePattern()
+
+}
+
+void ClasstypeDotNew() #ClasstypeDotNew :
+{}
+{
+	 "new" #New
+	|
+	 NamePattern()
+	 ("+" #SubTypeOperator "." | ".." #PackageRest | ".") "new" #New
+	|
+	 "(" TypePatternExpression() ")" "." "new" #New
+}
+
+void TypePatternExpression():
+{}
+{
+	OrTypePatternExpression()
+	("&&"
+		OrTypePatternExpression()
+		#AndTypePatternExpression(2)
+	)*
+
+}
+
+void OrTypePatternExpression():
+{}
+{
+	UnaryTypePatternExpression()
+	("||"
+		 UnaryTypePatternExpression()
+		 #OrTypePatternExpression(2)
+	)*
+}
+
+void UnaryTypePatternExpression():
+{
+	boolean negated = false;
+}
+{
+	( "!" { negated = !negated; } )*
+	BasicTypePattern() #NegatedTypePatternExpression(negated)
+}
+
+void BasicTypePattern() #BasicTypePattern:
+{
+	int arrayDimension = 0;
+}
+{
+	 "void" #Void
+	|
+	 ( BaseTypePattern() ( "[" "]" { arrayDimension++; } )* { jjtThis.arrayDimension=arrayDimension; } ) #ArrayTypePatternExpression(arrayDimension > 0)
+	|
+	 "(" TypePatternExpression() ")"
+}
+
+void BaseTypePattern() #BaseTypePattern:
+{}
+{
+	 PrimitiveType()
+	|
+	 NamePattern() [ "+" #SubTypeOperator ]
+}
+
+void ClassnamePatternExpression():
+{}
+{
+	AndClassnamePatternExpression()
+	(	"||"
+		AndClassnamePatternExpression()
+		#OrClassnamePatternExpression(2)
+	)*
+}
+
+void AndClassnamePatternExpression():
+{}
+{
+	UnaryClassnamePatternExpression()
+	(	"&&"
+		UnaryClassnamePatternExpression()
+		#AndClassnamePatternExpression(2)
+	)*
+}
+
+void UnaryClassnamePatternExpression():
+{
+	boolean negated = false;
+}
+{
+	( "!" { negated = !negated;} )*
+	BasicClassnamePattern() #NegatedClassnamePatternExpression(negated)
+}
+
+void BasicClassnamePattern():
+{
+}
+{
+	 NamePattern() [ "+" #SubTypeOperator ] #BasicClassnamePattern
+	|
+	 "(" ClassnamePatternExpression() ")"
+}
+
+// "Within"- patterns with alternative operators (|| -> OR, && -> AND) needed for
+// parsing, "include" and "exclude" attributes in aop.xml
+void ClassnamePatternExpressionAlternativeOperators():
+{}
+{
+	AndClassnamePatternExpressionAlternativeOperators()
+	(	OR()
+		AndClassnamePatternExpressionAlternativeOperators()
+		#OrClassnamePatternExpression(2)
+	)*
+}
+
+void AndClassnamePatternExpressionAlternativeOperators():
+{}
+{
+	UnaryClassnamePatternExpressionAlternativeOperators()
+	(	AND()
+		UnaryClassnamePatternExpressionAlternativeOperators()
+		#AndClassnamePatternExpression(2)
+	)*
+}
+
+void UnaryClassnamePatternExpressionAlternativeOperators():
+{
+	boolean negated = false;
+}
+{
+	( "!" { negated = !negated;} )*
+	BasicClassnamePatternAlternativeOperators() #NegatedClassnamePatternExpression(negated)
+}
+
+void BasicClassnamePatternAlternativeOperators():
+{
+}
+{
+	 NamePattern() [ "+" #SubTypeOperator ] #BasicClassnamePattern(>1)
+	|
+	 "(" ClassnamePatternExpressionAlternativeOperators() ")"
+}
+// end of alternative operators
+
+void ClassnamePatternExpressionNobang():
+{}
+{
+	AndClassnamePatternExpressionNobang()
+	(	"||"
+		AndClassnamePatternExpressionNobang()
+		#OrClassnamePatternExpressionNobang(2)
+	)*
+
+}
+
+void AndClassnamePatternExpressionNobang():
+{}
+{
+	 BasicClassnamePattern()
+	 (	"&&"
+	 	UnaryClassnamePatternExpression()
+	 	#AndClassnamePatternExpressionNobang(2)
+	 )*
+}
+
+void MethodConstructorPattern():
+{}
+{
+	(LOOKAHEAD(ModifierPatternExpression() ClasstypeDotNew())
+		ConstructorPattern()
+	|
+		MethodPattern()
+	)
+
+}
+
+void MethodPattern() #MethodPattern:
+{}
+{
+	ModifierPatternExpression()
+	TypePatternExpression()
+	ClasstypeDotId()
+	"(" FormalPatternListOpt() ")"
+	ThrowsPatternListOpt()
+}
+
+void ConstructorPattern() #ConstructorPattern:
+{}
+{
+	ModifierPatternExpression()
+	ClasstypeDotNew()
+	"(" FormalPatternListOpt() ")"
+	ThrowsPatternListOpt()
+}
+
+void FieldPattern() #FieldPattern:
+{}
+{
+	ModifierPatternExpression()
+	TypePatternExpression()
+	ClasstypeDotId()
+}
+
+void ModifierPatternExpression() #ModifiersPattern:
+{
+}
+{
+	(
+		LOOKAHEAD(2)
+		("!"
+			(
+			  "public" #NotPublic()
+			 |
+			  "static" #NotStatic()
+			 |
+			  "protected" #NotProtected()
+			 |
+			  "private" #NotPrivate()
+			 |
+			  "final" #NotFinal()
+			 |
+			  "abstract" #NotAbstract()
+			 |
+			  "synchronized" #NotSynchronized()
+			 |
+			  "native" #NotNative()
+			 |
+			  "transient" #NotTransient()
+			 |
+			  "volatile" #NotVolatile()
+			 |
+			  "strictfp" #NotStrictfp()
+			)
+		|
+			(
+			  "public" #Public()
+			 |
+			  "static" #Static()
+			 |
+			  "protected" #Protected()
+			 |
+			  "private" #Private()
+			 |
+			  "final" #Final()
+			 |
+			  "abstract" #Abstract()
+			 |
+			  "synchronized" #Synchronized()
+			 |
+			  "native" #Native()
+			 |
+			  "transient" #Transient()
+			 |
+			  "volatile" #Volatile()
+			 |
+			  "strictfp" #Strictfp()
+			)
+		)
+	)*
+
+}
+
+void ThrowsPatternListOpt():
+{}
+{
+	 [
+	 	"throws"
+		ThrowsPattern()
+		("," ThrowsPattern()
+		)*
+	 ]
+	 #ThrowsPatternList
+}
+
+void ThrowsPattern():
+{}
+{
+	 ClassnamePatternExpressionNobang()
+	|
+	 "!" ClassnamePatternExpression() #NegativeClassnamePattern
+}
+
+void FormalPatternListOpt() #FormalPatternList :
+{}
+{
+	[
+	FormalPattern()
+	("," FormalPattern())*
+	]
+}
+
+
+void FormalPattern():
+{}
+{
+	 ".." #PackageRest
+	|
+	 "." "." #PackageRest
+	|
+	 TypePatternExpression()
+}
+
+void TypeIdStarListOpt() #TypeIdStarList:
+{}
+{
+	[
+	(
+	  TypeIdStar()
+	  |
+	  ".." #PackageRest
+	)
+	(
+	","
+      (
+	  TypeIdStar()
+	  |
+	  ".." #PackageRest
+	  )
+	)*
+	]
+}
+
+void TypeIdStar() # TypeIdStar:
+{}
+{
+	 "*" #NameWildcard
+	|
+	 Type() [ "+" #SubTypeOperator ]
+}
+
+void Around():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("around")}) <IDENTIFIER>
+}
+
+void Declare():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("declare")}) <IDENTIFIER>
+}
+
+void After():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("after")}) <IDENTIFIER>
+}
+
+void Before():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("before")}) <IDENTIFIER>
+}
+
+void Pointcut():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("pointcut")}) <IDENTIFIER>
+}
+
+void Get():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("get")}) <IDENTIFIER>
+}
+
+void Set():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("set")}) <IDENTIFIER>
+}
+
+void Aspect():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("aspect")}) <IDENTIFIER>
+}
+
+void Privileged():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("privileged")}) <IDENTIFIER>
+}
+
+void Adviceexecution():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("adviceexecution")}) <IDENTIFIER>
+}
+
+void Args():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("args")}) <IDENTIFIER>
+}
+
+void Call():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("call")}) <IDENTIFIER>
+}
+
+void Cflow():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("cflow")}) <IDENTIFIER>
+}
+
+
+void Cflowbelow():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("cflowbelow")}) <IDENTIFIER>
+}
+
+void Error():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("error")}) <IDENTIFIER>
+}
+
+void Execution():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("execution")}) <IDENTIFIER>
+}
+
+void Handler():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("handler")}) <IDENTIFIER>
+}
+
+void Initialization():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("initialization")}) <IDENTIFIER>
+}
+
+void Parents():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("parents")}) <IDENTIFIER>
+}
+
+void Precedence():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("precedence")}) <IDENTIFIER>
+}
+
+void Preinitialization():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("preinitialization")}) <IDENTIFIER>
+}
+
+void Returning():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("returning")}) <IDENTIFIER>
+}
+
+void Soft():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("soft")}) <IDENTIFIER>
+}
+
+void Staticinitialization():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("staticinitialization")}) <IDENTIFIER>
+}
+
+void Target():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("target")}) <IDENTIFIER>
+}
+
+void Throwing():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("throwing")}) <IDENTIFIER>
+}
+
+void Warning():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("warning")}) <IDENTIFIER>
+}
+
+void Within():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("within")}) <IDENTIFIER>
+}
+
+void Withincode():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("withincode")}) <IDENTIFIER>
+}
+
+void Pertarget():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("pertarget")}) <IDENTIFIER>
+}
+
+void Perthis():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("perthis")}) <IDENTIFIER>
+}
+
+void Percflow():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("percflow")}) <IDENTIFIER>
+}
+
+void Percflowbelow():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("percflowbelow")}) <IDENTIFIER>
+}
+
+void Issingleton():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("issingleton")}) <IDENTIFIER>
+}
+
+void Proceed():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("proceed")}) <IDENTIFIER>
+}
+
+void AND():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("AND")}) <IDENTIFIER>
+}
+
+void OR():
+{}
+{
+	LOOKAHEAD({getToken(1).image.equals("OR")}) <IDENTIFIER>
+}

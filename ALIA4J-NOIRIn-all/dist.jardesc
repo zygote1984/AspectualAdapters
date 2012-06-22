@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="ALIA4J-NOIRIn-all/dist/noirin-all.jar"/>
+    <options buildIfNeeded="true" compress="false" descriptionLocation="/ALIA4J-NOIRIn-all/dist.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/ALIA4J-NOIRIn-all/resources/MANIFEST.MF" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=ALIA4J-NOIRIn-all/src"/>
+        <javaElement handleIdentifier="=ALIA4J-NOIRIn-all/src-aspectj"/>
+    </selectedElements>
+</jardesc>

@@ -1,0 +1,5 @@
+package org.alia4j.liam;
+
+public enum ScheduleRule {
+    CLOSEST_TO_IMPLICIT_ACTION, FARTHEST_FROM_IMPLICIT_ACTION, DEFAULT, IMPLICIT_ACTION
+}

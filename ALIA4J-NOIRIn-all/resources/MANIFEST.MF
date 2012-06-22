@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Boot-Class-Path: alia4j-noirin-boot.jar
+Can-Retransform-Classes: true
+Premain-Class: org.alia4j.noirin.Agent
+
