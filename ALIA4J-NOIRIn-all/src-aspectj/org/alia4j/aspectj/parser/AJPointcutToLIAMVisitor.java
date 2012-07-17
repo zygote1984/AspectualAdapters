@@ -515,9 +515,14 @@ public class AJPointcutToLIAMVisitor implements AJPointcutParserVisitor {
     public SpecializationBuilder visit(final ASTCflowPointcut node, final Object data) {
         // has one child: a pointcut predicate
 
-        final Set<Specialization> constitutuents = this.visit(((ASTPointcutExpression) node.jjtGetChild(0)), null);
+        final Set<Specialization> constituentsWithContexts = this.visit(((ASTPointcutExpression) node.jjtGetChild(0)), null);
+        // strip all context bindings
+        final Set<Specialization> constituents = new HashSet<Specialization>(constituentsWithContexts.size());
+        for (Specialization specialization : constituentsWithContexts) {
+			constituents.add(new Specialization(specialization.getPattern(), specialization.getPredicate(), Collections.<Context>emptyList()));
+		}
 
-        final AtomicPredicate cFlowAtomicPredicate = AtomicPredicateFactory.findOrCreateCFlowPredicate(constitutuents);
+        final AtomicPredicate cFlowAtomicPredicate = AtomicPredicateFactory.findOrCreateCFlowPredicate(constituents);
         final SpecializationBuilder result =
                         this.specializationsBuilderFactory.createSpecializationBuilder(this.numberOfArguments,
                                         cFlowAtomicPredicate);
