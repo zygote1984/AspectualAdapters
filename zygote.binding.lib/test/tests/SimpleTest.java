@@ -22,6 +22,7 @@ public class SimpleTest {
 	@BeforeClass
 	public static void setup() {
 		IPAspect1.ipc1_deploy();
+		IPAspect2.ipc2_deploy();
 	}
 	
 	@Test
@@ -55,6 +56,26 @@ public class SimpleTest {
 		end(n1);
 		assertThat(IPAspect1Advice.addedObjects, hasItem((Object)n1)); 
 		assertThat(IPAspect1Advice.removedObjects, hasItem((Object)n2)); 
+	}
+	
+	@Test
+	public void addingRefined() {
+		IPAspect2.ipc2_reset();
+		start(n1);
+		assertThat(IPAspect2.ipc2(), is(asSet(n1)));
+		start(n2);
+		assertThat(IPAspect2.ipc2(), is(asSet(n1)));
+	}
+
+	@Test
+	public void removingRefined() {
+		IPAspect2.ipc2_reset();
+		start(n1);
+		start(n2);
+		end(n2);
+		assertThat(IPAspect2.ipc2(), is(asSet(n1)));
+		end(n1);
+		assertThat(IPAspect2.ipc2(), is(Collections.<Number>emptySet()));
 	}
 
 	private static void start(Object instance) {}

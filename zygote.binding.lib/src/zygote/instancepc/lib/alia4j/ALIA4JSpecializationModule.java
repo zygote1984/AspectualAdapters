@@ -17,6 +17,8 @@ import org.alia4j.hierarchy.TypeDescriptor;
 import org.alia4j.hierarchy.TypeHierarchyProvider;
 import org.alia4j.liam.AndPredicate;
 import org.alia4j.liam.AtomicPredicate;
+import org.alia4j.liam.AtomicPredicateFactory;
+import org.alia4j.liam.BasicPredicate;
 import org.alia4j.liam.Context;
 import org.alia4j.liam.ContextFactory;
 import org.alia4j.liam.Predicate;
@@ -243,6 +245,21 @@ public class ALIA4JSpecializationModule {
 	
 		Predicate<AtomicPredicate> newPredicate = new AndPredicate<AtomicPredicate>(specialization1.getPredicate(), specialization2.getPredicate());
 		Specialization result = new Specialization(newPattern, newPredicate, specialization1.getContexts());
+		return result;
+	}
+
+
+	public static Set<Specialization> addTypeConstraint(
+			Set<Specialization> parsedPointcut,
+			TypeDescriptor expectedType) {
+		Set<Specialization> result = new HashSet<Specialization>();
+		for (Specialization specialization : parsedPointcut) {
+			Predicate<AtomicPredicate> predicate = specialization.getPredicate();
+			for (Context context : specialization.getContexts()) {
+				predicate = new AndPredicate<AtomicPredicate>(predicate, new BasicPredicate<AtomicPredicate>(AtomicPredicateFactory.findOrCreateInstanceofPredicate(context, expectedType), true));
+			}
+			result.add(new Specialization(specialization.getPattern(), predicate, specialization.getContexts()));
+		}
 		return result;
 	}
 
