@@ -119,6 +119,10 @@ final public class CallContext {
                     new HashMap<EventSignature, EventTriggeringInfo>();
     
     private Stack<Map<Context, ? extends Object>> proceedModifications = null;
+
+	private boolean writingFinalField;
+
+	private boolean finalFieldAssigned;
     
     public void pushModifiedContexts(Map<Context, ? extends Object> modifiedContexts) {
         if (this.proceedModifications == null)
@@ -143,5 +147,21 @@ final public class CallContext {
         }
         throw new IllegalArgumentException("No modification for passed Context.");
     }
+
+	public void setWritingFinalField(boolean b) {
+		writingFinalField = b;
+	}
+	
+	public boolean isWritingFinalField() {
+		return writingFinalField;
+	}
+
+	public void setIsFinalFieldAssigned(boolean b) {
+		finalFieldAssigned = b;
+	}
+
+	public boolean isFinalFieldAssigned() {
+		return finalFieldAssigned;
+	}
     
 }

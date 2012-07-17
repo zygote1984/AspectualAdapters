@@ -108,6 +108,15 @@ public class InterpreterCallbackInserter implements ClassFileTransformer {
             final List<MethodNode> methods = classNode.methods;
             final ArrayList<MethodNode> addedMethods = new ArrayList<MethodNode>();
             
+            final List<FieldNode> fields = classNode.fields;
+            for (final FieldNode field : fields) {
+            	if (Modifier.isFinal(field.access) && !Modifier.isStatic(field.access)) {
+            		field.access = field.access & ~Modifier.FINAL;
+            		TransformationSummary.addFinalField(className, field.name, field.desc);
+            	}
+            }
+
+            
             for (final MethodNode method : methods) {
                 if (!Modifier.isInterface(classNode.access) && !Modifier.isStatic(method.access)
                                 && !method.name.equals("<init>") && !method.name.equals("<clinit>")) {
@@ -235,9 +244,8 @@ public class InterpreterCallbackInserter implements ClassFileTransformer {
                         // TODO: document the following:
                         // we need to skip write access to final fields because this cannot be performed by reflection
                         boolean skip = false;
-                        if (fieldInsn.getOpcode() == Opcodes.PUTFIELD || fieldInsn.getOpcode() == Opcodes.PUTSTATIC) {
+                        if (fieldInsn.getOpcode() == Opcodes.PUTSTATIC) {
                             if (fieldInsn.owner.equals(classNode.name)) {
-                                final List<FieldNode> fields = classNode.fields;
                                 for (final FieldNode fieldNode : fields) {
                                     if (fieldNode.name.equals(fieldInsn.name) && Modifier.isFinal(fieldNode.access))
                                         skip = true;
@@ -310,6 +318,8 @@ public class InterpreterCallbackInserter implements ClassFileTransformer {
         return className.startsWith("org/alia4j/") || className.startsWith("java/") || className.startsWith("sun/")
                         || className.startsWith("org/apache/") || className.startsWith("javax/")
                         || className.startsWith("org/dom4j/") || className.startsWith("com/sun/")
+                        || className.startsWith("org/eclipse/") || className.startsWith("org/junit/")
+                        || className.startsWith("org/hamcrest/")
         // || className.startsWith("$Proxy")
         ;
     }

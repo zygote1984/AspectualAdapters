@@ -184,7 +184,11 @@ public class AJPointcutToLIAMVisitor implements AJPointcutParserVisitor {
                             .getTypeName()));
         // otherwise, it is a BaseTypePattern, an ArrayTypePatternExpression or a TypePattern
         // all of them have visit methods that return a type-pattern
-        return (TypePattern) node.jjtGetChild(0).jjtAccept(this, null);
+        TypePattern result = (TypePattern) node.jjtGetChild(0).jjtAccept(this, null);
+        if (result == ClassTypePattern.ANY)
+        	return TypePattern.ANY;
+        else
+        	return result;
     }
 
     // PrimitiveType()

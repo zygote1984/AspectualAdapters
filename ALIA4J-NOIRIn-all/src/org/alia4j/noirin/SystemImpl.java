@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+
 import org.alia4j.addb.util.AddbEvent;
 import org.alia4j.fial.ActionOrderElement;
 import org.alia4j.fial.AttachedAction;
@@ -25,6 +26,8 @@ import org.alia4j.liam.AtomicPredicate;
 import org.alia4j.liam.Context;
 import org.alia4j.liam.ManageableInstance;
 import org.alia4j.liam.Predicate;
+import org.alia4j.liam.ScheduleRule;
+import org.alia4j.liam.action.FieldWriteAction;
 import org.alia4j.liam.signature.ConstructorSignature;
 import org.alia4j.liam.signature.FieldReadSignature;
 import org.alia4j.liam.signature.FieldWriteSignature;
@@ -38,6 +41,7 @@ import org.alia4j.noirin.debug.data.ADBreakpointException;
 import org.alia4j.noirin.debug.data.ADBreakpointManager;
 import org.alia4j.noirin.debug.data.DebugDataStore;
 import org.alia4j.noirin.debug.data.DispatchFrame;
+import org.alia4j.noirin.transform.TransformationSummary;
 import org.alia4j.util.ClassLoading;
 import org.alia4j.util.Pair;
 import org.alia4j.util.PairHashMap;
@@ -112,6 +116,10 @@ public class SystemImpl extends System {
         this.pushCallContext(callContext);
         
         try {
+        	if (callContext.callOpcode == Opcodes.PUTFIELD &&
+        			TransformationSummary.isFinalField(callContext.calleeClassDescriptor, callContext.calleeName, null)) {
+        		callContext.setWritingFinalField(true);
+        	}
             final DispatchFunctionEvaluator evaluator = new DispatchFunctionEvaluator(gf);
             
             final Set<AttachedAction> actionsToPerform;
@@ -143,7 +151,10 @@ public class SystemImpl extends System {
             }
             
             final Object result = this.interpretAttachedActions(System.getInstance().schedule(actionsToPerform), gf);
-            
+
+        	if (callContext.isWritingFinalField() && !callContext.isFinalFieldAssigned())
+        		throw new Error("Assignment to final field has been prevented. (" + callContext.calleeClassDescriptor + "." + callContext.calleeName + ")");
+
             // place where the current liam model should be discarded
             if (AddbServerAgent.DEBUG_MODE) {
                 this.debugDataStore.getThread().popFrame();
@@ -217,6 +228,21 @@ public class SystemImpl extends System {
                 } else {
                     AddbServerAgent.instance().getPacketSendManager().sendEvent(AddbEvent.REFRESH_ACTION);
                 }
+            }
+            
+            CallContext callContext = callStack.get().peek();
+            if (attachedAction.getAction() instanceof FieldWriteAction && callContext.isWritingFinalField()) {
+            	if (attachedAction.getScheduleInfo().getRule() == ScheduleRule.IMPLICIT_ACTION) {
+            		if (callContext.isFinalFieldAssigned()) {
+            			throw new Error("Implicit Attachment for writing a final field attempted to execute twice. (" + callContext.calleeClassDescriptor + "." + callContext.calleeName + ")");
+            		}
+            		else {
+            			callContext.setIsFinalFieldAssigned(true);
+            		}
+            	}
+            	else {
+            		throw new Error("Custom Attachment tried to alter final field. (" + callContext.calleeClassDescriptor + "." + callContext.calleeName + ")");
+            	}
             }
             
             return this.compute(attachedAction.getAction(), gf);
