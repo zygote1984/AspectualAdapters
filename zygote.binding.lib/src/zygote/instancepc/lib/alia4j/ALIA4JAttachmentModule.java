@@ -13,7 +13,7 @@ import org.alia4j.liam.signature.ResolutionStrategy;
 public class ALIA4JAttachmentModule {
 	
 	
-	public static Attachment createStaticAttachment(Set<Specialization> parsedPointcut, Class<? extends Object> type, String method, Class[] args, ScheduleInfo info)
+	public static Attachment createStaticAttachment(Set<Specialization> parsedPointcut, Class<? extends Object> type, String method, Class[] args, Class<?> resultType, ScheduleInfo info)
 	{
 		
         Attachment attachment = new Attachment(parsedPointcut, ActionFactory
@@ -21,7 +21,7 @@ public class ALIA4JAttachmentModule {
                 		TypeHierarchyProvider.findOrCreateFromClass(type),
                 		method,
                 		TypeHierarchyProvider.findOrCreateFromClasses(args),
-                		TypeHierarchyProvider.findOrCreateFromClass(boolean.class),
+                		TypeHierarchyProvider.findOrCreateFromClass(resultType),
                 		ResolutionStrategy.STATIC),
                 info, DebugInfo.UNKNOWN_INFO);
         

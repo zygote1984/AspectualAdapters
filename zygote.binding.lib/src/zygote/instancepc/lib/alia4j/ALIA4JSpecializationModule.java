@@ -35,6 +35,7 @@ public class ALIA4JSpecializationModule {
 	
 	
 	
+	//TODO use LinkedMap
 	public static Set<Specialization> createFromVirtualMethod(AJPointcutParser parser, HashMap<String, Class<? extends Object>> args )
 	{
 		Set<Specialization> parsedPointcut;
