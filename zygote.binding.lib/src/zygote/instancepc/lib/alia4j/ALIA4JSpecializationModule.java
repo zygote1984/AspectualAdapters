@@ -164,7 +164,7 @@ public class ALIA4JSpecializationModule {
 		return new Pair<Set<Specialization>, Set<Specialization>>(newBefore, newAfter);
 	}
 	
-	private static Set<Specialization> andSpecializations(
+	public static Set<Specialization> andSpecializations(
 			Set<Specialization> specs1, Set<Specialization> specs2) {
 		Set<Specialization> result = new HashSet<Specialization>();
 		for (Specialization specialization1 : specs1) {
@@ -178,7 +178,7 @@ public class ALIA4JSpecializationModule {
 	}
 
 
-	private static Set<Specialization> orSpecializations(Set<Specialization> specs1, Set<Specialization> specs2)
+	public static Set<Specialization> orSpecializations(Set<Specialization> specs1, Set<Specialization> specs2)
 	{
 		Set<Specialization> result = new HashSet<Specialization>();
 		result.addAll(specs1);
