@@ -26,6 +26,7 @@ public class SimpleTest {
 		IPAspect1.ipc1_deploy();
 		IPAspect2.ipc2_deploy();
 		IPAspect4.ipc4_deploy();
+		IPAspect5.ipc5_deploy();
 	}
 	
 	@Test
@@ -113,6 +114,19 @@ public class SimpleTest {
 		end(integer1);
 		assertThat(IPAspect2.ipc2(), is(Collections.<Number>emptySet()));
 	}
+
+	@Test
+	public void addingSubset() {
+		IPAspect5.ipc5_reset();
+		controlflow_start(integer1);
+		assertThat(IPAspect2.ipc2(), is(asSet(integer1)));
+		start(float1);
+		assertThat(IPAspect2.ipc2(), is(asSet(integer1)));
+	}
+
+	private static void controlflow_start(Number instance) {start(instance);}
+	
+	private static void controlflow_end(Number instance) {end(instance);}
 
 	private static void start(Number instance) {}
 	
